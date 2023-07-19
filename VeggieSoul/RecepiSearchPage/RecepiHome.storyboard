@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--RECIPES-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="RecepiHomeVC" id="Y6W-OH-hqX" customClass="RecepiHomeViewController" customModule="VeggieSoul" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="opQ-6R-LuF">
+                                <rect key="frame" x="378" y="52.666666666666657" width="30" height="27.333333333333343"/>
+                                <color key="tintColor" systemColor="labelColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="UcE-e5-cfa"/>
+                                    <constraint firstAttribute="height" constant="30" id="ysm-oD-D6L"/>
+                                </constraints>
+                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="thin"/>
+                            </imageView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="mhP-nP-rxi">
+                                <rect key="frame" x="0.0" y="125" width="428" height="698"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Zni-Hp-OE1">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="🔎 Search" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KKJ-e2-b0r">
+                                <rect key="frame" x="17" y="91" width="394" height="34"/>
+                                <color key="backgroundColor" red="0.92205532151108749" green="0.92910350519336138" blue="0.95024805624018271" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.56838629041055233" green="0.56838629041055233" blue="0.56838629041055233" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="goToRecipeSearch:" destination="Y6W-OH-hqX" eventType="touchDown" id="sIR-3V-8gh"/>
+                                </connections>
+                            </textField>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="mhP-nP-rxi" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="11o-EN-2pW"/>
+                            <constraint firstItem="KKJ-e2-b0r" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="17" id="4Sa-WO-cS1"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="KKJ-e2-b0r" secondAttribute="trailing" constant="17" id="D5k-eW-u4a"/>
+                            <constraint firstItem="mhP-nP-rxi" firstAttribute="top" secondItem="KKJ-e2-b0r" secondAttribute="bottom" id="E8Z-Et-O5h"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="mhP-nP-rxi" secondAttribute="bottom" constant="20" id="GPv-0V-j2f"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="mhP-nP-rxi" secondAttribute="trailing" id="Ls4-7b-ngT"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="opQ-6R-LuF" secondAttribute="trailing" constant="20" id="UjA-jd-RW0"/>
+                            <constraint firstItem="KKJ-e2-b0r" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="akx-Yc-Kzg"/>
+                            <constraint firstItem="KKJ-e2-b0r" firstAttribute="top" secondItem="opQ-6R-LuF" secondAttribute="bottom" constant="10" id="nnA-5U-G5I"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="RECIPES" id="SAI-1l-WoQ"/>
+                    <connections>
+                        <outlet property="collectionView" destination="mhP-nP-rxi" id="c7q-Te-k37"/>
+                        <outlet property="imagePersonAcount" destination="opQ-6R-LuF" id="xmX-c8-qBs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1819.6261682242989" y="85.529157667386613"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="sE2-6A-zxC">
+            <objects>
+                <tabBarController storyboardIdentifier="TabBarController1" automaticallyAdjustsScrollViewInsets="NO" id="DXA-yH-U4L" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="UNF-Sh-sb1">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="xYy-uG-Uz8" kind="relationship" relationship="viewControllers" id="j0z-M8-TlT"/>
+                        <segue destination="Mnh-zK-aQ5" kind="relationship" relationship="viewControllers" id="Jcn-nn-J7F"/>
+                        <segue destination="su7-yn-Yaz" kind="relationship" relationship="viewControllers" id="vED-SV-ibz"/>
+                        <segue destination="uUn-tF-q09" kind="relationship" relationship="viewControllers" id="8Ie-Ag-hVj"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wr7-Z9-HJ2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="19.626168224299064" y="85.529157667386613"/>
+        </scene>
+        <!--AccountPageVC-->
+        <scene sceneID="UE4-zR-ilj">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AccountPage" referencedIdentifier="AccountPageVC" id="Mnh-zK-aQ5" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Cuenta" image="person" catalog="system" selectedImage="person" id="SQ5-VF-cdU"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FCE-fq-ocQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-347" y="518"/>
+        </scene>
+        <!--IngredientsSearchPageVC-->
+        <scene sceneID="53v-tQ-ATg">
+            <objects>
+                <viewControllerPlaceholder storyboardName="IngredientsSearchPage" referencedIdentifier="IngredientsSearchPageVC" id="su7-yn-Yaz" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Ingredients" image="takeoutbag.and.cup.and.straw" catalog="system" selectedImage="takeoutbag.and.cup.and.straw" id="gSl-Fe-iSD"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5IR-a8-JH7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="20" y="518"/>
+        </scene>
+        <!--ToolsPageVC-->
+        <scene sceneID="vEB-cz-apn">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ToolsPage" referencedIdentifier="ToolsPageVC" id="uUn-tF-q09" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Tools" image="wrench.and.screwdriver" catalog="system" selectedImage="wrench.and.screwdriver" id="JQ9-mu-vo1"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Ob-pa-JPC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="372" y="518"/>
+        </scene>
+        <!--Recipes-->
+        <scene sceneID="zcT-ho-zcj">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xYy-uG-Uz8" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Recipes" image="fork.knife" catalog="system" selectedImage="fork.knife" id="ECf-nk-aAK"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZEk-tc-bO4">
+                        <rect key="frame" x="0.0" y="47" width="428" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="MHQ-8w-2Ia"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="agL-Jx-BZo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="919.62616822429902" y="85.529157667386613"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="fork.knife" catalog="system" width="94" height="128"/>
+        <image name="person" catalog="system" width="128" height="121"/>
+        <image name="takeoutbag.and.cup.and.straw" catalog="system" width="128" height="109"/>
+        <image name="wrench.and.screwdriver" catalog="system" width="128" height="119"/>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

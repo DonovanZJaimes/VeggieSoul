@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="IngredientAndRecipeForSearchCVC" id="gTV-IL-0wX" customClass="IngredientAndRecipeForSearchCollectionViewCell" customModule="VeggieSoul" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="258" height="91"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="258" height="91"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7u6-a5-N3W">
+                        <rect key="frame" x="0.0" y="0.0" width="258" height="91"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="IOh-vd-pH9">
+                                <rect key="frame" x="0.0" y="0.0" width="258" height="91"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="252" verticalHuggingPriority="251" image="takeoutbag.and.cup.and.straw" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Czr-If-iOd">
+                                        <rect key="frame" x="0.0" y="32" width="25" height="26.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="Czr-If-iOd" secondAttribute="height" multiplier="5:5" id="ITJ-PQ-uqp"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Ingredient or recipe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CRA-B7-uh3">
+                                        <rect key="frame" x="35" y="35.5" width="169.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L5s-HB-wAg">
+                                        <rect key="frame" x="214.5" y="30" width="43.5" height="31"/>
+                                        <color key="tintColor" name="ColorTeal"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="selection.pin.in.out" catalog="system"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="IOh-vd-pH9" secondAttribute="bottom" id="TGg-xN-ZYe"/>
+                            <constraint firstAttribute="trailing" secondItem="IOh-vd-pH9" secondAttribute="trailing" id="o3j-y2-pbY"/>
+                            <constraint firstItem="IOh-vd-pH9" firstAttribute="leading" secondItem="7u6-a5-N3W" secondAttribute="leading" id="sOz-w9-9um"/>
+                            <constraint firstItem="IOh-vd-pH9" firstAttribute="top" secondItem="7u6-a5-N3W" secondAttribute="top" id="vPY-KR-qSI"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="7u6-a5-N3W" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="LdJ-Bc-dcW"/>
+                <constraint firstAttribute="trailing" secondItem="7u6-a5-N3W" secondAttribute="trailing" id="lfq-pS-DBS"/>
+                <constraint firstItem="7u6-a5-N3W" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="nfO-pp-GzC"/>
+                <constraint firstAttribute="bottom" secondItem="7u6-a5-N3W" secondAttribute="bottom" id="sC0-s8-M3f"/>
+            </constraints>
+            <size key="customSize" width="258" height="91"/>
+            <connections>
+                <outlet property="buttonSearchRecipe" destination="L5s-HB-wAg" id="orv-CZ-GhQ"/>
+                <outlet property="ingredientOrRecipeImage" destination="Czr-If-iOd" id="D8h-Iz-uuQ"/>
+                <outlet property="nameLabel" destination="CRA-B7-uh3" id="wxD-rX-VqZ"/>
+            </connections>
+            <point key="canvasLocation" x="282.60869565217394" y="113.50446428571428"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="selection.pin.in.out" catalog="system" width="96" height="128"/>
+        <image name="takeoutbag.and.cup.and.straw" catalog="system" width="32" height="32"/>
+        <namedColor name="ColorTeal">
+            <color red="0.0" green="0.56862745098039214" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
