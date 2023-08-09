@@ -464,7 +464,17 @@ extension RecipeSearchListViewController: UICollectionViewDelegate {
                 self.searchController.searchBar.text = ""
             }
         case .recipes:
-            print("Vista pendiente para receta")
+            /***En caso de que se presione alguna receta se podra ver los detalle de la misma en otra vista***/
+                // instanciamos una vista para presentarla
+                let recipeDetail = UIStoryboard(name: "RecipeDetail", bundle: .main)
+                //Instanciamos un RecipeDetailViewController
+                if let recipeDetailViewController = recipeDetail.instantiateViewController(withIdentifier: "RecipeDetailVC") as? RecipeDetailViewController {
+                    //recipeDetailViewController.namee = "pasamos"
+                    recipeDetailViewController.id = ItemAutocomplete.foundRecipes[indexPath.item].recipe?.id /***Se envia el id de la receta selecionada en la fila y seccion adecuada*/
+                    // realizamos la presentacion de tipo push para la siguiente vista
+                    self.navigationController?.pushViewController(recipeDetailViewController, animated: true)
+                }
+            //MARK: BORRAR PENDIENTE
             /*
             //En caso de que se presiono estando en la busqueda de recetas
             // instanciamos una vista para presentarla

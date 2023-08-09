@@ -63,7 +63,7 @@ class RecepiHomeViewController: UIViewController {
     func recipesAndIngredientsSettings () {
         //Instanciamos los diferentes tipos de recetas que estaran en la pantalla divididos en secciones
         
-        let mainCourceRecipe = RecepiByType(type: "main_cource")
+        let mainCourseRecipe = RecepiByType(type: "main_course")
         //let dessertRecipe = RecepiByType(type: "dessert")
         //let appetizerRecipe = RecepiByType(type: "appetizer")
         let saladRecipe = RecepiByType(type: "salad")
@@ -76,9 +76,9 @@ class RecepiHomeViewController: UIViewController {
         //Peticion de plato principal
         Task {
             do{
-                let mainCourceRecipes = try await sendRequest(mainCourceRecipe)/***Solicitamos las recetas */
-                Item.mainCourceRecipes = mainCourceRecipes.recipes.map {Item.recipe($0)}/***Con el arreglo de recetas obtenidas se hace otro arreglo que sea de igual formato al de la estructura Item y se lo agregamos a su respectivo arreglo*/
-                ingredients = mainCourceRecipes.recipes[0].ingredients //?? [starterIngredient]/***Para este caso los ingredientes de la primera receta se presentaran aen pantalla y para eso se agregan a este tipo*/
+                let mainCourseRecipes = try await sendRequest(mainCourseRecipe)/***Solicitamos las recetas */
+                Item.mainCourseRecipes = mainCourseRecipes.recipes.map {Item.recipe($0)}/***Con el arreglo de recetas obtenidas se hace otro arreglo que sea de igual formato al de la estructura Item y se lo agregamos a su respectivo arreglo*/
+                ingredients = mainCourseRecipes.recipes[0].ingredients //?? [starterIngredient]/***Para este caso los ingredientes de la primera receta se presentaran aen pantalla y para eso se agregan a este tipo*/
                 Item.firstIngredients = ingredients.map {Item.ingredient($0)}/***Con el arreglo de ingredientes obtenidos se hace otro arreglo que sea de igual formato al de la estructura Item y se lo agregamos a su respectivo arreglo*/
                 await dataSource.apply(recipeSnapshot, animatingDifferences: true)/***Se recarga la vista de dataSource*/
             }catch{
@@ -108,7 +108,7 @@ class RecepiHomeViewController: UIViewController {
                 print(error)
             }
         }*/
-        
+        /*
         //Peticion de ensaladas
         Task {
             do{
@@ -118,7 +118,7 @@ class RecepiHomeViewController: UIViewController {
             }catch{
                 print(error)
             }
-        }
+        }*/
          /*
         //Peticion de desayuno
         Task {
@@ -347,18 +347,18 @@ class RecepiHomeViewController: UIViewController {
         let typeBeverage = Section.type("Beverages")
         let typeSoup = Section.type("Soup")
         let typeBreakfast = Section.type("Breakfast")
-        let typeMainCource = Section.type("Main Cource")
+        let typeMainCourse = Section.type("Main Course")
         let typeAppetizer = Section.type("Appetizer")
         let typeDessert = Section.type("Dessert")
         
         //Agreggar las diferentes seccion e Items al SnapShot
-        snapshot.appendSections([ingredients,typeMainCource,typeSalad, typeBeverage, typeBreakfast, typeSoup, typeAppetizer, typeDessert  ])
+        snapshot.appendSections([ingredients,typeMainCourse,typeSalad, typeBeverage, typeBreakfast, typeSoup, typeAppetizer, typeDessert  ])
         snapshot.appendItems(Item.firstIngredients, toSection: ingredients)
         snapshot.appendItems(Item.saladRecipes, toSection: typeSalad)
         snapshot.appendItems(Item.beverageRecipes, toSection: typeBeverage)
         snapshot.appendItems(Item.soupRecipes, toSection: typeSoup)
         snapshot.appendItems(Item.breakfastRecipes, toSection: typeBreakfast)
-        snapshot.appendItems(Item.mainCourceRecipes, toSection: typeMainCource)
+        snapshot.appendItems(Item.mainCourseRecipes, toSection: typeMainCourse)
         snapshot.appendItems(Item.appetizerRecipes, toSection: typeAppetizer)
         snapshot.appendItems(Item.dessertRecipes, toSection: typeDessert)
         
@@ -396,7 +396,7 @@ extension RecepiHomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let indexPathIngredient = IndexPath(row: 0, section: 0) /***Index para obtener una referencia que tenga para una seccion0 que es para los ingredientes***/
-        let sectionCollection = [Item.firstIngredients, Item.mainCourceRecipes, Item.saladRecipes, Item.beverageRecipes, Item.breakfastRecipes, Item.soupRecipes, Item.appetizerRecipes, Item.dessertRecipes] /***Arreglo que contiene todos los ingredientes y recetas ordenadas de la misma forma que se vera en pantalla*/
+        let sectionCollection = [Item.firstIngredients, Item.mainCourseRecipes, Item.saladRecipes, Item.beverageRecipes, Item.breakfastRecipes, Item.soupRecipes, Item.appetizerRecipes, Item.dessertRecipes] /***Arreglo que contiene todos los ingredientes y recetas ordenadas de la misma forma que se vera en pantalla*/
         let pressedSection = sectionCollection[indexPath.section]/***Se selecciona la secciona en que se presiono la receta*/
         
         //Averiguamos si se presiono una receta o un ingrediente

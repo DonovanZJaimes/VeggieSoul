@@ -35,7 +35,7 @@ enum Item: Hashable {
     static var saladRecipes : [Item] = []
     static var soupRecipes : [Item] = []
     static var breakfastRecipes : [Item] = []
-    static var mainCourceRecipes : [Item] = []
+    static var mainCourseRecipes : [Item] = []
     static var beverageRecipes : [Item] = []
     static var appetizerRecipes : [Item] = []
     static var dessertRecipes : [Item] = []

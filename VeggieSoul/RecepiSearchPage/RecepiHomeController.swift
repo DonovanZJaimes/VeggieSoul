@@ -20,7 +20,7 @@ protocol APIRequest {
 }
 //MARK: Errores para el generico para peticiones de red
 enum APIRequestError: Error {
-    case RecepiNotFound /***En caso de que no se puedan obtener recetas o que los puntos que permite la API se agoten***/
+    case RecipeNotFound /***En caso de que no se puedan obtener recetas o que los puntos que permite la API se agoten***/
     case imageDataMising /***En caso de que no se puede obtener la imagen ***/
 }
 
@@ -32,7 +32,7 @@ func sendRequest <Request: APIRequest> (_ request: Request ) async throws -> Req
     //Se verifica que se obtuvo la info adecuada
     guard let httpResponse = response as? HTTPURLResponse,
           httpResponse.statusCode == 200 else {
-              throw APIRequestError.RecepiNotFound
+              throw APIRequestError.RecipeNotFound
           }
     //Se obtine el objeto usando un metodo del parametro del metodo sendRequest
     let decodeResponse = try request.decodeRequest(data: data) /***Este motodo regresa el objeto solicitado*/
