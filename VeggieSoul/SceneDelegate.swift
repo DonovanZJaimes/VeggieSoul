@@ -10,6 +10,20 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    
+    //MARK: Actualizar la insignia de la vista "AccountPage"
+    var recipeAndIngredientTabBarItem:  UITabBarItem!
+    
+    @objc func updateRecipeAndIngredientBadge(){
+        if CoreDataRecipe.shared.newRecipes.count != 0 {
+            recipeAndIngredientTabBarItem.badgeValue = String(CoreDataRecipe.shared.newRecipes.count)
+        }
+    }
+    
+    func updateNotifications (){
+        NotificationCenter.default.addObserver(self, selector: #selector(updateRecipeAndIngredientBadge), name: CoreDataRecipe.recipesUpdateNotification, object: nil)
+        recipeAndIngredientTabBarItem = (window?.rootViewController as? UITabBarController)?.viewControllers?[1].tabBarItem
+    }
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -33,6 +47,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             
            
         }
+        updateNotifications()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

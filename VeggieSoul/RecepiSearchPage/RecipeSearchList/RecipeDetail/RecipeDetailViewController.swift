@@ -20,6 +20,7 @@ class RecipeDetailViewController: UIViewController {
     var unitSystem = UnitSystem.us /***Sistema de unidades que quiera ocupar el usuario*/
     var ingredientsOrInstructions = IngredientsOrInstructions.Ingredients /***Variable para saber si el usuario decide si quere ver las intrucciones o los ingredientes*/
     var recipeDetail: RecipeDetail! /***Cuando se tenga la informacion de la receta por medio del id se pasara a esta variable */
+    //private let manager = CoreDataRecipe() /***Manager para CoreData*/
     
     // El usuario decide si quere ver las intrucciones o los ingredientes
     enum IngredientsOrInstructions {
@@ -215,6 +216,13 @@ class RecipeDetailViewController: UIViewController {
                 self.navigationController?.pushViewController(recipeNutritionalInformationViewController, animated: true)
             }
     }
+    
+    
+    //MARK: Guardar la receta en CoreDataRecipe
+    @IBAction func AddToFoodButton(_ sender: UIButton) {
+        CoreDataRecipe.shared.newRecipes.append(recipeDetail)
+    }
+    
     
 
 }

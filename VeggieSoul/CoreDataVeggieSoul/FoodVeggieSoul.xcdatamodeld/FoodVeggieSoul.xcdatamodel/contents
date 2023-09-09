@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21754" systemVersion="22F82" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="RecipeEntity" representedClassName="RecipeEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="credits" optional="YES" attributeType="String"/>
+        <attribute name="creditURL" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="image" optional="YES" attributeType="String"/>
+        <attribute name="isVegetarian" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="likes" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="minutes" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="nameRecipe" optional="YES" attributeType="String"/>
+        <attribute name="servings" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="extendedIngredients" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="RecipeIngredientEntity" inverseName="belongsTo" inverseEntity="RecipeIngredientEntity"/>
+        <relationship name="instructions" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RecipeInstructionsEntity" inverseName="belongsToRecipeEntity" inverseEntity="RecipeInstructionsEntity"/>
+        <relationship name="nutrition" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RecipeNutritionEntity" inverseName="belongsToRecipeEntity" inverseEntity="RecipeNutritionEntity"/>
+    </entity>
+    <entity name="RecipeIngredientEntity" representedClassName="RecipeIngredientEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="image" optional="YES" attributeType="String"/>
+        <attribute name="itsAdded" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="measuresMetricAmount" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="measuresMetricUnitLong" optional="YES" attributeType="String"/>
+        <attribute name="measuresMetricUnitShort" optional="YES" attributeType="String"/>
+        <attribute name="measuresUSAmount" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="measuresUSUnitLong" optional="YES" attributeType="String"/>
+        <attribute name="measuresUSUnitShort" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="belongsTo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RecipeEntity" inverseName="extendedIngredients" inverseEntity="RecipeEntity"/>
+    </entity>
+    <entity name="RecipeInstructionsEntity" representedClassName="RecipeInstructionsEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="lengthNumber" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="lengthUnit" optional="YES" attributeType="String"/>
+        <attribute name="number" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="step" optional="YES" attributeType="String"/>
+        <relationship name="belongsToRecipeEntity" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RecipeEntity" inverseName="instructions" inverseEntity="RecipeEntity"/>
+    </entity>
+    <entity name="RecipeNutritionEntity" representedClassName="RecipeNutritionEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="weightPerServingAmount" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="weightPerServingUnit" optional="YES" attributeType="String"/>
+        <relationship name="belongsToRecipeEntity" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RecipeEntity" inverseName="nutrition" inverseEntity="RecipeEntity"/>
+        <relationship name="nutrients" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RecipeNutritionFlavonoidEntity" inverseName="belongToRecipeNutritionEntity" inverseEntity="RecipeNutritionFlavonoidEntity"/>
+    </entity>
+    <entity name="RecipeNutritionFlavonoidEntity" representedClassName="RecipeNutritionFlavonoidEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="amount" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="percentOfDailyNeeds" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="unit" optional="YES" attributeType="String"/>
+        <relationship name="belongToRecipeNutritionEntity" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RecipeNutritionEntity" inverseName="nutrients" inverseEntity="RecipeNutritionEntity"/>
+    </entity>
+</model>
