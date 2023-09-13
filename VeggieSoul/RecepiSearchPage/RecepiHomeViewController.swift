@@ -53,6 +53,8 @@ class RecepiHomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         ItemAutocomplete.addedIngredients = []/***Esta linea elimina todos los ingredientes que fueron agregados en la vista posterior que se encuentra en la carpeta de RecipeSearchList*/
+        VariablesFilterRecipes.shared.typeOfMealToFilterRecipes = ""
+        VariablesFilterRecipes.shared.typeOfMealsSelected = []
     }
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)

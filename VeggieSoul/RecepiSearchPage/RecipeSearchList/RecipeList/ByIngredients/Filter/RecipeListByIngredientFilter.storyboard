@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,9 +17,84 @@
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="RyT-rh-sod">
+                                <rect key="frame" x="20" y="133" width="353" height="203"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="q8S-Lr-xZu">
+                                        <rect key="frame" x="0.0" y="0.0" width="353" height="101.66666666666667"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ranking" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jFV-Si-CKe">
+                                                <rect key="frame" x="0.0" y="40.666666666666657" width="115" height="20.333333333333329"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="115" id="eUj-N7-NDJ"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kMd-wf-EIe">
+                                                <rect key="frame" x="131" y="35.333333333333343" width="51" height="31"/>
+                                            </switch>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Whether to maximize used ingredients (true) or minimize missing ingredients (false) first." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EvR-pc-Hxp">
+                                                <rect key="frame" x="190" y="0.0" width="163" height="101.66666666666667"/>
+                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="wDA-US-Xnx">
+                                        <rect key="frame" x="0.0" y="121.66666666666666" width="353" height="81.333333333333343"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingnore Pantry" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bXM-xf-RjW">
+                                                <rect key="frame" x="0.0" y="30.666666666666657" width="115" height="20.333333333333329"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="115" id="ffl-Nv-Gvy"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5JG-6T-vub">
+                                                <rect key="frame" x="138.66666666666666" y="25.333333333333343" width="51" height="31"/>
+                                            </switch>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Whether to ignore typical pantry items, such as water, salt, flour, etc." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Mf-u3-V8z">
+                                                <rect key="frame" x="197.66666666666663" y="0.0" width="155.33333333333337" height="81.333333333333329"/>
+                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yvl-g6-jYh">
+                                <rect key="frame" x="325" y="79" width="48" height="34"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Apply">
+                                    <color key="titleColor" name="ColorTeal"/>
+                                </state>
+                                <connections>
+                                    <action selector="applyFiltersButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="QsQ-oZ-ega"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="RyT-rh-sod" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="DCD-bd-SeE"/>
+                            <constraint firstItem="RyT-rh-sod" firstAttribute="top" secondItem="yvl-g6-jYh" secondAttribute="bottom" constant="20" id="DJt-nM-vQi"/>
+                            <constraint firstAttribute="trailing" secondItem="RyT-rh-sod" secondAttribute="trailing" constant="20" id="WQc-ap-6MU"/>
+                            <constraint firstItem="yvl-g6-jYh" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="dPA-po-K1G"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="yvl-g6-jYh" secondAttribute="trailing" constant="20" id="uxC-VR-gNe"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="ignorePantrySwitch" destination="5JG-6T-vub" id="GPg-G7-dNf"/>
+                        <outlet property="rankingSwitch" destination="kMd-wf-EIe" id="VoL-ml-AKF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -26,6 +102,9 @@
         </scene>
     </scenes>
     <resources>
+        <namedColor name="ColorTeal">
+            <color red="0.0" green="0.56862745098039214" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -22,7 +22,9 @@ class RecipeListByCategoryViewController: UIViewController {
     
     //MARK: Inicializaciones generales
     var category: String! /***Contiene el nombre de la categoria que se seleccinaron en la vista anterior "RecipeHome"*/
-    var diet: [String] = ["vegetarian"] /***Valores de las dietas que queramos que sean las recetas*/
+    var diet = "vegetarian" /***Tipo de dieta para la solicitud de red*/
+    //: [String] = ["vegetarian"] /***Valores de las dietas que queramos que sean las recetas*/
+    var meals = [String]()/***Lista de tipo de comidas para realizar la solicitud de red*/
     let backgroundRecipeImageURL = "https://c8.alamy.com/compes/2j7jf0e/los-alimentos-veganos-para-la-ecologia-y-el-medio-ambiente-ayudan-al-mundo-con-ideas-ecologicas-2j7jf0e.jpg" /***En caso de que la imagen de la reeta no tenga imagen, se colocara esta*/
     var recipesByCategory = [RecipeByCategory]() /***Propiedad que contendra las recetas y servira par proporcionar inforacion al tadatsource***/
     var dataSource: UITableViewDiffableDataSource<Section,RecipeByCategory>!  /***Creara una variable abierta implícitamente para la fuente de datos que usa el tipo de sección que acaba de definir para las secciones que se mostraran en pantalla y el tipo de items que estaran dentro ***/
@@ -33,8 +35,8 @@ class RecipeListByCategoryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let stringCategory = formattedString(category: category)/***Obtenemos un string adecauado para poder realizar una solicitud de red*/
-        //print(stringCategory)
-        requestRecipesByCategory(stringCategory, diet: diet, intolerances: nil) /***Metodo para realizar una solicitud de red para poder recibir recetas con el tipo de categoria*/
+        meals.append(stringCategory)
+        requestRecipesByCategory(diet, meals: meals, intolerances: nil)/***Metodo para realizar una solicitud de red para poder recibir recetas con el tipo de categoria*/
         setUpTableView() /***Actualizamos el tableView como su tableViewLayout, celdas, y delegado*/
         configureTableViewDataSource () /***Configuramos el estilo de dataSourse por ocupar UITableViewDiffableDataSource*/
         configureNavigationItem () /***Configurar el el titulo y el boton de navigationItem***/
@@ -55,8 +57,8 @@ class RecipeListByCategoryViewController: UIViewController {
     
     //MARK: Solicitud de red para obtener recetas por el tipo de categoria
     //Esto metodo tambien se llama en caso que los parametros cambien
-    func requestRecipesByCategory (_ type: String, diet: [String], intolerances: [String]?){
-        let recepiByTypeAndTags = RecepiByTypeAndTags(type: type, diet: diet, intolerances: intolerances) /***Se instancia un objeto que contiene la informacion del tipo de categoria, el tipo de dieta y las intoleracias que no queremos tener en nuestras recetas l*/
+    func requestRecipesByCategory (_ diet: String, meals: [String], intolerances: [String]?){
+        let recepiByTypeAndTags = RecepiByTypeAndTags(diet: diet, meals: meals, intolerances: intolerances) /***Se instancia un objeto que contiene la informacion del tipo de categoria, el tipo de dieta y las intoleracias que no queremos tener en nuestras recetas l*/
         Task.init{
             do {
                 let recipesByCategory = try await sendRequest(recepiByTypeAndTags) /***Solicitamos las recetas */
@@ -140,7 +142,9 @@ class RecipeListByCategoryViewController: UIViewController {
         let recipeListByCategoryFilterStoryboard = UIStoryboard(name: "RecipeListByCategoryFilter", bundle: .main)
         //Instanciamos un RecipeListByCategoryFilterViewController
         if let recipeListByCategoryFilterViewController = recipeListByCategoryFilterStoryboard.instantiateViewController(withIdentifier: "RecipeListByCategoryFilterVC") as? RecipeListByCategoryFilterViewController {
+            VariablesFilterRecipes.shared.typeOfMealToFilterRecipes = category
             // realizamos la presentacion de tipo push para la siguiente vista
+            recipeListByCategoryFilterViewController.delegate = self
             present(recipeListByCategoryFilterViewController, animated: true)
             //navigationController?.pushViewController(recipeListByCategoryFilterViewController, animated: true)
         }
@@ -185,6 +189,20 @@ extension RecipeListByCategoryViewController: UITableViewDelegate{
     }
     
     
+    
+    
+}
+
+//MARK: Delegado para recibir informacion para filtrar las recetas
+extension RecipeListByCategoryViewController: RecipeListByCategoryFilterViewControllerDelegate {
+    func recipeListByCategoryFilterViewController(_ controller: RecipeListByCategoryFilterViewController, typeOfMealsSelected: [String], typeOfDietSelected: String) {
+        /*Asignamos los valores de l funciona diet y meals que nos ayudaran a realizar la solicitud de red*/
+        diet = typeOfDietSelected
+        meals = typeOfMealsSelected
+        requestRecipesByCategory(diet, meals: meals, intolerances: nil)/***Metodo para realizar una solicitud de red para poder recibir recetas con el tipo de categoria*/
+        meals.removeAll()
+        meals.append(category) /***Dejamos a meals como estaba la inicio*/
+    }
     
     
 }

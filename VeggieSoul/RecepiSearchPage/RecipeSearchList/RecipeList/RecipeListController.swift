@@ -17,8 +17,8 @@ private var apiKeyByRandom = ["apiKey": "434f193f0ae24c7284fdff18938103cf" ]
 struct RecepiByTypeAndTags: APIRequest {
     
     //propiedade para poder establecer el tipo de recetas a solicitar
-    let type: String
-    let diet: [String]
+    let diet: String
+    let meals: [String]
     let intolerances: [String]?
     
     //Regresa una URL para realizar la solicitud
@@ -27,7 +27,7 @@ struct RecepiByTypeAndTags: APIRequest {
         //let stringIntolerances = intolerances?.joined(separator: ",")
         var query = apiKeyByRandom
         //let tags = type + "," + stringDiet  + "," + (stringIntolerances ?? "seafood,shellfish")
-        let tags = performTags(diet: diet, intolerances: intolerances, type: type)
+        let tags = performTags(meals: meals, intolerances: intolerances, diet: diet)
         query["tags"] = tags /***Se establece los tags de las recetas*/
         query["number"] = "10" /***Cantidad de recetas aleatorias*/
         //print(query)
@@ -45,10 +45,10 @@ struct RecepiByTypeAndTags: APIRequest {
  
 }
 //MARK: Metodo que regresa un string formateado
-private func performTags(diet: [String], intolerances: [String]?, type: String) -> String{
-    let stringDiet = diet.joined(separator: ",")/***Para todos los tipo de dietas se juntaran con una ","*/
+private func performTags(meals: [String], intolerances: [String]?, diet: String) -> String{
+    let stringDiet = meals.joined(separator: ",")/***Para todos los tipo de comidas se juntaran con una ","*/
     let stringIntolerances = intolerances?.joined(separator: ",") /***Para todos los tipo de intoleracias se juntaran con una ","*/
-    let tags = type + "," + stringDiet  + "," + (stringIntolerances ?? "") /***Se creara un string con el tipo de categoria, dietas e intoleracias para poder pedir una solicitud de red*/
+    let tags = diet + "," + stringDiet  + "," + (stringIntolerances ?? "") /***Se creara un string con el tipo de categoria, dietas e intoleracias para poder pedir una solicitud de red*/
     return tags
 }
 
@@ -62,20 +62,22 @@ struct RecipeByIngredents: APIRequest {
     
     //propiedades para poder establecer el tipo de recetas a solicitar
     let ingredients: String
-    //let ranking: Int
-    //let ignorePantry: Bool
+    let ranking: Int
+    let ignorePantry: Bool
     
     //Regresa una URL para realizar la solicitud
     var urlRequest: URLRequest {
         //let stringIngredients = ingredients.joined(separator: ",+")
         var query = apiKeyByIngredients
-        //query["ignorePantry"] = String(ignorePantry)
-        //query["ranking"] = String(ranking) /***Ya sea para maximizar los ingredientes usados ​​(1) o minimizar los ingredientes faltantes (2) primero*/
+        query["ignorePantry"] = String(ignorePantry)
+        query["ranking"] = String(ranking) /***Ya sea para maximizar los ingredientes usados ​​(1) o minimizar los ingredientes faltantes (2) primero*/
         query["ingredients"] = ingredients /***Se establece la lista de los ingredientes */
-        query["number"] = "3" /***Cantidad de recetas solicitadas*/
+        query["number"] = "10" /***Cantidad de recetas solicitadas*/
         var urlComponents = URLComponents(string: urlRecipeByIngredients)!
         urlComponents.queryItems = query.map {URLQueryItem(name: $0.key, value: $0.value)}
+        print(urlComponents.url!)
         return URLRequest(url: urlComponents.url!)
+        
     }
     
     //Funcion que regresa una cantidad de 10 recetas con el tipo de Recipes
@@ -87,5 +89,12 @@ struct RecipeByIngredents: APIRequest {
  
 }
 
-
+//MARK: clase con variables para compartir diferentes viewControllers
+class VariablesFilterRecipes {
+    static let shared = VariablesFilterRecipes()
+    var typeOfMealToFilterRecipes = ""
+    var typeOfMealsSelected = [String]()
+    var typeOfDietSelected: String = ""
+    
+}
 

@@ -47,7 +47,7 @@ class RecipeNutritionalInformationViewController: UIViewController {
         
         let borderlineBadNutrientIndex = nutrientSeparationBoundary()/***Encontrar el limite de los nutrientes buenos y malos para la salud*/
         
-        var (entriesBadNutrients, entriesGoodNutrients) = entriesBadAndGoodNutrients(borderlineIndex: borderlineBadNutrientIndex) /***Inicializacion de los arreglos de los nutrientes buenos y malos*/
+        let (entriesBadNutrients, entriesGoodNutrients) = entriesBadAndGoodNutrients(borderlineIndex: borderlineBadNutrientIndex) /***Inicializacion de los arreglos de los nutrientes buenos y malos*/
         
         // Configurar el eje x de la BarChart
         let xAxis = ChartView.xAxis

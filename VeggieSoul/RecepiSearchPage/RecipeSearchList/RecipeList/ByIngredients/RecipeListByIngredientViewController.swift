@@ -33,7 +33,8 @@ class RecipeListByIngredientViewController: UIViewController {
     var sections = [Section]()/***Arreglo de la enumeracion Section que esta arriba***/
     var dataSource: UICollectionViewDiffableDataSource<Section,RecipeItem>! /***Creara una variable abierta implícitamente para la fuente de datos que usa el tipo de sección que acaba de definir para las secciones que se mostraran en pantalla y el tipo de items que estaran dentro ***/
     var collectionViewImageTasks: [IndexPath : Task<Void, Never>] = [:]/***Arreglo para guardar y borar las Tasks de solicitar imagenes*/
-    
+    var ranking: Int = 2 /***Valor para hacer la solicitud de red*/
+    var ignorePantry: Bool = false /***Valor para hacer la solicitud de red*/
     
     //MARK: Actualizaciones de vista
     override func viewDidLoad() {
@@ -77,7 +78,7 @@ class RecipeListByIngredientViewController: UIViewController {
     //MARK: Solicitud de red para obtener recetas por los ingredientes selecionados
     //Esto metodo tambien se llama en caso que los ingredientes sean modificados y se requiera cambiar las recetas
     func requestRecipesByIngredient (ingredients: String){
-        let recepiByIngredients = RecipeByIngredents(ingredients: ingredients) /***Se instancia un objeto que contiene la informacion de los difenetes ingredientes para solicitar recetas***/
+        let recepiByIngredients = RecipeByIngredents(ingredients: ingredients, ranking: ranking, ignorePantry: ignorePantry) /***Se instancia un objeto que contiene la informacion de los difenetes ingredientes para solicitar recetas***/
         Task.init{
             do {
                 let recipesByIngredient = try await sendRequest(recepiByIngredients)/***Solicitamos las recetas */
@@ -261,6 +262,9 @@ class RecipeListByIngredientViewController: UIViewController {
         let recipeListByIngredientFilterStoryboard = UIStoryboard(name: "RecipeListByIngredientFilter", bundle: .main)
         //Instanciamos un RecipeListByCategoryFilterViewController
         if let recipeListByIngredientFilterViewController = recipeListByIngredientFilterStoryboard.instantiateViewController(withIdentifier: "RecipeListByIngredientFilterVC") as? RecipeListByIngredientFilterViewController {
+            recipeListByIngredientFilterViewController.delegate = self
+            recipeListByIngredientFilterViewController.ignorePantry = ignorePantry
+            recipeListByIngredientFilterViewController.numRanking = ranking
             // realizamos la presentacion de tipo push para la siguiente vista
             present(recipeListByIngredientFilterViewController, animated: true)
             //navigationController?.pushViewController(recipeListByCategoryFilterViewController, animated: true)
@@ -328,6 +332,20 @@ extension RecipeListByIngredientViewController: IngredientRecipeListCollectionVi
         if RecipeItem.ingredientsForRecipeSearch.count == 1  {
             cell.buttonToCancelIngredient.isHidden = true /***Se oculta el boton*/
         }
+    }
+    
+    
+}
+
+//MARK: Extension para recibir informacion para filtrar las recetas
+extension RecipeListByIngredientViewController: RecipeListByIngredientFilterViewControllerDelegate {
+    func recipeListByIngredientFilterViewController(_ controller: RecipeListByIngredientFilterViewController, ranking: Bool, ignorePantry: Bool) {
+        /*Asignar los valores de la funcion anterior a los valores de los inicializaciones generales ranking e ignorePantry */
+        let numRanking = ranking == true ? 1 : 2
+        self.ranking = numRanking
+        self.ignorePantry = ignorePantry
+         let stringIngredients = formattedString(ingredients: nameOfIngredients)/***Obtenemos el string adecuado de los ingredientes para poder realizar la nueva  solicitud de red*/
+        requestRecipesByIngredient(ingredients: stringIngredients)/***Metodo para realizar una solicitud de red para poder recibir las nuevas recetas con los ingredientes seleccionados, en esta funcion tambien realizamos un reset a las secciones */
     }
     
     
