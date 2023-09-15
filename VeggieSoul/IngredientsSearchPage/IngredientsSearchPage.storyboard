@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Ingredients-->
+        <!--Ingredients Search Page View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
                 <viewController storyboardIdentifier="IngredientsSearchPageVC" id="Y6W-OH-hqX" customClass="IngredientsSearchPageViewController" customModule="VeggieSoul" customModuleProvider="target" sceneMemberID="viewController">
@@ -16,26 +17,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w5f-W2-6LP" customClass="AnimationView" customModule="Lottie">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="400"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="400" id="yzh-vd-db8"/>
-                                </constraints>
-                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="7M2-Cs-0Ws">
+                                <rect key="frame" x="0.0" y="48" width="414" height="765"/>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="w5f-W2-6LP" secondAttribute="trailing" id="TuQ-60-gnd"/>
-                            <constraint firstItem="w5f-W2-6LP" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="p4g-J4-wY3"/>
-                            <constraint firstItem="w5f-W2-6LP" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="zO8-Ud-Skf"/>
+                            <constraint firstItem="7M2-Cs-0Ws" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="1QP-01-0fc"/>
+                            <constraint firstItem="7M2-Cs-0Ws" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="EAb-Qv-cB1"/>
+                            <constraint firstItem="7M2-Cs-0Ws" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="IZ3-YL-DRN"/>
+                            <constraint firstItem="7M2-Cs-0Ws" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="rlB-lq-dYK"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Ingredients" image="takeoutbag.and.cup.and.straw" catalog="system" selectedImage="takeoutbag.and.cup.and.straw" id="fui-s8-roZ"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="constructionView" destination="w5f-W2-6LP" id="jpI-yt-iA6"/>
+                        <outlet property="ingredientsTableView" destination="7M2-Cs-0Ws" id="BVM-ae-al9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -43,11 +40,7 @@
             <point key="canvasLocation" x="125" y="125"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="w5f-W2-6LP"/>
-    </designables>
     <resources>
-        <image name="takeoutbag.and.cup.and.straw" catalog="system" width="128" height="110"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

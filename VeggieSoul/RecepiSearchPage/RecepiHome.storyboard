@@ -83,9 +83,9 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
+                        <segue destination="eib-ua-qDh" kind="relationship" relationship="viewControllers" id="1HH-7G-8wS"/>
                         <segue destination="xYy-uG-Uz8" kind="relationship" relationship="viewControllers" id="j0z-M8-TlT"/>
                         <segue destination="Mnh-zK-aQ5" kind="relationship" relationship="viewControllers" id="Jcn-nn-J7F"/>
-                        <segue destination="su7-yn-Yaz" kind="relationship" relationship="viewControllers" id="vED-SV-ibz"/>
                         <segue destination="uUn-tF-q09" kind="relationship" relationship="viewControllers" id="8Ie-Ag-hVj"/>
                     </connections>
                 </tabBarController>
@@ -103,16 +103,6 @@
             </objects>
             <point key="canvasLocation" x="-347" y="518"/>
         </scene>
-        <!--IngredientsSearchPageVC-->
-        <scene sceneID="53v-tQ-ATg">
-            <objects>
-                <viewControllerPlaceholder storyboardName="IngredientsSearchPage" referencedIdentifier="IngredientsSearchPageVC" id="su7-yn-Yaz" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Ingredients" image="takeoutbag.and.cup.and.straw" catalog="system" selectedImage="takeoutbag.and.cup.and.straw" id="gSl-Fe-iSD"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5IR-a8-JH7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="20" y="518"/>
-        </scene>
         <!--ToolsPageVC-->
         <scene sceneID="vEB-cz-apn">
             <objects>
@@ -122,6 +112,33 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Ob-pa-JPC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="372" y="518"/>
+        </scene>
+        <!--IngredientsSearchPageVC-->
+        <scene sceneID="OxM-uJ-e4F">
+            <objects>
+                <viewControllerPlaceholder storyboardName="IngredientsSearchPage" referencedIdentifier="IngredientsSearchPageVC" id="GnL-IH-OKf" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="50n-uC-4LM"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GpX-J5-Ihg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="635" y="873"/>
+        </scene>
+        <!--Ingredients-->
+        <scene sceneID="b8g-9H-bau">
+            <objects>
+                <navigationController id="eib-ua-qDh" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Ingredients" image="takeoutbag.and.cup.and.straw" catalog="system" selectedImage="takeoutbag.and.cup.and.straw" id="zJB-LF-AKF"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="oFO-AS-VWR">
+                        <rect key="frame" x="0.0" y="47" width="428" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="GnL-IH-OKf" kind="relationship" relationship="rootViewController" id="C6b-Km-mKD"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="atr-ik-4DS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="20" y="874"/>
         </scene>
         <!--Recipes-->
         <scene sceneID="zcT-ho-zcj">

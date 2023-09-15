@@ -8,7 +8,6 @@
 import UIKit
 import Lottie
 class ToolsPageViewController: UIViewController {
-
     
     @IBOutlet weak var constructionView: AnimationView!
     override func viewDidLoad() {

@@ -24,6 +24,11 @@
 		5D632C342AA01D5300758121 /* CoreDataRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D632C332AA01D5300758121 /* CoreDataRecipe.swift */; };
 		5D632C3A2AA0238700758121 /* RecipeVeggieSoul.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5D632C382AA0238700758121 /* RecipeVeggieSoul.xcdatamodeld */; };
 		5D632CB02AAD2C1A00758121 /* RecipeFilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D632CAF2AAD2C1A00758121 /* RecipeFilterTableViewController.swift */; };
+		5D632CB32AB26EAE00758121 /* IngredientSearchPageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D632CB12AB26EAE00758121 /* IngredientSearchPageTableViewCell.swift */; };
+		5D632CB42AB26EAE00758121 /* IngredientSearchPageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D632CB22AB26EAE00758121 /* IngredientSearchPageTableViewCell.xib */; };
+		5D632CB62AB2969B00758121 /* IngredientsSearchPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D632CB52AB2969B00758121 /* IngredientsSearchPageController.swift */; };
+		5D632CB82AB29E2800758121 /* RecipesWithIngredients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D632CB72AB29E2800758121 /* RecipesWithIngredients.swift */; };
+		5D632CBA2AB29F1F00758121 /* IngredientSearchPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D632CB92AB29F1F00758121 /* IngredientSearchPage.swift */; };
 		5D852AD22A621B0400D9C0A9 /* Construction.json in Resources */ = {isa = PBXBuildFile; fileRef = 5D852AD12A621B0400D9C0A9 /* Construction.json */; };
 		5D88C4BC2A5A1710001D3EFC /* RecipeListByIngredientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D88C4BB2A5A1710001D3EFC /* RecipeListByIngredientViewController.swift */; };
 		5D88C4BE2A5A174B001D3EFC /* RecipeListByIngredient.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D88C4BD2A5A174B001D3EFC /* RecipeListByIngredient.storyboard */; };
@@ -99,6 +104,11 @@
 		5D632C332AA01D5300758121 /* CoreDataRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataRecipe.swift; sourceTree = "<group>"; };
 		5D632C392AA0238700758121 /* RecipeVeggieSoul.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RecipeVeggieSoul.xcdatamodel; sourceTree = "<group>"; };
 		5D632CAF2AAD2C1A00758121 /* RecipeFilterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeFilterTableViewController.swift; sourceTree = "<group>"; };
+		5D632CB12AB26EAE00758121 /* IngredientSearchPageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientSearchPageTableViewCell.swift; sourceTree = "<group>"; };
+		5D632CB22AB26EAE00758121 /* IngredientSearchPageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IngredientSearchPageTableViewCell.xib; sourceTree = "<group>"; };
+		5D632CB52AB2969B00758121 /* IngredientsSearchPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsSearchPageController.swift; sourceTree = "<group>"; };
+		5D632CB72AB29E2800758121 /* RecipesWithIngredients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesWithIngredients.swift; sourceTree = "<group>"; };
+		5D632CB92AB29F1F00758121 /* IngredientSearchPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientSearchPage.swift; sourceTree = "<group>"; };
 		5D852AD12A621B0400D9C0A9 /* Construction.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Construction.json; path = ../../../../../../../Downloads/Construction.json; sourceTree = "<group>"; };
 		5D88C4BB2A5A1710001D3EFC /* RecipeListByIngredientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListByIngredientViewController.swift; sourceTree = "<group>"; };
 		5D88C4BD2A5A174B001D3EFC /* RecipeListByIngredient.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RecipeListByIngredient.storyboard; sourceTree = "<group>"; };
@@ -185,6 +195,11 @@
 			children = (
 				5D3D71F22A5DF910000EE14B /* IngredientsSearchPageViewController.swift */,
 				5D3D71F42A5DF946000EE14B /* IngredientsSearchPage.storyboard */,
+				5D632CB12AB26EAE00758121 /* IngredientSearchPageTableViewCell.swift */,
+				5D632CB22AB26EAE00758121 /* IngredientSearchPageTableViewCell.xib */,
+				5D632CB52AB2969B00758121 /* IngredientsSearchPageController.swift */,
+				5D632CB72AB29E2800758121 /* RecipesWithIngredients.swift */,
+				5D632CB92AB29F1F00758121 /* IngredientSearchPage.swift */,
 			);
 			path = IngredientsSearchPage;
 			sourceTree = "<group>";
@@ -455,6 +470,7 @@
 				5D3D71F52A5DF946000EE14B /* IngredientsSearchPage.storyboard in Resources */,
 				5DC5DA7A2A1FF0930096C9AE /* RecepiHome.storyboard in Resources */,
 				5DC5DA712A1FE6E50096C9AE /* LaunchScreen.storyboard in Resources */,
+				5D632CB42AB26EAE00758121 /* IngredientSearchPageTableViewCell.xib in Resources */,
 				5D91AEFA2A6747C800CAD4BF /* RecipeListByCategoryFilter.storyboard in Resources */,
 				5D91AEF02A6332AC00CAD4BF /* RecipeListByCategory.storyboard in Resources */,
 				5D91AF0D2A7352A000CAD4BF /* IngredientDetailTableViewCell.xib in Resources */,
@@ -540,10 +556,13 @@
 				5D5536062A54C85F00EBE20D /* IngredientsForRecipesCollectionViewCell.swift in Sources */,
 				5DFEC60B2A4E0469009BBF35 /* RecepiHomeController.swift in Sources */,
 				5D91AEF32A63500000CAD4BF /* ListRecipeDetailTableViewCell.swift in Sources */,
+				5D632CB62AB2969B00758121 /* IngredientsSearchPageController.swift in Sources */,
 				5DC5DA7C2A1FF0E00096C9AE /* RecepiHomeViewController.swift in Sources */,
+				5D632CB32AB26EAE00758121 /* IngredientSearchPageTableViewCell.swift in Sources */,
 				5DC5DA652A1FE6D30096C9AE /* AppDelegate.swift in Sources */,
 				E3CC43C92A5F621000ED8A40 /* IngredientRecipeListCollectionViewCell.swift in Sources */,
 				E3CC43C02A5F611800ED8A40 /* RecipeListController.swift in Sources */,
+				5D632CBA2AB29F1F00758121 /* IngredientSearchPage.swift in Sources */,
 				5DFEC61A2A4FBA13009BBF35 /* IngredientHomeCollectionViewCell.swift in Sources */,
 				5D5535F92A53558E00EBE20D /* RecipesAutocomplete.swift in Sources */,
 				5D632CB02AAD2C1A00758121 /* RecipeFilterTableViewController.swift in Sources */,
@@ -556,6 +575,7 @@
 				5DC5DA832A1FFFAC0096C9AE /* borrar.swift in Sources */,
 				5D5536022A548A5900EBE20D /* IngredientAndRecipeForSearchCollectionViewCell.swift in Sources */,
 				5D5535FD2A53620A00EBE20D /* HeaderView.swift in Sources */,
+				5D632CB82AB29E2800758121 /* RecipesWithIngredients.swift in Sources */,
 				E3CC43C62A5F61B800ED8A40 /* RecipeItem.swift in Sources */,
 				5DFEC61F2A509F65009BBF35 /* Item.swift in Sources */,
 				5D91AF052A6DD98F00CAD4BF /* RecipeNutrition.swift in Sources */,

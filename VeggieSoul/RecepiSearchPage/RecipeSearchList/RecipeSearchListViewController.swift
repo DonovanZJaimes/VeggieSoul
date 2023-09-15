@@ -71,7 +71,7 @@ class RecipeSearchListViewController: UIViewController {
         updataCollectionView() /***Actualizamos el collectionView como su collectionViewLayout, celdas, data source y delegado*/
         setupHintView ()/***Actualizammos la hint view*/
         configureNavigationItem () /***Configuramos el boton y el titulo de navigation item ***/
-        configureButtonToIngredients() /***Conigura la vista del bton para poder buscar recetas*/
+        configureButtonToIngredients() /***Configura la vista del boton para poder buscar recetas*/
         
     }
     override func viewDidAppear(_ animated: Bool) {
