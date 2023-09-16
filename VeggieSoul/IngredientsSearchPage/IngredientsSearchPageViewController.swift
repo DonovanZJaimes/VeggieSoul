@@ -15,7 +15,7 @@ class IngredientsSearchPageViewController: UIViewController {
     @IBOutlet var ingredientsTableView: UITableView!
     
     //MARK: Inicializaciones generles
-    let searchController = UISearchController()
+    let searchController = UISearchController(searchResultsController: IngredientSearchListViewController())
     var ingredients = [IngredientSearchPage]() /***Lista de los ingredinetes para las celdas*/
     var tableViewTasks: [IndexPath : Task<Void, Never>] = [:]/***Arreglo para guardar y borar las Tasks de solicitar imagenes*/
     
@@ -84,7 +84,7 @@ class IngredientsSearchPageViewController: UIViewController {
     //MARK: Actualizar el search Controller
     func setupSearchController() {
         navigationItem.searchController = searchController
-        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.obscuresBackgroundDuringPresentation = true
         searchController.searchResultsUpdater = self
         navigationItem.hidesSearchBarWhenScrolling = false
         searchController.searchBar.delegate = self
@@ -163,7 +163,12 @@ extension IngredientsSearchPageViewController: UITableViewDelegate {
 //MARK: Extension para el protocolo de UISearchResultsUpdating
 extension IngredientsSearchPageViewController: UISearchResultsUpdating, UISearchBarDelegate  {
     func updateSearchResults(for searchController: UISearchController) {
-        print("")
+        guard let searchString = searchController.searchBar.text,
+              searchString.isEmpty == false else {
+            return
+        }
+        let ingredientSearchListViewController = searchController.searchResultsController as? IngredientSearchListViewController
+        ingredientSearchListViewController?.lookForIngredients(word: searchString)/***Mandamos la palabra a la funcion para hacer la busqueda de los ingredientes y mostrarlos en la tableView*/
     }
     
     

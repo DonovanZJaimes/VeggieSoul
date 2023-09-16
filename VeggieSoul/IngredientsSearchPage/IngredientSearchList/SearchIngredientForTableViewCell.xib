@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchIngredientForTVC" rowHeight="177" id="KGk-i7-Jjw" customClass="SearchIngredientForTableViewCell" customModule="VeggieSoul" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="488" height="177"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="488" height="177"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="50R-wQ-uXv">
+                        <rect key="frame" x="20" y="10" width="448" height="157"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="carrot" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="WRS-Rb-2ZS">
+                                <rect key="frame" x="0.0" y="53" width="50" height="51.666666666666686"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" name="ColorTeal"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="6jl-O5-wcq"/>
+                                    <constraint firstAttribute="width" secondItem="WRS-Rb-2ZS" secondAttribute="height" multiplier="1:1" id="Jrs-gQ-3Vr"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ViC-px-wXr">
+                                <rect key="frame" x="70" y="59.333333333333329" width="378" height="38.333333333333329"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredient" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4wq-il-S1Y">
+                                        <rect key="frame" x="0.0" y="0.0" width="378" height="20.333333333333332"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Aisle: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="23e-60-mBb">
+                                        <rect key="frame" x="0.0" y="20.333333333333343" width="378" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="50R-wQ-uXv" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="IjA-AQ-674"/>
+                    <constraint firstAttribute="bottom" secondItem="50R-wQ-uXv" secondAttribute="bottom" constant="10" id="MnB-ug-2fd"/>
+                    <constraint firstAttribute="trailing" secondItem="50R-wQ-uXv" secondAttribute="trailing" constant="20" id="Stp-PY-d1i"/>
+                    <constraint firstItem="50R-wQ-uXv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="qzQ-jo-crn"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="aisleLabel" destination="23e-60-mBb" id="U45-mg-z1P"/>
+                <outlet property="ingredientImageView" destination="WRS-Rb-2ZS" id="Bvv-dw-j2w"/>
+                <outlet property="nameIngredientLabel" destination="4wq-il-S1Y" id="ofb-nm-jpH"/>
+            </connections>
+            <point key="canvasLocation" x="200" y="66.549295774647888"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="carrot" catalog="system" width="128" height="122"/>
+        <namedColor name="ColorTeal">
+            <color red="0.0" green="0.56862745098039214" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
