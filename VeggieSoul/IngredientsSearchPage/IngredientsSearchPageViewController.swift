@@ -112,6 +112,19 @@ class IngredientsSearchPageViewController: UIViewController {
         //Se registra la celda a ocupar
         ingredientsTableView.register(UINib(nibName: "IngredientSearchPageTableViewCell", bundle: .main), forCellReuseIdentifier: "IngredientSearchPageTVC")
     }
+    
+    //MARK: Ir a la vista de detalle del ingrediente
+    func goToIngredientDetailView(id: Int, name: String){
+        // instanciamos una vista para presentarla
+        let ingredientDetailStoryboard = UIStoryboard(name: "IngredientDetail", bundle: .main)
+        //Instanciamos un RecipeListViewController
+        if let ingredientDetailViewController = ingredientDetailStoryboard.instantiateViewController(withIdentifier: "IngredientDetailVC") as? IngredientDetailViewController {
+            // realizamos la presentacion de tipo push para la siguiente vista
+            ingredientDetailViewController.Id = id
+            ingredientDetailViewController.name = name
+            navigationController?.pushViewController(ingredientDetailViewController, animated: true)
+        }
+    }
   
 
 }
@@ -151,6 +164,9 @@ extension IngredientsSearchPageViewController: UITableViewDataSource {
 extension IngredientsSearchPageViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        let ingredient = ingredients[indexPath.row]
+        let id = ingredient.id
+        goToIngredientDetailView(id: id, name: ingredient.name) /***Pasamos a la vista de detalle del ingrediente*/
     }
     
     //En caso de que se haya terminado de mostrar la celda con el ingrediente o la receta con su respectiva imagen
@@ -168,8 +184,16 @@ extension IngredientsSearchPageViewController: UISearchResultsUpdating, UISearch
             return
         }
         let ingredientSearchListViewController = searchController.searchResultsController as? IngredientSearchListViewController
+        ingredientSearchListViewController?.delegate = self
         ingredientSearchListViewController?.lookForIngredients(word: searchString)/***Mandamos la palabra a la funcion para hacer la busqueda de los ingredientes y mostrarlos en la tableView*/
     }
     
     
+}
+
+extension IngredientsSearchPageViewController: IngredientSearchListViewControllerDelegate{
+    func ingredientSearchListViewController(_ controller: IngredientSearchListViewController, id: Int, name: String) {
+        searchController.searchBar.resignFirstResponder()
+        goToIngredientDetailView(id: id, name: name) /***Pasamos a la vista de detalle del ingrediente con informacion enviada de la vista  IngredientSearchList*/
+    }
 }

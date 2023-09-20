@@ -15,6 +15,7 @@ class IngredientSearchListViewController: UIViewController {
     var tableView = UITableView()
     var ingredients: AutocompleteWordIngredients! /***Lista de los ingredientes para la tableView*/
     var tableViewTasks: [IndexPath : Task<Void, Never>] = [:]/***Arreglo para guardar y borar las Tasks de solicitar imagenes*/
+    weak var delegate: IngredientSearchListViewControllerDelegate? /***Delegado para poder pasar a la vista del ingrediente*/
     
     //MARK: Actualizaciones de vista
     override func viewDidLoad() {
@@ -91,6 +92,9 @@ extension IngredientSearchListViewController: UITableViewDataSource {
 extension IngredientSearchListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        let ingredient = ingredients[indexPath.row]
+        let id = ingredient.id
+        delegate?.ingredientSearchListViewController(self, id: id, name: ingredient.name) /***Funcion para poder pasar informacion del id y del name del ingrediente  a la vista anterior y poder pasar a la vista de detalle del ingrediente*/
     }
     
     //En caso de que se haya terminado de mostrar la celda con el ingrediente o la receta con su respectiva imagen
@@ -98,4 +102,10 @@ extension IngredientSearchListViewController: UITableViewDelegate {
         tableViewTasks[indexPath]?.cancel() /***Cancelamos la tarea de obtencion de la imagen en caso de que no se requiera */
     }
     
+}
+
+//MARK: Delegado para pasar informacion de esta vista a la anterior
+protocol IngredientSearchListViewControllerDelegate: AnyObject {
+    /*Funcion para poder pasar informacion a la vista anterior y poder pasar a la vista de detalle del ingrediente*/
+    func ingredientSearchListViewController(_ controller: IngredientSearchListViewController, id: Int, name: String)
 }
