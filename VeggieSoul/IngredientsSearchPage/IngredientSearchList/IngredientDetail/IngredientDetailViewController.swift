@@ -135,8 +135,16 @@ class IngredientDetailViewController: UIViewController {
         applyAmountButton.layer.borderWidth = 1
     }
     
-    
+    //MARK: Ir a la vista de detalle de la informacion nutrimental del ingrediente
     @IBAction func SeeNutritionalInformation(_ sender: Any) {
+        // instanciamos una vista para presentarla
+        let ingredientNutritionalInformationStoryboard = UIStoryboard(name: "IngredientNutritionalInformation", bundle: .main)
+        //Instanciamos un ingredientNutritionalInformationViewController
+        if let ingredientNutritionalInformationViewController = ingredientNutritionalInformationStoryboard.instantiateViewController(withIdentifier: "IngredientNutritionalInformationVC") as? IngredientNutritionalInformationViewController {
+            // realizamos la presentacion de tipo push para la siguiente vista
+            ingredientNutritionalInformationViewController.ingredientNutrients = ingredient.nutrition.nutrients/***Pasamos la informacion nutrimental del ingrediente*/
+            navigationController?.pushViewController(ingredientNutritionalInformationViewController, animated: true)
+        }
     }
     
     //MARK: Agregar el ingrediente a CoreData

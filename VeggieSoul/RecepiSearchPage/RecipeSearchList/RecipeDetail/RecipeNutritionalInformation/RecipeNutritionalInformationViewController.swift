@@ -120,7 +120,7 @@ class RecipeNutritionalInformationViewController: UIViewController {
         return limitIndex
     }
     
-    //MARK: Configurar los valores de las labels dde la vista
+    //MARK: Configurar los valores de las labels de la vista
     func setLabels () {
         /*Presentar el valor nutricional de las 4 principales nutrientes en cada label correspondiente*/
         recipeNutrition.nutrients.forEach { nutrient in

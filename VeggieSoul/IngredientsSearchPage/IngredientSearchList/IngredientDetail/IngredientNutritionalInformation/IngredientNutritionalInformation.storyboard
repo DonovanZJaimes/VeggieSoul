@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Ingredient Nutritional Information View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="IngredientNutritionalInformationVC" id="Y6W-OH-hqX" customClass="IngredientNutritionalInformationViewController" customModule="VeggieSoul" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="5S8-kl-mX5">
+                                <rect key="frame" x="83" y="69" width="227" height="32"/>
+                                <segments>
+                                    <segment title="Macronutrients"/>
+                                    <segment title="Micronutrients"/>
+                                </segments>
+                                <color key="selectedSegmentTintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="switchBetweenMacroAndMicronutrients:" destination="Y6W-OH-hqX" eventType="valueChanged" id="Ka8-xW-hhv"/>
+                                </connections>
+                            </segmentedControl>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h6g-7c-SZJ" customClass="HorizontalBarChartView" customModule="Charts">
+                                <rect key="frame" x="20" y="138" width="353" height="660"/>
+                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Percent Of Daily Needs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ip-tf-scR">
+                                <rect key="frame" x="208.66666666666663" y="115" width="159.33333333333337" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="8Ip-tf-scR" firstAttribute="top" secondItem="5S8-kl-mX5" secondAttribute="bottom" constant="15" id="6CX-WB-HN9"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="h6g-7c-SZJ" secondAttribute="bottom" constant="20" id="F8C-8Z-9jE"/>
+                            <constraint firstItem="5S8-kl-mX5" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="LZL-i7-wnE"/>
+                            <constraint firstItem="5S8-kl-mX5" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="10" id="NED-Ml-mh0"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="8Ip-tf-scR" secondAttribute="trailing" constant="25" id="gBe-yu-LOo"/>
+                            <constraint firstItem="h6g-7c-SZJ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="nLg-9i-3s7"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="h6g-7c-SZJ" secondAttribute="trailing" constant="20" id="tvl-Ki-xKg"/>
+                            <constraint firstItem="h6g-7c-SZJ" firstAttribute="top" secondItem="8Ip-tf-scR" secondAttribute="bottom" constant="5" id="x8U-ay-hxx"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="ChartView" destination="h6g-7c-SZJ" id="58o-H1-ciO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="70.992366412213741" y="3.5211267605633805"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

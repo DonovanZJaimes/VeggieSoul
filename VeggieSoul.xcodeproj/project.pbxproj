@@ -17,6 +17,8 @@
 		5D2737EB2ABA3BC800533B56 /* IngredientNutrients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2737EA2ABA3BC800533B56 /* IngredientNutrients.swift */; };
 		5D2737ED2ABA3CD400533B56 /* IngredientCaloricBreakdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2737EC2ABA3CD400533B56 /* IngredientCaloricBreakdown.swift */; };
 		5D2737EF2ABA3DDB00533B56 /* IngredientWeightPerServing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2737EE2ABA3DDB00533B56 /* IngredientWeightPerServing.swift */; };
+		5D2737F22ABB984F00533B56 /* IngredientNutritionalInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2737F12ABB984F00533B56 /* IngredientNutritionalInformationViewController.swift */; };
+		5D2737F62ABB992A00533B56 /* IngredientNutritionalInformation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D2737F52ABB992A00533B56 /* IngredientNutritionalInformation.storyboard */; };
 		5D3D71F32A5DF910000EE14B /* IngredientsSearchPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3D71F22A5DF910000EE14B /* IngredientsSearchPageViewController.swift */; };
 		5D3D71F52A5DF946000EE14B /* IngredientsSearchPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D3D71F42A5DF946000EE14B /* IngredientsSearchPage.storyboard */; };
 		5D3D71F82A5DFF3A000EE14B /* ToolsPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3D71F72A5DFF3A000EE14B /* ToolsPageViewController.swift */; };
@@ -112,6 +114,8 @@
 		5D2737EA2ABA3BC800533B56 /* IngredientNutrients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientNutrients.swift; sourceTree = "<group>"; };
 		5D2737EC2ABA3CD400533B56 /* IngredientCaloricBreakdown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientCaloricBreakdown.swift; sourceTree = "<group>"; };
 		5D2737EE2ABA3DDB00533B56 /* IngredientWeightPerServing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientWeightPerServing.swift; sourceTree = "<group>"; };
+		5D2737F12ABB984F00533B56 /* IngredientNutritionalInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientNutritionalInformationViewController.swift; sourceTree = "<group>"; };
+		5D2737F52ABB992A00533B56 /* IngredientNutritionalInformation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = IngredientNutritionalInformation.storyboard; sourceTree = "<group>"; };
 		5D3D71F22A5DF910000EE14B /* IngredientsSearchPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsSearchPageViewController.swift; sourceTree = "<group>"; };
 		5D3D71F42A5DF946000EE14B /* IngredientsSearchPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = IngredientsSearchPage.storyboard; sourceTree = "<group>"; };
 		5D3D71F72A5DFF3A000EE14B /* ToolsPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolsPageViewController.swift; sourceTree = "<group>"; };
@@ -228,12 +232,22 @@
 				5D2737E42ABA33C600533B56 /* IngredientDetailController.swift */,
 				5D2737E62ABA385400533B56 /* IngredientID.swift */,
 				5D2737E82ABA3A9A00533B56 /* IngredientNutrition.swift */,
-				5D2737EA2ABA3BC800533B56 /* IngredientNutrients.swift */,
 				5D2737EC2ABA3CD400533B56 /* IngredientCaloricBreakdown.swift */,
 				5D2737EE2ABA3DDB00533B56 /* IngredientWeightPerServing.swift */,
 				5D2737E22AB900CB00533B56 /* String+Extension.swift */,
+				5D2737F02ABB97F400533B56 /* IngredientNutritionalInformation */,
 			);
 			path = IngredientDetail;
+			sourceTree = "<group>";
+		};
+		5D2737F02ABB97F400533B56 /* IngredientNutritionalInformation */ = {
+			isa = PBXGroup;
+			children = (
+				5D2737F12ABB984F00533B56 /* IngredientNutritionalInformationViewController.swift */,
+				5D2737F52ABB992A00533B56 /* IngredientNutritionalInformation.storyboard */,
+				5D2737EA2ABA3BC800533B56 /* IngredientNutrients.swift */,
+			);
+			path = IngredientNutritionalInformation;
 			sourceTree = "<group>";
 		};
 		5D3D71F12A5DF87E000EE14B /* IngredientsSearchPage */ = {
@@ -541,6 +555,7 @@
 				5D5536072A54C85F00EBE20D /* IngredientsForRecipesCollectionViewCell.xib in Resources */,
 				E3CC43BC2A5F5FCC00ED8A40 /* ListRecipeDetailCollectionViewCell.xib in Resources */,
 				5DA409262A7F02A300A3C5F3 /* RecipeNutritionalInformation.storyboard in Resources */,
+				5D2737F62ABB992A00533B56 /* IngredientNutritionalInformation.storyboard in Resources */,
 				5D5536032A548A5900EBE20D /* IngredientAndRecipeForSearchCollectionViewCell.xib in Resources */,
 				5D2737DF2AB8F14000533B56 /* IngredientDetail.storyboard in Resources */,
 				E3CC43B82A5F4F3800ED8A40 /* RecipeDetail.storyboard in Resources */,
@@ -660,6 +675,7 @@
 				5D88C4BC2A5A1710001D3EFC /* RecipeListByIngredientViewController.swift in Sources */,
 				5D91AF102A7352C300CAD4BF /* StepDetailTableViewCell.swift in Sources */,
 				5D2737E72ABA385400533B56 /* IngredientID.swift in Sources */,
+				5D2737F22ABB984F00533B56 /* IngredientNutritionalInformationViewController.swift in Sources */,
 				5D91AEED2A63326700CAD4BF /* RecipeListByCategoryViewController.swift in Sources */,
 				5D91AF0C2A73529F00CAD4BF /* IngredientDetailTableViewCell.swift in Sources */,
 				5D632CCF2AB52F6A00758121 /* UIView+Extension.swift in Sources */,
