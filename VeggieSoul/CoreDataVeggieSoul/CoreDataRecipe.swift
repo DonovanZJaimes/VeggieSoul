@@ -13,7 +13,7 @@ class CoreDataRecipe {
     private let container : NSPersistentContainer!
     /***En el inicializador creamos y asignamos un objeto NSPersistentContainer a nuestra propiedad, el argumento corresponde al nombre de nuestro modelo "RecipeVeggieSoul" */
     init() {
-        container = NSPersistentContainer(name: "RecipeVeggieSoul")
+        container = NSPersistentContainer(name: "RecipeVeggieSoul", managedObjectModel: PersistenceManager.managedObjectModel)
         //container = NSPersistentContainer(name: "false")
         
         setupDatabase()
@@ -26,7 +26,7 @@ class CoreDataRecipe {
                 print("ERROR \(description) — \(error)")
                 return
             } else {
-                print("Database ready! ")
+                print("Recipe database ready! ")
             }
         }
     }
@@ -53,7 +53,7 @@ class CoreDataRecipe {
         
         /*Creamos un objeto RecipeIngredient utilizando como parámetro el contexto anterior. Asociamos sus propiedades con los parámetros recibidos en el método*/
         for index in 0 ..< recipe.extendedIngredients.count{
-            var RecipeIngredient = RecipeIngredientEntity(context: context)
+            let RecipeIngredient = RecipeIngredientEntity(context: context)
             RecipeIngredient.id = Int32(recipe.extendedIngredients[index].id)
             RecipeIngredient.image = recipe.extendedIngredients[index].image
             RecipeIngredient.name = recipe.extendedIngredients[index].name
@@ -74,7 +74,7 @@ class CoreDataRecipe {
         /*Creamos un objeto RecipeInstructions utilizando como parámetro el contexto anterior. Asociamos sus propiedades con los parámetros recibidos en el método*/
         if  recipe.instructions?.count != nil {
             for index in 0 ..< recipe.instructions![0].steps.count {
-                var RecipeInstructions = RecipeInstructionsEntity(context: context)
+                let RecipeInstructions = RecipeInstructionsEntity(context: context)
                 RecipeInstructions.number = Int16(recipe.instructions![0].steps[index].number)
                 RecipeInstructions.step = recipe.instructions![0].steps[index].step
                 if recipe.instructions![0].steps[index].length != nil {
@@ -94,7 +94,7 @@ class CoreDataRecipe {
         
         /*Creamos un objeto RecipeNutritionFlavonoid utilizando como parámetro el contexto anterior. Asociamos sus propiedades con los parámetros recibidos en el método*/
         for index in 0 ..< recipe.nutrition.nutrients.count {
-            var RecipeNutritionFlavonoid = RecipeNutritionFlavonoidEntity(context: context)
+            let RecipeNutritionFlavonoid = RecipeNutritionFlavonoidEntity(context: context)
             RecipeNutritionFlavonoid.amount = recipe.nutrition.nutrients[index].amount
             RecipeNutritionFlavonoid.name = recipe.nutrition.nutrients[index].name
             RecipeNutritionFlavonoid.percentOfDailyNeeds = recipe.nutrition.nutrients[index].percentOfDailyNeeds ?? 0.0

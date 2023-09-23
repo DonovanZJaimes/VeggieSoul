@@ -15,6 +15,7 @@ class AccountPageViewController: UIViewController {
     
     
     private let managerRecipe = CoreDataRecipe() /***Manager para CoreData*/
+    private let managerIngredient = CoreDataIngredient() /***Manager para CoreData*/
     var recipeDetail: RecipeDetail! /***Cuando se tenga la informacion de la receta por medio del id se pasara a esta variable */
     
     override func viewDidLoad() {
@@ -26,6 +27,7 @@ class AccountPageViewController: UIViewController {
         super.viewWillAppear(animated)
         setUpAnimationView()
         saveNewRecipe()
+        saveNewIngredient()
     }
     
 
@@ -56,11 +58,29 @@ class AccountPageViewController: UIViewController {
         CoreDataRecipe.shared.newRecipes.removeAll()
         
         let recipes = managerRecipe.fetchRecipes()
+        print("RECETAS")
         recipes.forEach {
             item in
-            print(item.nameRecipe)
+            print(item.nameRecipe!)
         }
 
+    }
+    
+    func saveNewIngredient () {
+        //Se guardan los ingredientes
+        for index in 0 ..< CoreDataIngredient.shared.newIngredients.count {
+            let ingredientForCoreData = CoreDataIngredient.shared.newIngredients[index]
+            managerIngredient.saveIngredient(ingredient: ingredientForCoreData)
+        }
+        
+        //Se eliminan los nuevo agregados
+        CoreDataIngredient.shared.newIngredients.removeAll()
+        let ingredients = managerIngredient.fetchIngredients()
+        print("INGREDIENTES")
+        ingredients.forEach{
+            item in
+            print(item.name!)
+        }
     }
 
 }

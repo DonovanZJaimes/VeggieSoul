@@ -15,14 +15,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var recipeAndIngredientTabBarItem:  UITabBarItem!
     
     @objc func updateRecipeAndIngredientBadge(){
-        if CoreDataRecipe.shared.newRecipes.count != 0 {
-            recipeAndIngredientTabBarItem.badgeValue = String(CoreDataRecipe.shared.newRecipes.count)
+        /*Agregar el valor de ingredientes y recetas al badgeValue de la vista de AccountPage*/
+        if CoreDataRecipe.shared.newRecipes.count != 0 || CoreDataIngredient.shared.newIngredients.count != 0 {
+            let numBadgeValue = CoreDataRecipe.shared.newRecipes.count + CoreDataIngredient.shared.newIngredients.count
+            recipeAndIngredientTabBarItem.badgeValue = String(numBadgeValue)
         }
     }
     
     func updateNotifications (){
         NotificationCenter.default.addObserver(self, selector: #selector(updateRecipeAndIngredientBadge), name: CoreDataRecipe.recipesUpdateNotification, object: nil)
-        recipeAndIngredientTabBarItem = (window?.rootViewController as? UITabBarController)?.viewControllers?[1].tabBarItem
+        NotificationCenter.default.addObserver(self, selector: #selector(updateRecipeAndIngredientBadge), name: CoreDataIngredient.IngredientsUpdateNotification, object: nil)
+        recipeAndIngredientTabBarItem = (window?.rootViewController as? UITabBarController)?.viewControllers?[2].tabBarItem
     }
 
 
@@ -47,7 +50,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             
            
         }
-        updateNotifications()
+        updateNotifications()/***Actualiza el valor de badgeValue***/
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

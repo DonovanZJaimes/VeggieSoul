@@ -33,7 +33,6 @@ struct IngredientDetailSearch: APIRequest {
         let stringURL = urlIngredientPart1 + "\(id)" + urlIngredientPart2
         var urlComponents = URLComponents(string: stringURL)!
         urlComponents.queryItems = query.map {URLQueryItem(name: $0.key, value: $0.value)}
-        print(urlComponents.url!)
         return URLRequest(url: urlComponents.url!)
     }
     

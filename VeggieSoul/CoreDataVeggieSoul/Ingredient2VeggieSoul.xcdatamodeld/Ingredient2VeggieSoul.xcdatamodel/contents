@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21754" systemVersion="22F82" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="IngredientID2Entity" representedClassName="IngredientID2Entity" syncable="YES" codeGenerationType="class">
+        <attribute name="aisle" optional="YES" attributeType="String"/>
+        <attribute name="amount" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="consistency" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="image" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="originalName" optional="YES" attributeType="String"/>
+        <attribute name="percentCarbs" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="percentFat" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="percentProtein" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="unit" optional="YES" attributeType="String"/>
+        <relationship name="nutrients" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="IngredientNutrients2Entity" inverseName="belongsToIngredientID2Entity" inverseEntity="IngredientNutrients2Entity"/>
+    </entity>
+    <entity name="IngredientNutrients2Entity" representedClassName="IngredientNutrients2Entity" syncable="YES" codeGenerationType="class">
+        <attribute name="amount" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="percentOfDailyNeeds" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="unit" optional="YES" attributeType="String"/>
+        <relationship name="belongsToIngredientID2Entity" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="IngredientID2Entity" inverseName="nutrients" inverseEntity="IngredientID2Entity"/>
+    </entity>
+</model>

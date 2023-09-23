@@ -21,8 +21,8 @@
                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="50R-wQ-uXv">
                         <rect key="frame" x="20" y="10" width="448" height="157"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="carrot" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="WRS-Rb-2ZS">
-                                <rect key="frame" x="0.0" y="53" width="50" height="51.666666666666686"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo.on.rectangle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="WRS-Rb-2ZS">
+                                <rect key="frame" x="0.0" y="54.333333333333329" width="50" height="48.666666666666671"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" name="ColorTeal"/>
                                 <constraints>
@@ -67,7 +67,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="carrot" catalog="system" width="128" height="122"/>
+        <image name="photo.on.rectangle" catalog="system" width="128" height="98"/>
         <namedColor name="ColorTeal">
             <color red="0.0" green="0.56862745098039214" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

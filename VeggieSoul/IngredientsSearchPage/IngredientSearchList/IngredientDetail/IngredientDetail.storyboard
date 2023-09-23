@@ -56,8 +56,8 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iOR-yS-AJZ">
                                                 <rect key="frame" x="0.0" y="57.666666666666686" width="393" height="200"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="carrot" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="vOX-9r-rVI">
-                                                        <rect key="frame" x="96.666666666666686" y="-0.6666666666666714" width="200" height="201.66666666666669"/>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo.on.rectangle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="vOX-9r-rVI">
+                                                        <rect key="frame" x="96.666666666666686" y="0.6666666666666714" width="200" height="198.66666666666669"/>
                                                         <color key="tintColor" name="ColorTeal"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="vOX-9r-rVI" secondAttribute="height" multiplier="1:1" id="1vE-ja-Sic"/>
@@ -260,7 +260,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="carrot" catalog="system" width="128" height="122"/>
+        <image name="photo.on.rectangle" catalog="system" width="128" height="98"/>
         <namedColor name="ColorTeal">
             <color red="0.0" green="0.56862745098039214" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

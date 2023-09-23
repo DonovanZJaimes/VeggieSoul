@@ -67,8 +67,6 @@ class IngredientDetailViewController: UIViewController {
                     flag = false
                 }
                 newAmount = ingredient.nutrition.weightPerServing.amount
-                print(onePercent)
-                print(ingredient.nutrition.weightPerServing.amount)
             } catch{
                 print(error)
             }
@@ -152,7 +150,7 @@ class IngredientDetailViewController: UIViewController {
         buttonAnimation(button: sender)/***Animamos el boton*/
         amountTextField.resignFirstResponder() /***Quitamos el teclado*/
         amountTextField.text = String(newAmount)
-        //CoreData aun no implementada
+        CoreDataIngredient.shared.newIngredients.append(ingredient) /***Agregar el ingrediente a CoreData*/
     }
     
     
