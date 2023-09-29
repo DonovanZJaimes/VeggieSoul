@@ -82,7 +82,9 @@ class RecepiHomeViewController: UIViewController {
                 Item.mainCourseRecipes = mainCourseRecipes.recipes.map {Item.recipe($0)}/***Con el arreglo de recetas obtenidas se hace otro arreglo que sea de igual formato al de la estructura Item y se lo agregamos a su respectivo arreglo*/
                 ingredients = mainCourseRecipes.recipes[0].ingredients //?? [starterIngredient]/***Para este caso los ingredientes de la primera receta se presentaran aen pantalla y para eso se agregan a este tipo*/
                 Item.firstIngredients = ingredients.map {Item.ingredient($0)}/***Con el arreglo de ingredientes obtenidos se hace otro arreglo que sea de igual formato al de la estructura Item y se lo agregamos a su respectivo arreglo*/
-                await dataSource.apply(recipeSnapshot, animatingDifferences: true)/***Se recarga la vista de dataSource*/
+                //await dataSource.apply(recipeSnapshot, animatingDifferences: true)/***Se recarga la vista de dataSource*/
+                dataSource.apply(recipeSnapshot, animatingDifferences: true, completion: {
+                    self.dataSource.apply(self.recipeSnapshot, animatingDifferences: false)}) /***Se recarga la vista de dataSource*/
             }catch{
                 print(error)
             }
@@ -93,8 +95,9 @@ class RecepiHomeViewController: UIViewController {
             do{
                 let dessertRecipes = try await sendRequest(dessertRecipe)/***Solicitamos las recetas */
                 Item.dessertRecipes = dessertRecipes.recipes.map {Item.recipe($0)}/***Con el arreglo de recetas obtenidas se hace otro arreglo que sea de igual formato al de la estructura Item y se lo agregamos a su respectivo arreglo*/
-                await dataSource.apply(recipeSnapshot, animatingDifferences: true)/***Se recarga la vista de dataSource*/
-            }catch{
+         //await dataSource.apply(recipeSnapshot, animatingDifferences: true)/***Se recarga la vista de dataSource*/
+         dataSource.apply(recipeSnapshot, animatingDifferences: true, completion: {
+             self.dataSource.apply(self.recipeSnapshot, animatingDifferences: false)}) /***Se recarga la vista de dataSource*/            }catch{
                 print(error)
             }
         }*/
@@ -105,7 +108,9 @@ class RecepiHomeViewController: UIViewController {
             do{
                 let appetizerRecipes = try await sendRequest(appetizerRecipe)/***Solicitamos las recetas */
                 Item.appetizerRecipes = appetizerRecipes.recipes.map {Item.recipe($0)}/***Con el arreglo de recetas obtenidas se hace otro arreglo que sea de igual formato al de la estructura Item y se lo agregamos a su respectivo arreglo*/
-                await dataSource.apply(recipeSnapshot, animatingDifferences: true)/***Se recarga la vista de dataSource*/
+          //await dataSource.apply(recipeSnapshot, animatingDifferences: true)/***Se recarga la vista de dataSource*/
+          dataSource.apply(recipeSnapshot, animatingDifferences: true, completion: {
+              self.dataSource.apply(self.recipeSnapshot, animatingDifferences: false)}) /***Se recarga la vista de dataSource*/
             }catch{
                 print(error)
             }
@@ -116,7 +121,9 @@ class RecepiHomeViewController: UIViewController {
             do{
                 let saladRecipes = try await sendRequest(saladRecipe)/***Solicitamos las recetas */
                 Item.saladRecipes = saladRecipes.recipes.map {Item.recipe($0)}/***Con el arreglo de recetas obtenidas se hace otro arreglo que sea de igual formato al de la estructura Item y se lo agregamos a su respectivo arreglo*/
-                await dataSource.apply(recipeSnapshot, animatingDifferences: true)/***Se recarga la vista de dataSource*/
+         //await dataSource.apply(recipeSnapshot, animatingDifferences: true)/***Se recarga la vista de dataSource*/
+         dataSource.apply(recipeSnapshot, animatingDifferences: true, completion: {
+             self.dataSource.apply(self.recipeSnapshot, animatingDifferences: false)}) /***Se recarga la vista de dataSource*/
             }catch{
                 print(error)
             }
@@ -127,7 +134,9 @@ class RecepiHomeViewController: UIViewController {
             do{
                 let breakfastRecipes = try await sendRequest(breakfastRecipe)/***Solicitamos las recetas */
                 Item.breakfastRecipes = breakfastRecipes.recipes.map {Item.recipe($0)}/***Con el arreglo de recetas obtenidas se hace otro arreglo que sea de igual formato al de la estructura Item y se lo agregamos a su respectivo arreglo*/
-                await dataSource.apply(recipeSnapshot, animatingDifferences: true)/***Se recarga la vista de dataSource*/
+          //await dataSource.apply(recipeSnapshot, animatingDifferences: true)/***Se recarga la vista de dataSource*/
+          dataSource.apply(recipeSnapshot, animatingDifferences: true, completion: {
+              self.dataSource.apply(self.recipeSnapshot, animatingDifferences: false)}) /***Se recarga la vista de dataSource*/
             }catch{
                 print(error)
             }
@@ -138,7 +147,9 @@ class RecepiHomeViewController: UIViewController {
             do{
                 let soupRecipes = try await sendRequest(soupRecipe)/***Solicitamos las recetas */
                 Item.soupRecipes = soupRecipes.recipes.map {Item.recipe($0)}/***Con el arreglo de recetas obtenidas se hace otro arreglo que sea de igual formato al de la estructura Item y se lo agregamos a su respectivo arreglo*/
-                await dataSource.apply(recipeSnapshot, animatingDifferences: true)/***Se recarga la vista de dataSource*/
+          //await dataSource.apply(recipeSnapshot, animatingDifferences: true)/***Se recarga la vista de dataSource*/
+          dataSource.apply(recipeSnapshot, animatingDifferences: true, completion: {
+              self.dataSource.apply(self.recipeSnapshot, animatingDifferences: false)}) /***Se recarga la vista de dataSource*/
             }catch{
                 print(error)
             }
@@ -149,7 +160,9 @@ class RecepiHomeViewController: UIViewController {
             do{
                 let beverageRecipes = try await sendRequest(beverageRecipe)/***Solicitamos las recetas */
                 Item.beverageRecipes = beverageRecipes.recipes.map {Item.recipe($0)}/***Con el arreglo de recetas obtenidas se hace otro arreglo que sea de igual formato al de la estructura Item y se lo agregamos a su respectivo arreglo*/
-                await dataSource.apply(recipeSnapshot, animatingDifferences: true)/***Se recarga la vista de dataSource*/
+          //await dataSource.apply(recipeSnapshot, animatingDifferences: true)/***Se recarga la vista de dataSource*/
+          dataSource.apply(recipeSnapshot, animatingDifferences: true, completion: {
+              self.dataSource.apply(self.recipeSnapshot, animatingDifferences: false)}) /***Se recarga la vista de dataSource*/
             }catch{
                 print(error)
             }

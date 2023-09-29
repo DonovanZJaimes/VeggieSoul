@@ -83,10 +83,10 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
+                        <segue destination="KJB-2J-1eB" kind="relationship" relationship="viewControllers" id="uya-YI-lIg"/>
                         <segue destination="eib-ua-qDh" kind="relationship" relationship="viewControllers" id="1HH-7G-8wS"/>
                         <segue destination="xYy-uG-Uz8" kind="relationship" relationship="viewControllers" id="j0z-M8-TlT"/>
                         <segue destination="Mnh-zK-aQ5" kind="relationship" relationship="viewControllers" id="Jcn-nn-J7F"/>
-                        <segue destination="KJB-2J-1eB" kind="relationship" relationship="viewControllers" id="uya-YI-lIg"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wr7-Z9-HJ2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

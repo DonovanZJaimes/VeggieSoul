@@ -64,7 +64,9 @@ class RecipeListByCategoryViewController: UIViewController {
                 let recipesByCategory = try await sendRequest(recepiByTypeAndTags) /***Solicitamos las recetas */
                 self.recipesByCategory = recipesByCategory.recipes /***Se agregan las recetas obtenidas al arreglo que se instancio al inicio de este controlador***/
                 //print(recipesByCategory)
-                await self.dataSource.apply(self.tableSnapshot, animatingDifferences: true) /***Se recarga la vista de dataSource*/
+                //await self.dataSource.apply(self.tableSnapshot, animatingDifferences: true) /***Se recarga la vista de dataSource*/
+                dataSource.apply(self.tableSnapshot, animatingDifferences: true, completion: {
+                    self.dataSource.apply(self.tableSnapshot, animatingDifferences: false)}) /***Se recarga la vista de dataSource*/
             }catch{
                 print (error)
             }

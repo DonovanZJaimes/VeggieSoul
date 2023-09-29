@@ -86,7 +86,9 @@ class RecipeListByIngredientViewController: UIViewController {
                 
                 //print(recipesByIngredient)
                 //print(RecipeItem.recipesByIngredient)
-                await dataSource.apply(collectionSnapshot, animatingDifferences: true) /***Se recarga la vista de dataSource*/
+                //await dataSource.apply(collectionSnapshot, animatingDifferences: true) /***Se recarga la vista de dataSource*/
+                dataSource.apply(collectionSnapshot, animatingDifferences: true, completion: {
+                    self.dataSource.apply(self.collectionSnapshot, animatingDifferences: false)}) /***Se recarga la vista de dataSource*/
             }catch{
                 print (error)
             }
