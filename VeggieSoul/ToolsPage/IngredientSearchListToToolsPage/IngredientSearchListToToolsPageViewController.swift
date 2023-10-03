@@ -65,7 +65,7 @@ extension IngredientSearchListToToolsPageViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SearchIngredientToToolsPageForTVC", for: indexPath) as! SearchIngredientToToolsPageForTableViewCell
         let ingredient = ingredients[indexPath.row]
-        cell.setUpIngredient(name: ingredient.name, aisle: ingredient.aisle)
+        cell.setUpIngredient(name: ingredient.name, aisle: ingredient.aisle ?? "")
         
         let fetchIngredienOrEquipmentImage = FetchIngredienOrEquipmentImage(nameOfIngredientOrEquipment: ingredient.image, isIngredient: true) /***Realizamos una instancia de FetchIngredienOrEquipmentImage para poder realizar un pedido de una imagen de un ingrediente*/
         tableViewTasks[indexPath] = Task { /*Tarea para obtener la imagen de un ingrediente*/
@@ -93,7 +93,8 @@ extension IngredientSearchListToToolsPageViewController: UITableViewDelegate {
         let name = ingredient.name
         let units = ingredient.possibleUnits
         let image = ingredient.image
-        delegate?.ingredientSearchListToToolsPageViewController(self, possibleUnits: units, name: name, image: image) /***Funcion para poder pasar informacion del id y del name del ingrediente  a la vista anterior y poder pasar a la vista de detalle del ingrediente*/
+        let id = ingredient.id
+        delegate?.ingredientSearchListToToolsPageViewController(self, possibleUnits: units, name: name, image: image, id: id) /***Funcion para poder pasar informacion del id y del name del ingrediente  a la vista anterior y poder pasar a la vista de detalle del ingrediente*/
         dismiss(animated: true)
     }
     
@@ -107,5 +108,5 @@ extension IngredientSearchListToToolsPageViewController: UITableViewDelegate {
 //MARK: Delegado para pasar informacion de esta vista a la anterior
 protocol IngredientSearchListToToolsPageViewControllerDelegate: AnyObject {
     /*Funcion para poder pasar informacion a la vista anterior y poder pasar a la vista de detalle del ingrediente*/
-    func ingredientSearchListToToolsPageViewController(_ controller: IngredientSearchListToToolsPageViewController, possibleUnits: [String]?, name: String, image: String)
+    func ingredientSearchListToToolsPageViewController(_ controller: IngredientSearchListToToolsPageViewController, possibleUnits: [String]?, name: String, image: String, id: Int)
 }

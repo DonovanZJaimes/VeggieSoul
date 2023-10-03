@@ -4,6 +4,7 @@
 //
 //  Created by Donovan Z. Jaimes on 24/09/23.
 //
+//MARK: INFO:
 /*Se presenta la forma de poder tener la equivalencia de cantidades de in ingrediente con diferentes unidades de medicion*/
 
 import UIKit
@@ -190,7 +191,7 @@ extension ConvertQuantitiesViewController: UISearchResultsUpdating, UISearchBarD
 
 //MARK: Extension para el delegado de IngredientSearchListToToolsPageViewController
 extension ConvertQuantitiesViewController: IngredientSearchListToToolsPageViewControllerDelegate {
-    func ingredientSearchListToToolsPageViewController(_ controller: IngredientSearchListToToolsPageViewController, possibleUnits: [String]?, name: String, image: String) {
+    func ingredientSearchListToToolsPageViewController(_ controller: IngredientSearchListToToolsPageViewController, possibleUnits: [String]?, name: String, image: String, id: Int) {
         self.searchController.searchBar.resignFirstResponder()
         updateIngredient(name: name, image: image) /***Actualizamos la vista con la informacion de ingrediente seleccionado*/
         self.possibleUnits = possibleUnits! /***Actualizamos los nuevos valores del pickerView*/

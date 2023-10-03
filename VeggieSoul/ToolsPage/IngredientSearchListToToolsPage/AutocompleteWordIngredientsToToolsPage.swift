@@ -13,8 +13,9 @@ typealias AutocompleteWordIngredientsToToolsPage = [AutocompleteWordIngredientTo
 
 //MARK: Propiedades del ingrediente
 struct AutocompleteWordIngredientToToolsPage: Hashable, Codable {
+    let id: Int
     let name: String
     let image: String
-    let aisle: String
+    let aisle: String?
     let possibleUnits: [String]
 }
