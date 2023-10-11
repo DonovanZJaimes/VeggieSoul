@@ -73,10 +73,18 @@
 		5D852AD22A621B0400D9C0A9 /* Construction.json in Resources */ = {isa = PBXBuildFile; fileRef = 5D852AD12A621B0400D9C0A9 /* Construction.json */; };
 		5D88C4BC2A5A1710001D3EFC /* RecipeListByIngredientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D88C4BB2A5A1710001D3EFC /* RecipeListByIngredientViewController.swift */; };
 		5D88C4BE2A5A174B001D3EFC /* RecipeListByIngredient.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D88C4BD2A5A174B001D3EFC /* RecipeListByIngredient.storyboard */; };
+		5D8AE80E2AD0E3F3005793A2 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8AE80D2AD0E3F3005793A2 /* ChatViewController.swift */; };
 		5D8BE2212AC3B37100A74D27 /* WinesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8BE21F2AC3B37100A74D27 /* WinesTableViewCell.swift */; };
 		5D8BE2222AC3B37100A74D27 /* WinesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D8BE2202AC3B37100A74D27 /* WinesTableViewCell.xib */; };
 		5D8BE2242AC3B3CB00A74D27 /* RecommendedWinesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8BE2232AC3B3CB00A74D27 /* RecommendedWinesController.swift */; };
 		5D8BE2262AC3B3F000A74D27 /* Wines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8BE2252AC3B3F000A74D27 /* Wines.swift */; };
+		5D8F6E042AD20B1100F179AD /* QuestionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8F6E032AD20B1100F179AD /* QuestionsController.swift */; };
+		5D8F6E062AD20B7100F179AD /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8F6E052AD20B7100F179AD /* Answer.swift */; };
+		5D8F6E092AD20F0200F179AD /* Sender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8F6E082AD20F0200F179AD /* Sender.swift */; };
+		5D8F6E0B2AD20F1500F179AD /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8F6E0A2AD20F1500F179AD /* Message.swift */; };
+		5D8F6E0D2AD20F2500F179AD /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8F6E0C2AD20F2500F179AD /* Media.swift */; };
+		5D8F6E0F2AD20F3C00F179AD /* Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8F6E0E2AD20F3C00F179AD /* Link.swift */; };
+		5D8F6E112AD2132900F179AD /* AnswerMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8F6E102AD2132900F179AD /* AnswerMedia.swift */; };
 		5D91AEED2A63326700CAD4BF /* RecipeListByCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D91AEEC2A63326700CAD4BF /* RecipeListByCategoryViewController.swift */; };
 		5D91AEF02A6332AC00CAD4BF /* RecipeListByCategory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D91AEEF2A6332AC00CAD4BF /* RecipeListByCategory.storyboard */; };
 		5D91AEF32A63500000CAD4BF /* ListRecipeDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D91AEF12A63500000CAD4BF /* ListRecipeDetailTableViewCell.swift */; };
@@ -200,10 +208,18 @@
 		5D852AD12A621B0400D9C0A9 /* Construction.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Construction.json; path = ../../../../../../../Downloads/Construction.json; sourceTree = "<group>"; };
 		5D88C4BB2A5A1710001D3EFC /* RecipeListByIngredientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListByIngredientViewController.swift; sourceTree = "<group>"; };
 		5D88C4BD2A5A174B001D3EFC /* RecipeListByIngredient.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RecipeListByIngredient.storyboard; sourceTree = "<group>"; };
+		5D8AE80D2AD0E3F3005793A2 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		5D8BE21F2AC3B37100A74D27 /* WinesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinesTableViewCell.swift; sourceTree = "<group>"; };
 		5D8BE2202AC3B37100A74D27 /* WinesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WinesTableViewCell.xib; sourceTree = "<group>"; };
 		5D8BE2232AC3B3CB00A74D27 /* RecommendedWinesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedWinesController.swift; sourceTree = "<group>"; };
 		5D8BE2252AC3B3F000A74D27 /* Wines.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wines.swift; sourceTree = "<group>"; };
+		5D8F6E032AD20B1100F179AD /* QuestionsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsController.swift; sourceTree = "<group>"; };
+		5D8F6E052AD20B7100F179AD /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
+		5D8F6E082AD20F0200F179AD /* Sender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sender.swift; sourceTree = "<group>"; };
+		5D8F6E0A2AD20F1500F179AD /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		5D8F6E0C2AD20F2500F179AD /* Media.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
+		5D8F6E0E2AD20F3C00F179AD /* Link.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Link.swift; sourceTree = "<group>"; };
+		5D8F6E102AD2132900F179AD /* AnswerMedia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerMedia.swift; sourceTree = "<group>"; };
 		5D91AEEC2A63326700CAD4BF /* RecipeListByCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListByCategoryViewController.swift; sourceTree = "<group>"; };
 		5D91AEEF2A6332AC00CAD4BF /* RecipeListByCategory.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RecipeListByCategory.storyboard; sourceTree = "<group>"; };
 		5D91AEF12A63500000CAD4BF /* ListRecipeDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRecipeDetailTableViewCell.swift; sourceTree = "<group>"; };
@@ -351,6 +367,10 @@
 			children = (
 				5D27381C2AC0F00A00533B56 /* QuestionsViewController.swift */,
 				5D27381E2AC0F02500533B56 /* Questions.storyboard */,
+				5D8F6E032AD20B1100F179AD /* QuestionsController.swift */,
+				5D8F6E052AD20B7100F179AD /* Answer.swift */,
+				5D8F6E102AD2132900F179AD /* AnswerMedia.swift */,
+				5D8F6E072AD20B7C00F179AD /* Chat */,
 			);
 			path = Questions;
 			sourceTree = "<group>";
@@ -451,6 +471,18 @@
 				E3CC43BF2A5F611800ED8A40 /* RecipeListController.swift */,
 			);
 			path = RecipeList;
+			sourceTree = "<group>";
+		};
+		5D8F6E072AD20B7C00F179AD /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				5D8AE80D2AD0E3F3005793A2 /* ChatViewController.swift */,
+				5D8F6E082AD20F0200F179AD /* Sender.swift */,
+				5D8F6E0A2AD20F1500F179AD /* Message.swift */,
+				5D8F6E0C2AD20F2500F179AD /* Media.swift */,
+				5D8F6E0E2AD20F3C00F179AD /* Link.swift */,
+			);
+			path = Chat;
 			sourceTree = "<group>";
 		};
 		5D91AEEE2A63327100CAD4BF /* ByCategory */ = {
@@ -781,9 +813,11 @@
 				5DA409222A7DD47300A3C5F3 /* RecipeNutritionalInformationViewController.swift in Sources */,
 				5D7A8BBA2AC8B385002EA842 /* ConvertQuantitiesController.swift in Sources */,
 				5D3D71F32A5DF910000EE14B /* IngredientsSearchPageViewController.swift in Sources */,
+				5D8F6E0D2AD20F2500F179AD /* Media.swift in Sources */,
 				5D632CC72AB52AD400758121 /* IngredientSearchListViewController.swift in Sources */,
 				5D91AF092A6DE36400CAD4BF /* RecipeDetailController.swift in Sources */,
 				E3CC43C42A5F618B00ED8A40 /* RecipesByCategory.swift in Sources */,
+				5D8F6E042AD20B1100F179AD /* QuestionsController.swift in Sources */,
 				5D2737FB2ABCF06600533B56 /* CoreDataIngredient.swift in Sources */,
 				5D5536062A54C85F00EBE20D /* IngredientsForRecipesCollectionViewCell.swift in Sources */,
 				5D27380E2AC0ED1700533B56 /* SubstituteIngredientViewController.swift in Sources */,
@@ -797,6 +831,7 @@
 				5D2738132AC0EF4400533B56 /* ConvertQuantitiesViewController.swift in Sources */,
 				5D2738182AC0EFB200533B56 /* RecommendedWinesViewController.swift in Sources */,
 				E3CC43C92A5F621000ED8A40 /* IngredientRecipeListCollectionViewCell.swift in Sources */,
+				5D8F6E0F2AD20F3C00F179AD /* Link.swift in Sources */,
 				5D2737EB2ABA3BC800533B56 /* IngredientNutrients.swift in Sources */,
 				5D9F41352ACB6CAD00CD6D5E /* SubstituteIngredientController.swift in Sources */,
 				5D7A8BB32AC78935002EA842 /* SearchIngredientToToolsPageForTableViewCell.swift in Sources */,
@@ -815,14 +850,17 @@
 				5DC5DA672A1FE6D30096C9AE /* SceneDelegate.swift in Sources */,
 				5D91AF072A6DD9C700CAD4BF /* RecipeInstructions.swift in Sources */,
 				5D91AEFD2A674FBA00CAD4BF /* RecipeListByIngredientFilterViewController.swift in Sources */,
+				5D8F6E0B2AD20F1500F179AD /* Message.swift in Sources */,
 				5D8BE2212AC3B37100A74D27 /* WinesTableViewCell.swift in Sources */,
 				5D7A8BAB2AC504FC002EA842 /* WineDetailViewController.swift in Sources */,
 				5DC5DA832A1FFFAC0096C9AE /* borrar.swift in Sources */,
 				5D5536022A548A5900EBE20D /* IngredientAndRecipeForSearchCollectionViewCell.swift in Sources */,
 				5D27381D2AC0F00A00533B56 /* QuestionsViewController.swift in Sources */,
+				5D8F6E092AD20F0200F179AD /* Sender.swift in Sources */,
 				5D632CCA2AB52BC400758121 /* SearchIngredientForTableViewCell.swift in Sources */,
 				5D632CD12AB5375100758121 /* AutocompleteWordIngredient.swift in Sources */,
 				5D5535FD2A53620A00EBE20D /* HeaderView.swift in Sources */,
+				5D8F6E062AD20B7100F179AD /* Answer.swift in Sources */,
 				5D632CB82AB29E2800758121 /* RecipesWithIngredients.swift in Sources */,
 				5D8BE2242AC3B3CB00A74D27 /* RecommendedWinesController.swift in Sources */,
 				E3CC43C62A5F61B800ED8A40 /* RecipeItem.swift in Sources */,
@@ -851,7 +889,9 @@
 				5D91AF012A6DD8EE00CAD4BF /* Recipe.swift in Sources */,
 				5DFEC60D2A4E0A3C009BBF35 /* Recipes.swift in Sources */,
 				5D5535FB2A5355E600EBE20D /* ItemAutocomplete.swift in Sources */,
+				5D8F6E112AD2132900F179AD /* AnswerMedia.swift in Sources */,
 				5D7A8BB82AC78982002EA842 /* AutocompleteWordIngredientsToToolsPage.swift in Sources */,
+				5D8AE80E2AD0E3F3005793A2 /* ChatViewController.swift in Sources */,
 				5D7A8BB02AC788C8002EA842 /* IngredientSearchListToToolsPageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

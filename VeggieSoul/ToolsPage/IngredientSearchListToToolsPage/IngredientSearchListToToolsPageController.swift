@@ -21,6 +21,7 @@ struct AutocompleteIngredientWordToToolsPage: APIRequest {
         query["number"] = "20" /***Cantidad de ingredientes autocompletados para recibir*/
         var urlComponents = URLComponents(string: urlIngredient)!
         urlComponents.queryItems = query.map {URLQueryItem(name: $0.key, value: $0.value)}
+        print(urlComponents.url!)
         return URLRequest(url: urlComponents.url!)
     }
     

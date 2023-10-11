@@ -8,5 +8,6 @@ target 'VeggieSoul' do
   # Pods for VeggieSoul
   pod 'lottie-ios'
   pod 'Charts'
+  pod 'MessageKit'
 
 end

@@ -15,7 +15,7 @@ let toolOptions: [[ToolOptions]] = [
     [ToolOptions(title: "Substitute Ingredient", image: UIImage(named: "Lettuce")!, color: UIColor.systemGreen),
      ToolOptions(title: "Convert Quantities", image: UIImage(named: "WeighingMachine")!, color: UIColor.lightGray)],
     [ToolOptions(title: "Recommended Wines", image: UIImage(named: "WineBottle2")!, color: UIColor.systemPurple)],
-    [ToolOptions(title: "Questions", image: UIImage(named: "Chatbot")!, color: UIColor.systemMint)]
+    [ToolOptions(title: "Chatbot", image: UIImage(named: "Chatbot")!, color: UIColor.systemMint)]
 ]
 
 

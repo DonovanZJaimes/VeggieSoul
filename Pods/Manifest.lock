@@ -3,24 +3,34 @@ PODS:
     - Charts/Core (= 4.1.0)
   - Charts/Core (4.1.0):
     - SwiftAlgorithms (~> 1.0)
+  - InputBarAccessoryView (5.5.0):
+    - InputBarAccessoryView/Core (= 5.5.0)
+  - InputBarAccessoryView/Core (5.5.0)
   - lottie-ios (3.3.0)
+  - MessageKit (3.8.0):
+    - InputBarAccessoryView (~> 5.5.0)
   - SwiftAlgorithms (1.0.0)
 
 DEPENDENCIES:
   - Charts
   - lottie-ios
+  - MessageKit
 
 SPEC REPOS:
   trunk:
     - Charts
+    - InputBarAccessoryView
     - lottie-ios
+    - MessageKit
     - SwiftAlgorithms
 
 SPEC CHECKSUMS:
   Charts: ce0768268078eee0336f122c3c4ca248e4e204c5
+  InputBarAccessoryView: 1d7b0a672b36e370f01f264b3907ef39d03328e3
   lottie-ios: 6ac74dcc09904798f59b18cb3075c089d76be9ae
+  MessageKit: a1ba0c69ebead94029867853eb44dd05b9b3f453
   SwiftAlgorithms: 38dda4731d19027fdeee1125f973111bf3386b53
 
-PODFILE CHECKSUM: 98d6002aad1f0d5ce99c63291d01d5b3ba5eccdc
+PODFILE CHECKSUM: 136fd817d9e6758ae12dfd033cbd345fe2dc2571
 
 COCOAPODS: 1.12.1

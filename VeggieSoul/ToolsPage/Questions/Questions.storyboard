@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,39 +18,125 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Questions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c7k-1y-lBB">
-                                <rect key="frame" x="175" y="416" width="77" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aLh-eQ-2mx" customClass="AnimationView" customModule="Lottie">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="400"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="rzs-vd-9cy">
+                                <rect key="frame" x="20" y="119" width="353" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pxi-g3-ded">
+                                        <rect key="frame" x="0.0" y="0.0" width="210.33333333333334" height="30"/>
+                                        <color key="backgroundColor" name="ColorTeal"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Play sample conversation"/>
+                                        <connections>
+                                            <action selector="showChatExample:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="7cS-SL-5Za"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aFd-eL-hnX">
+                                        <rect key="frame" x="220.33333333333337" y="0.0" width="132.66666666666663" height="30"/>
+                                        <color key="backgroundColor" name="ColorTeal"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="What can I say?"/>
+                                        <connections>
+                                            <action selector="showTypicalQuestions:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="gem-IZ-IIr"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="m5q-tr-4q8">
+                                <rect key="frame" x="20" y="159" width="353" height="300"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="400" id="o7t-nk-AtL"/>
+                                    <constraint firstAttribute="height" constant="300" id="CbT-d2-5Df"/>
                                 </constraints>
-                            </view>
+                                <string key="text">Ask for recipes like 'chicken recipes' or 'spaghetti with shrimp'
+Ask for nutrient contents like 'vitamin a in 2 carrots' or 'calories is 1 cup of butter'
+Convert something with '2 cups of butter in grams'
+Check out foodie gifts by saying 'show me some foodie gifts'
+Find food substitutes by saying 'what is a substitute for flour'
+Thirsty? Ask for wine pairings like 'which wine goes well with spaghetti carbonara'
+If you want more results, just say 'more'
+For more similar results say 'more like the first/second/third...'
+Let spoonacular tell you a joke, just say 'tell me a joke'.
+Want to learn some food trivia, just say 'food trivia'.
+</string>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZQn-Og-HyU">
+                                <rect key="frame" x="20" y="484" width="353" height="354"/>
+                                <connections>
+                                    <segue destination="T2P-hS-qWM" kind="embed" id="T3b-a3-p8v"/>
+                                </connections>
+                            </containerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1sf-6P-8PJ">
+                                <rect key="frame" x="20" y="69" width="353" height="40"/>
+                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="IBG-tt-G2N"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Start Conversation"/>
+                                <connections>
+                                    <action selector="goToConversationWithChatbot:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="3Wp-SP-lNB"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="aLh-eQ-2mx" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="dFu-Jl-aKu"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="aLh-eQ-2mx" secondAttribute="trailing" id="mnd-Dp-Xaz"/>
-                            <constraint firstItem="aLh-eQ-2mx" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="rvh-0F-zwj"/>
+                            <constraint firstItem="rzs-vd-9cy" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="1jm-c4-LaD"/>
+                            <constraint firstItem="rzs-vd-9cy" firstAttribute="top" secondItem="1sf-6P-8PJ" secondAttribute="bottom" constant="10" id="7GA-Ij-lf7"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="1sf-6P-8PJ" secondAttribute="trailing" constant="20" id="7Ia-tG-12d"/>
+                            <constraint firstItem="1sf-6P-8PJ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="HrA-1O-xja"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="ZQn-Og-HyU" secondAttribute="trailing" constant="20" id="OnG-Wv-P9p"/>
+                            <constraint firstItem="ZQn-Og-HyU" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" constant="20" id="PnL-Qg-7qp"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="rzs-vd-9cy" secondAttribute="trailing" constant="20" id="Qku-xp-KuX"/>
+                            <constraint firstItem="m5q-tr-4q8" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="R2o-Ku-y3h"/>
+                            <constraint firstItem="ZQn-Og-HyU" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="TXF-g6-N9r"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="m5q-tr-4q8" secondAttribute="trailing" constant="20" id="UHB-kZ-Pvx"/>
+                            <constraint firstItem="m5q-tr-4q8" firstAttribute="top" secondItem="rzs-vd-9cy" secondAttribute="bottom" constant="10" id="ZDj-ad-Ydu"/>
+                            <constraint firstItem="1sf-6P-8PJ" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="10" id="afQ-ns-MYX"/>
+                            <constraint firstItem="ZQn-Og-HyU" firstAttribute="top" secondItem="m5q-tr-4q8" secondAttribute="bottom" constant="25" id="oT7-6J-BLJ"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="constructionView" destination="aLh-eQ-2mx" id="UIW-XJ-lBY"/>
+                        <outlet property="chatView" destination="ZQn-Og-HyU" id="rBJ-jg-urn"/>
+                        <outlet property="playSomeConversationButton" destination="pxi-g3-ded" id="8Hy-4u-sZy"/>
+                        <outlet property="startConversationButton" destination="1sf-6P-8PJ" id="7nE-XQ-zPd"/>
+                        <outlet property="textHeightTypicalQuestionsConstraint" destination="CbT-d2-5Df" id="A87-gH-QYZ"/>
+                        <outlet property="typicalQuestionsButton" destination="aFd-eL-hnX" id="H07-hv-JLx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="71" y="4"/>
+            <point key="canvasLocation" x="70.992366412213741" y="3.5211267605633805"/>
+        </scene>
+        <!--Chat View Controller-->
+        <scene sceneID="bxK-09-Q4i">
+            <objects>
+                <viewController id="T2P-hS-qWM" customClass="ChatViewController" customModule="VeggieSoul" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mnK-qo-i9z">
+                        <rect key="frame" x="0.0" y="0.0" width="353" height="379"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="T9D-cG-HBW"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FLd-yK-kdx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="854" y="4"/>
         </scene>
     </scenes>
     <resources>
+        <namedColor name="ColorTeal">
+            <color red="0.0" green="0.56862745098039214" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
