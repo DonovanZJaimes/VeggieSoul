@@ -33,7 +33,7 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Ingredients">
                                                     <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle3"/>
-                                                    <color key="baseForegroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="baseForegroundColor" systemColor="labelColor"/>
                                                 </buttonConfiguration>
                                                 <connections>
                                                     <action selector="selectIngredientsForSearchWithButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="QFy-u2-uTZ"/>

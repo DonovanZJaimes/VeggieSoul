@@ -115,7 +115,7 @@ class RecepiHomeViewController: UIViewController {
                 print(error)
             }
         }*/
-        /*
+        
         //Peticion de ensaladas
         Task {
             do{
@@ -127,7 +127,7 @@ class RecepiHomeViewController: UIViewController {
             }catch{
                 print(error)
             }
-        }*/
+        }
          /*
         //Peticion de desayuno
         Task {

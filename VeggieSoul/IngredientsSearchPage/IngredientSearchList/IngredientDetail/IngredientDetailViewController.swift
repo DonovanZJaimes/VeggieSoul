@@ -43,6 +43,7 @@ class IngredientDetailViewController: UIViewController {
         requestIngredient(amount: 1) /***Solicitamos informacion del ingrediente*/
         configureButtons () /***Configuramos el diseño de los botones*/
         amountTextField.keyboardType = .numberPad
+        ingredientImageView.layer.cornerRadius = ingredientImageView.frame.width / 2
     }
     
     //MARK: Actualizacion visual extra de la pantalla
