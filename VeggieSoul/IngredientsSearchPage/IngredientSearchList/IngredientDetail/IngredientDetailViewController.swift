@@ -33,6 +33,8 @@ class IngredientDetailViewController: UIViewController {
     var onePercent: Double = 0 /***Uno porciento del peso unitario del ingrediente*/
     var newAmount: Int = 0 /***Peso actual seleccionado del ingrediente*/
     var flag: Bool = true
+    private let managerIngredient = CoreDataIngredient() /***Manager para CoreData*/
+    var date: Date = Calendar.current.startOfDay(for: Date())
     
     
     //MARK: Configuraciones de vista
@@ -152,6 +154,7 @@ class IngredientDetailViewController: UIViewController {
         amountTextField.resignFirstResponder() /***Quitamos el teclado*/
         amountTextField.text = String(newAmount)
         CoreDataIngredient.shared.newIngredients.append(ingredient) /***Agregar el ingrediente a CoreData*/
+        managerIngredient.saveIngredient(ingredient: ingredient, date: date)
     }
     
     
