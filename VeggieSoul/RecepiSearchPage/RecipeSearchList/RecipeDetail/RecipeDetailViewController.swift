@@ -21,7 +21,8 @@ class RecipeDetailViewController: UIViewController {
     var ingredientsOrInstructions = IngredientsOrInstructions.Ingredients /***Variable para saber si el usuario decide si quere ver las intrucciones o los ingredientes*/
     var recipeDetail: RecipeDetail! /***Cuando se tenga la informacion de la receta por medio del id se pasara a esta variable */
     //private let manager = CoreDataRecipe() /***Manager para CoreData*/
-    
+    private let managerRecipe = CoreDataRecipe() /***Manager para CoreData*/
+    var date: Date = Calendar.current.startOfDay(for: Date())
     // El usuario decide si quere ver las intrucciones o los ingredientes
     enum IngredientsOrInstructions {
         case Ingredients
@@ -221,6 +222,7 @@ class RecipeDetailViewController: UIViewController {
     //MARK: Guardar la receta en CoreDataRecipe
     @IBAction func AddToFoodButton(_ sender: UIButton) {
         CoreDataRecipe.shared.newRecipes.append(recipeDetail)
+        managerRecipe.saveRecipe(recipe: recipeDetail, date: date)
     }
     
     

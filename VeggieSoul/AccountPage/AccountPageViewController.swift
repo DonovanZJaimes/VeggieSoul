@@ -22,6 +22,16 @@ class AccountPageViewController: UIViewController {
         super.viewDidLoad()
         //tabBarItem.badgeValue = "!"
         setUpAnimationView()
+        Task {
+            do {
+                let user = try await submitOrder(parameters: parameters)
+                print (user)
+            } catch {
+                print("ERROR USUARIO")
+                print(error)
+            }
+        }
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -48,39 +58,114 @@ class AccountPageViewController: UIViewController {
     
     //MARK: Guardar las nuevas recetas en CoreData
     func saveNewRecipe (){
-        //Se guardan las recetas
-        for index in 0 ..< CoreDataRecipe.shared.newRecipes.count {
-            let recipe = CoreDataRecipe.shared.newRecipes[index]
-            managerRecipe.saveRecipe(recipe: recipe)
-        }
-        
         //Se eliminan las nuevas agregadas
         CoreDataRecipe.shared.newRecipes.removeAll()
-        
         let recipes = managerRecipe.fetchRecipes()
-        print("RECETAS")
+        print("RECETAS AGREGADAS:")
         recipes.forEach {
             item in
-            print(item.nameRecipe!)
+            let name = item.nameRecipe!
+            print(name)
+            //print(item.date?.formatted())
         }
-
+        /*
+        let lastRecipe = recipes.last
+        let ingredients = managerRecipe.fetchRecipeIngredients(recipe: lastRecipe!)
+        print("INGREDIENTES ULTIMA")
+        ingredients.forEach {
+            item in
+            print(item.name)
+        }
+        let instructions = managerRecipe.fetchRecipeInstructions(recipe: lastRecipe!)
+        print("INSTRUCCIONES ULTIMA")
+        instructions.forEach {
+            item in
+            print(item.number)
+        }
+        let nutrition = managerRecipe.fetchRecipeNutrition(recipe: lastRecipe!)
+        print("NUTRICION ULTIMA")
+        print(nutrition.weightPerServingAmount)
+        print(nutrition.weightPerServingUnit)
+        
+        let nutrients = managerRecipe.fetchRecipeNutritionFlavonoid(nutrition: nutrition)
+        print("NUTRIENTES ULTIMA")
+        nutrients.forEach {
+            item in
+            print(item.name)
+        }
+        */
     }
     
     func saveNewIngredient () {
-        //Se guardan los ingredientes
-        for index in 0 ..< CoreDataIngredient.shared.newIngredients.count {
-            let ingredientForCoreData = CoreDataIngredient.shared.newIngredients[index]
-            managerIngredient.saveIngredient(ingredient: ingredientForCoreData)
-        }
-        
         //Se eliminan los nuevo agregados
         CoreDataIngredient.shared.newIngredients.removeAll()
         let ingredients = managerIngredient.fetchIngredients()
-        print("INGREDIENTES")
+        print("INGREDIENTES AGREGADOS")
         ingredients.forEach{
             item in
             print(item.name!)
+            //print(item.date)
         }
+        /*
+        let lastingredient = ingredients.last
+        let nutrients = managerIngredient.fetchIngredientNutrients(ingredient: lastingredient!)
+        print("NUTRIENTES INGREDIENTES")
+        nutrients.forEach{
+            item in
+            print(item.name)
+        }*/
     }
+    
+    let baseURL = URL(string: "https://api.spoonacular.com/users/connect")!
+    
+    let parameters: [String: String] = [
+        
+            "username": "DonovanZ",
+            "firstName": "Donovan",
+            "lastName": "Jaimes",
+            "email": "donovan133jaimes@gmail.com"
+        
+    ]
+    
+    func submitOrder( parameters: [String: String]) async throws -> ConnectUser {
+        let orderURL = baseURL
+        
+        var request = URLRequest(url: orderURL)
+        request.httpMethod = "POST"
+        //request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        /*request.setValue(
+            "authToken",
+            forHTTPHeaderField: "Authorization"
+        )*/
+        //request.setValue("application/json", forHTTPHeaderField: "Accept")
+        
+      
+        
+        //let jsonEncoder = JSONEncoder()
+        //let jsonData = try? jsonEncoder.encode(parameters)
+        
+        let jsonData = try JSONEncoder().encode(parameters)
+       
+        request.httpBody = jsonData
+        let (data, response) = try await URLSession.shared.data(for: request)
+        
+        guard let httpResponse = response as? HTTPURLResponse,
+           httpResponse.statusCode == 200 else {
+            throw MenuControllerError.orderRequestFailed
+        }
+        
+        let decoder = JSONDecoder()
+        let orderResponse = try decoder.decode(ConnectUser.self, from: data)
+        return orderResponse
+    }
+    
+    enum MenuControllerError: Error, LocalizedError {
+        case orderRequestFailed
+    }
+    
 
+}
+
+struct ConnectUser: Codable {
+    let username, spoonacularPassword, hash: String
 }

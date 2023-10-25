@@ -31,9 +31,22 @@ class CoreDataRecipe {
         }
     }
     
+    //MARK: Core Data Saving support
+      func save () {
+        let context = container.viewContext
+        if context.hasChanges {
+          do {
+              try context.save()
+          } catch {
+              let nserror = error as NSError
+              fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+          }
+        }
+      }
+    
     
     //MARK: Guardar un nueva receta
-    func saveRecipe(recipe: RecipeDetail){
+    func saveRecipe(recipe: RecipeDetail, date: Date){
         
         /*para poder interactuar con la base de datos es necesario contar con un NSManagedObjectContext*/
         let context = container.viewContext
@@ -49,6 +62,8 @@ class CoreDataRecipe {
         Recipe.minutes = Int16(recipe.minutes)
         Recipe.nameRecipe = recipe.nameRecipe
         Recipe.servings = Int16(recipe.servings)
+        Recipe.date = date
+        
         
         
         /*Creamos un objeto RecipeIngredient utilizando como parámetro el contexto anterior. Asociamos sus propiedades con los parámetros recibidos en el método*/
@@ -134,7 +149,85 @@ class CoreDataRecipe {
         return []
     }
     
+    //MARK: Buscar y regresar todos los ingredientes de una receta
+    func fetchRecipeIngredients(recipe: RecipeEntity) -> [RecipeIngredientEntity] {
+        //Creamos y configuramos el request para hacer la peticion del arreglo de ingredientes
+        let request: NSFetchRequest<RecipeIngredientEntity> = RecipeIngredientEntity.fetchRequest()
+        request.predicate = NSPredicate(format: "belongsToRecipeEntity = %@", recipe)
+        request.sortDescriptors = [NSSortDescriptor(key: "id", ascending: false)]
+        var fetchedIngredients: [RecipeIngredientEntity] = [] /***Arreglo de ingredientes vacio*/
+        do {
+            fetchedIngredients = try container.viewContext.fetch(request) /***Arreglo de ingredientes*/
+        } catch let error {
+            print("Error fetching ingredients \(error)")
+        }
+        return fetchedIngredients
+    }
    
+    //MARK: Buscar y regresar todas las instrucciones de una receta
+    func fetchRecipeInstructions(recipe: RecipeEntity) -> [RecipeInstructionsEntity] {
+        //Creamos y configuramos el request para hacer la peticion del arreglo de las instrucciones
+        let request: NSFetchRequest<RecipeInstructionsEntity> = RecipeInstructionsEntity.fetchRequest()
+        request.predicate = NSPredicate(format: "belongsToRecipeEntity = %@", recipe)
+        request.sortDescriptors = [NSSortDescriptor(key: "step", ascending: false)]
+        var fetchedInstructions: [RecipeInstructionsEntity] = [] /***Arreglo de instrucciones vacio*/
+        do {
+            fetchedInstructions = try container.viewContext.fetch(request) /***Arreglo de instrucciones*/
+        } catch let error {
+            print("Error fetching instructions \(error)")
+        }
+        return fetchedInstructions
+    }
+    
+    //MARK: Buscar y regresar la informacion basica nutrimental de una receta
+    func fetchRecipeNutrition(recipe: RecipeEntity) -> RecipeNutritionEntity {
+        //Creamos y configuramos el request para hacer la peticion de la informacion nutrimental
+        let request: NSFetchRequest<RecipeNutritionEntity> = RecipeNutritionEntity.fetchRequest()
+        request.predicate = NSPredicate(format: "belongsToRecipeEntity = %@", recipe)
+        request.sortDescriptors = [NSSortDescriptor(key: "weightPerServingUnit", ascending: false)]
+        var fetchedNutrition: [RecipeNutritionEntity] = []
+        do {
+            fetchedNutrition = try container.viewContext.fetch(request) /***Arreglo de instrucciones*/
+        } catch let error {
+            print("Error fetching nutrition \(error)")
+        }
+        return fetchedNutrition.first!
+    }
+    
+    //MARK: Buscar y regresar la informacion de los nutrientes de una receta
+    func fetchRecipeNutritionFlavonoid(nutrition: RecipeNutritionEntity) -> [RecipeNutritionFlavonoidEntity] {
+        //Creamos y configuramos el request para hacer la peticion de la informacion nutrimental
+        let request: NSFetchRequest<RecipeNutritionFlavonoidEntity> = RecipeNutritionFlavonoidEntity.fetchRequest()
+        request.predicate = NSPredicate(format: "belongToRecipeNutritionEntity = %@", nutrition)
+        request.sortDescriptors = [NSSortDescriptor(key: "unit", ascending: false)]
+        var fetchedNutrients: [RecipeNutritionFlavonoidEntity] = []
+        do {
+            fetchedNutrients = try container.viewContext.fetch(request) /***Arreglo de nutrientes*/
+        } catch let error {
+            print("Error fetching nutrients \(error)")
+        }
+        return fetchedNutrients
+    }
+    
+    //MARK: Eliminar todas las recetas
+    func deleteRecipes(){
+        let context = container.viewContext
+        let fetchRequest: NSFetchRequest<RecipeEntity> = RecipeEntity.fetchRequest()
+        let deleteBatch = NSBatchDeleteRequest(fetchRequest: fetchRequest as! NSFetchRequest<NSFetchRequestResult>)
+        do {
+            try context.execute(deleteBatch)
+            print("Delete all Recipes")
+        } catch {
+            print("Error Delete all Recipes \(error)")
+        }
+    }
+    
+    //MARK: Eliminar una receta en especifico
+    func deleteRecipe(_ recipe: RecipeEntity) {
+        let context = container.viewContext
+        context.delete(recipe) /***Eliminamos la receta*/
+        save()/***Guardamos los cabios*/
+    }
     
     //MARK: Notificaciones con CoreData
     static let shared = CoreDataRecipe() /***Instancia compartida*/

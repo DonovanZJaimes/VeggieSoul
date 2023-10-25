@@ -30,8 +30,21 @@ class CoreDataIngredient {
         }
     }
     
+    //MARK: Core Data Saving support
+      func save () {
+        let context = container.viewContext
+        if context.hasChanges {
+          do {
+              try context.save()
+          } catch {
+              let nserror = error as NSError
+              fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+          }
+        }
+      }
+    
     //MARK: Guardar ingrediente
-    func saveIngredient(ingredient: IngredientID) {
+    func saveIngredient(ingredient: IngredientID, date: Date) {
         /*para poder interactuar con la base de datos es necesario contar con un NSManagedObjectContext*/
         let context = container.viewContext        /*Creamos un objeto Ingredient utilizando como parámetro el contexto anterior. Asociamos sus propiedades con los parámetros recibidos en el método*/
         let Ingredient = IngredientID2Entity(context: context)
@@ -46,7 +59,7 @@ class CoreDataIngredient {
         Ingredient.percentProtein = ingredient.nutrition.caloricBreakdown.percentProtein
         Ingredient.unit = ingredient.nutrition.weightPerServing.unit
         Ingredient.amount = Int64(ingredient.nutrition.weightPerServing.amount)
-        
+        Ingredient.date = date
         
         
         /*Creamos un objeto IngredientNutrientsEntity utilizando como parámetro el contexto anterior. Asociamos sus propiedades con los parámetros recibidos en el método*/
@@ -88,6 +101,41 @@ class CoreDataIngredient {
         
         
         return []
+    }
+    
+    //MARK: Buscar y regresar todos los nutrientes de un ingrediente
+    func fetchIngredientNutrients(ingredient: IngredientID2Entity) -> [IngredientNutrients2Entity] {
+        //Creamos y configuramos el request para hacer la peticion del arreglo de nutrientes
+        let request: NSFetchRequest<IngredientNutrients2Entity> = IngredientNutrients2Entity.fetchRequest()
+        request.predicate = NSPredicate(format: "belongsToIngredientID2Entity = %@", ingredient)
+        request.sortDescriptors = [NSSortDescriptor(key: "unit", ascending: false)]
+        var fetchedNutrients: [IngredientNutrients2Entity] = [] /***Arreglo de nutrientes vacio*/
+        do {
+            fetchedNutrients = try container.viewContext.fetch(request) /***Arreglo de nutrientes*/
+        } catch let error {
+            print("Error fetching nutrients \(error)")
+        }
+        return fetchedNutrients
+    }
+    
+     //MARK: Eliminar todos los ingredientes
+    func deleteIngredients(){
+        let context = container.viewContext
+        let fetchRequest: NSFetchRequest<IngredientID2Entity> = IngredientID2Entity.fetchRequest()
+        let deleteBatch = NSBatchDeleteRequest(fetchRequest: fetchRequest as! NSFetchRequest<NSFetchRequestResult>)
+        do {
+            try context.execute(deleteBatch)
+            print("Delete all Ingredients")
+        } catch {
+            print("Error Delete all Ingredients \(error)")
+        }
+    }
+    
+    //MARK: Eliminar un ingrediente en especifico
+    func deleteIngredient(_ ingredient: IngredientID2Entity) {
+        let context = container.viewContext
+        context.delete(ingredient) /***Eliminamos el ingrediente*/
+        save() /***Guardamos los cambios*/
     }
     
     
