@@ -12,17 +12,17 @@ struct RecipeIngredient: Codable {
     let id: Int
     let image: String?
     let name: String
-    let measures: Measures
+    var measures: Measures
     var itsAdded: Bool? /***Esta variable no esta dentro de la API. Se ocupara para saber si el ingrediente ya esta completo o no */
 }
 
 struct Measures: Codable {
-    let us, metric: Metric
+    var us, metric: Metric
 }
 
 
 struct Metric: Codable {
-    let amount: Double
+    var amount: Double
     let unitShort, unitLong: String
 }
 

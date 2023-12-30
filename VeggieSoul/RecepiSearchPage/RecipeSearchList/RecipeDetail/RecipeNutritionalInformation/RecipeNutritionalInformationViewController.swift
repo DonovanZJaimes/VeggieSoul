@@ -13,6 +13,7 @@ import Charts
 class RecipeNutritionalInformationViewController: UIViewController {
     
     // MARK: Outlets de la vista
+    @IBOutlet var titleLabel: UILabel!
     @IBOutlet var CaloriesLabel: UILabel!
     @IBOutlet var ProteinLabel: UILabel!
     @IBOutlet var TotalFatLabel: UILabel!
@@ -23,6 +24,7 @@ class RecipeNutritionalInformationViewController: UIViewController {
     //MARK: Inicializaciones generles
     var recipeNutrition: RecipeNutrition! /***Informacion recibida de la vista RecipeDetailViewController*/
     var nutrients: [Flavonoid]!/***Data para la CharView*/
+    var portions: Int! /***Porciones seleccionadas de la receta*/
 
     
     //MARK: Actualizacion y configuracion de vista
@@ -37,7 +39,13 @@ class RecipeNutritionalInformationViewController: UIViewController {
     
     //MARK: Configurar la Data para el ChartView
     func configureDataOfChartView() {
-        nutrients = recipeNutrition.nutrients/***Configuramos los valores de nutriets para la ser la Data */
+        var newNutrients = [Flavonoid]()
+        //Modificamos el valor de los nutrientes en base a la cantidad de las porciones
+        recipeNutrition.nutrients.forEach { nutrient in
+            newNutrients.append(Flavonoid(name: nutrient.name, amount: (nutrient.amount * Double(portions)), unit: nutrient.unit, percentOfDailyNeeds: ((nutrient.percentOfDailyNeeds ?? 0) * Double(portions)) ))
+        }
+        nutrients = newNutrients
+        //nutrients = recipeNutrition.nutrients/***Configuramos los valores de nutriets para la ser la Data */
         nutrients.reverse()
     }
     
@@ -122,10 +130,12 @@ class RecipeNutritionalInformationViewController: UIViewController {
     
     //MARK: Configurar los valores de las labels de la vista
     func setLabels () {
+        let portionString = portions > 1 ? "portions" : "portion"
+        titleLabel.text = "     Quickview for \(String(portions)) " + portionString
         /*Presentar el valor nutricional de las 4 principales nutrientes en cada label correspondiente*/
-        recipeNutrition.nutrients.forEach { nutrient in
+        nutrients.forEach { nutrient in
             if nutrient.name == "Calories" {
-                CaloriesLabel.text = "\(nutrient.amount) Calories"
+                CaloriesLabel.text = "\(nutrient.amount ) Calories"
             }
             if nutrient.name == "Fat" {
                 TotalFatLabel.text = "\(nutrient.amount)\(nutrient.unit) Total Fat"

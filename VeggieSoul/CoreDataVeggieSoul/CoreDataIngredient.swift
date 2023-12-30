@@ -45,6 +45,7 @@ class CoreDataIngredient {
     
     //MARK: Guardar ingrediente
     func saveIngredient(ingredient: IngredientID, date: Date) {
+        let idU = UUID() /***Creamos un identificador unico para cada ingrediente*/
         /*para poder interactuar con la base de datos es necesario contar con un NSManagedObjectContext*/
         let context = container.viewContext        /*Creamos un objeto Ingredient utilizando como parámetro el contexto anterior. Asociamos sus propiedades con los parámetros recibidos en el método*/
         let Ingredient = IngredientID2Entity(context: context)
@@ -60,6 +61,7 @@ class CoreDataIngredient {
         Ingredient.unit = ingredient.nutrition.weightPerServing.unit
         Ingredient.amount = Int64(ingredient.nutrition.weightPerServing.amount)
         Ingredient.date = date
+        Ingredient.idU = idU
         
         
         /*Creamos un objeto IngredientNutrientsEntity utilizando como parámetro el contexto anterior. Asociamos sus propiedades con los parámetros recibidos en el método*/

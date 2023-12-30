@@ -93,7 +93,7 @@ class RecipeDetailViewController: UIViewController {
                 if let image = try? await sendRequest(fetchRecipeImage){
                     recipeImage.image = image /***Agregamos la imagen obtenida a la vista***/
                 }
-                recipeDetail = recipe /***Asignamos la receta obtenida a sta variable*/
+                recipeDetail = recipe /***Asignamos la receta obtenida a esta variable*/
                 //Al valor de "itsAdded" de los ingredientes de esta receta se asigna en false
                 for index in 0...(recipeDetail.extendedIngredients.count - 1) {
                     recipeDetail.extendedIngredients[index].itsAdded = false
@@ -121,7 +121,7 @@ class RecipeDetailViewController: UIViewController {
         //Agregamos la cantidad de gramos por porcion de la receta
         let weightPerServing = recipe.nutrition.weightPerServing.amount
         let weightPerServingUtnit = recipe.nutrition.weightPerServing.unit
-        weightPerServingLabel.text = "Data for a portion \(weightPerServing)" + weightPerServingUtnit + " prepared"
+        weightPerServingLabel.text = "Data for 1 portion \(weightPerServing)" + weightPerServingUtnit + " prepared"
         
         //Agregamos informacion basica de los nutrientes importantes de la receta
         recipe.nutrition.nutrients.forEach { nutrient in
@@ -213,6 +213,7 @@ class RecipeDetailViewController: UIViewController {
             //Instanciamos un recipeNutritionalInformationViewController
             if let recipeNutritionalInformationViewController = recipeNutritionalInformation.instantiateViewController(withIdentifier: "RecipeNutritionalInformationVC") as? RecipeNutritionalInformationViewController {
                 recipeNutritionalInformationViewController.recipeNutrition = recipeDetail.nutrition /***Se envia la informacion nutricional de la receta */
+                recipeNutritionalInformationViewController.portions = Int(stepperForNumberOFServings.value)
                 // realizamos la presentacion de tipo push para la siguiente vista
                 self.navigationController?.pushViewController(recipeNutritionalInformationViewController, animated: true)
             }
@@ -221,12 +222,61 @@ class RecipeDetailViewController: UIViewController {
     
     //MARK: Guardar la receta en CoreDataRecipe
     @IBAction func AddToFoodButton(_ sender: UIButton) {
-        CoreDataRecipe.shared.newRecipes.append(recipeDetail)
-        managerRecipe.saveRecipe(recipe: recipeDetail, date: date)
-    }
-    
-    
+        //Dependiendo de las porciones seleccionadas, aparecera una alerta diferente
+        switch selectedPortion {
+        case 1:/***En caso de haber seleccionada una porcion*/
+            let alertController = UIAlertController(title: "ADD RECIPE", message: "Do you want to add only 1 portion ?", preferredStyle: .alert)
+            let alertAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            let alertAction2 = UIAlertAction(title: "Accept", style: .default, handler: { action in
+                //Agregar una porcion de la receta en CoreData
+                self.AddFoodToCoreData(portions: 1)
+            })
+            alertController.addAction(alertAction)
+            alertController.addAction(alertAction2)
+            alertController.popoverPresentationController?.sourceView = sender
+            present(alertController, animated: true, completion: nil) /***Presentamos la alerta con 2 acciones*/
+        default: /***En caso de haber seleccionado mas de una porcion*/
+            let alertController = UIAlertController(title: "ADD RECIPE", message: "Do you want to add \(selectedPortion) portions?", preferredStyle: .alert)
+            let alertAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            let alertAction2 = UIAlertAction(title: "Accept", style: .default, handler: { action in
+                //Agregar las porciones seleccionadas de la receta en CoreData
+                self.AddFoodToCoreData(portions: Double(self.selectedPortion))
+            })
+            let alertAction3 = UIAlertAction(title: "Add only 1 portion", style: .default, handler: { action in
+                //Agregar una porcion de la receta en CoreData
+                self.AddFoodToCoreData(portions: 1)
+            })
+            alertController.addAction(alertAction)
+            alertController.addAction(alertAction2)
+            alertController.addAction(alertAction3)
+            alertController.popoverPresentationController?.sourceView = sender
+            present(alertController, animated: true, completion: nil)  /***Presentamos la alerta con 3 acciones*/
 
+        }
+    }
+    // metodo para agregar la receta con las porciones seleccionadas a CoreData
+    func AddFoodToCoreData(portions: Double){
+        //modificamos los valores de los nutrientes de la receta en base a las porciones seleccionadas
+        var nutricion = RecipeNutrition(nutrients: [], weightPerServing: recipeDetail.nutrition.weightPerServing)
+        recipeDetail.nutrition.nutrients.forEach{ nutrient in
+            nutricion.nutrients.append(Flavonoid(name: nutrient.name, amount: (nutrient.amount * portions), unit: nutrient.unit, percentOfDailyNeeds: (nutrient.percentOfDailyNeeds! * portions)))
+        }
+        //modificamos los valores de la cantidad de ingredientes de la receta en base a las porciones seleccionadas
+        var ingredients = recipeDetail.extendedIngredients
+        for ingredient in 0 ..< ingredients.count {
+            ingredients[ingredient].itsAdded = nil
+            ingredients[ingredient].measures.metric.amount *= portions
+            ingredients[ingredient].measures.us.amount *= portions
+        }
+        //Creamos una nueva receta con los nuevos valores
+        var newRecipe = recipeDetail
+        newRecipe?.servings = Int(portions)
+        newRecipe?.nutrition = nutricion
+        newRecipe?.extendedIngredients = ingredients
+        //Guardamos la nueva receta modificada en CoreData
+        CoreDataRecipe.shared.newRecipes.append(newRecipe!)
+        managerRecipe.saveRecipe(recipe: newRecipe!, date: date)
+    }
 }
 
 

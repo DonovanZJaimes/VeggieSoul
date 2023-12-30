@@ -17,7 +17,7 @@ struct RecipeDetail: Codable {
     let id: Int
     let nameRecipe: String
     let minutes: Int
-    let servings: Int
+    var servings: Int
     var image: String?
     var extendedIngredients: [RecipeIngredient]
     var nutrition: RecipeNutrition

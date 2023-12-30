@@ -28,40 +28,40 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="393" height="239.66666666666666"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="cKh-hT-pru">
-                                                        <rect key="frame" x="29.999999999999986" y="0.0" width="214.66666666666663" height="239.66666666666666"/>
+                                                        <rect key="frame" x="30.000000000000014" y="0.0" width="223.33333333333337" height="239.66666666666666"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="     Quickview" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lW5-Zn-wLN">
-                                                                <rect key="frame" x="0.0" y="0.0" width="214.66666666666666" height="24"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="     Quickview for a portion" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lW5-Zn-wLN">
+                                                                <rect key="frame" x="0.0" y="0.0" width="223.33333333333334" height="24"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
                                                                 <color key="textColor" name="ColorTeal"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- Calories" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cy3-PQ-bMk">
-                                                                <rect key="frame" x="0.0" y="47" width="214.66666666666666" height="20.333333333333329"/>
+                                                                <rect key="frame" x="0.0" y="47" width="223.33333333333334" height="20.333333333333329"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- Protein" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b4y-zO-XAS">
-                                                                <rect key="frame" x="0.0" y="90.333333333333343" width="214.66666666666666" height="20.333333333333329"/>
+                                                                <rect key="frame" x="0.0" y="90.333333333333343" width="223.33333333333334" height="20.333333333333329"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- Total Fat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mGr-lt-4mg">
-                                                                <rect key="frame" x="0.0" y="133.66666666666666" width="214.66666666666666" height="20.333333333333343"/>
+                                                                <rect key="frame" x="0.0" y="133.66666666666666" width="223.33333333333334" height="20.333333333333343"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- Carbs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ljv-7R-MAh">
-                                                                <rect key="frame" x="0.0" y="177" width="214.66666666666666" height="20.333333333333343"/>
+                                                                <rect key="frame" x="0.0" y="177" width="223.33333333333334" height="20.333333333333343"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Covered percen of daily need:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="64d-nT-ndC">
-                                                                <rect key="frame" x="0.0" y="220.33333333333331" width="214.66666666666666" height="19.333333333333343"/>
+                                                                <rect key="frame" x="0.0" y="220.33333333333331" width="223.33333333333334" height="19.333333333333343"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -119,6 +119,7 @@
                         <outlet property="ChartView" destination="Sij-X4-W3V" id="qbc-6L-2oO"/>
                         <outlet property="ProteinLabel" destination="b4y-zO-XAS" id="lCb-nh-Z4H"/>
                         <outlet property="TotalFatLabel" destination="mGr-lt-4mg" id="T76-db-F81"/>
+                        <outlet property="titleLabel" destination="lW5-Zn-wLN" id="w52-5r-Jrf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

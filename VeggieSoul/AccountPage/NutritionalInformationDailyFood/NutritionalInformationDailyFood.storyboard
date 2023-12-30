@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Nutritional Information Daily Food View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="NutritionalInformationDailyFoodVC" id="Y6W-OH-hqX" customClass="NutritionalInformationDailyFoodViewController" customModule="VeggieSoul" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="xRh-Oy-FXB">
+                                <rect key="frame" x="83" y="69" width="227" height="32"/>
+                                <segments>
+                                    <segment title="Macronutrients"/>
+                                    <segment title="Micronutrients"/>
+                                </segments>
+                                <color key="selectedSegmentTintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="switchBetweenMacroAndMicronutrients:" destination="Y6W-OH-hqX" eventType="valueChanged" id="3Tm-XH-Hzm"/>
+                                </connections>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Percent Of Daily Needs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1rd-OP-ys6">
+                                <rect key="frame" x="213.66666666666663" y="110" width="159.33333333333337" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dhT-dS-KxX" customClass="HorizontalBarChartView" customModule="Charts">
+                                <rect key="frame" x="20" y="138" width="353" height="660"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="dhT-dS-KxX" firstAttribute="top" secondItem="1rd-OP-ys6" secondAttribute="bottom" constant="10" id="A7h-Us-OeI"/>
+                            <constraint firstItem="dhT-dS-KxX" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="Cct-VH-def"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="dhT-dS-KxX" secondAttribute="bottom" constant="20" id="DDF-gt-xgu"/>
+                            <constraint firstItem="xRh-Oy-FXB" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="10" id="LgO-wT-HGX"/>
+                            <constraint firstItem="1rd-OP-ys6" firstAttribute="top" secondItem="xRh-Oy-FXB" secondAttribute="bottom" constant="10" id="Qf1-hR-t6q"/>
+                            <constraint firstItem="xRh-Oy-FXB" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="bma-dX-qVO"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="1rd-OP-ys6" secondAttribute="trailing" constant="20" id="r39-c8-MKX"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="dhT-dS-KxX" secondAttribute="trailing" constant="20" id="z0A-Om-ghe"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="ChartView" destination="dhT-dS-KxX" id="5jb-Kq-t0b"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="42" y="4"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

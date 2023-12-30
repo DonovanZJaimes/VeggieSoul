@@ -47,7 +47,7 @@ class CoreDataRecipe {
     
     //MARK: Guardar un nueva receta
     func saveRecipe(recipe: RecipeDetail, date: Date){
-        
+        let idU = UUID() /***Creamos un identificador unico para cada receta*/
         /*para poder interactuar con la base de datos es necesario contar con un NSManagedObjectContext*/
         let context = container.viewContext
           
@@ -63,6 +63,8 @@ class CoreDataRecipe {
         Recipe.nameRecipe = recipe.nameRecipe
         Recipe.servings = Int16(recipe.servings)
         Recipe.date = date
+        Recipe.idU = idU
+        
         
         
         
@@ -87,7 +89,7 @@ class CoreDataRecipe {
         
         
         /*Creamos un objeto RecipeInstructions utilizando como parámetro el contexto anterior. Asociamos sus propiedades con los parámetros recibidos en el método*/
-        if  recipe.instructions?.count != nil {
+        if  recipe.instructions?.count != 0 {
             for index in 0 ..< recipe.instructions![0].steps.count {
                 let RecipeInstructions = RecipeInstructionsEntity(context: context)
                 RecipeInstructions.number = Int16(recipe.instructions![0].steps[index].number)
@@ -186,6 +188,7 @@ class CoreDataRecipe {
         request.predicate = NSPredicate(format: "belongsToRecipeEntity = %@", recipe)
         request.sortDescriptors = [NSSortDescriptor(key: "weightPerServingUnit", ascending: false)]
         var fetchedNutrition: [RecipeNutritionEntity] = []
+        //var fetchedNutrition: RecipeNutritionEntity
         do {
             fetchedNutrition = try container.viewContext.fetch(request) /***Arreglo de instrucciones*/
         } catch let error {

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Add Food View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="AddFoodVC" id="Y6W-OH-hqX" customClass="AddFoodViewController" customModule="VeggieSoul" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="3Bu-Wa-Rvn">
+                                <rect key="frame" x="56.666666666666657" y="79" width="280" height="30"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="eon-Q9-sJ8">
+                                        <rect key="frame" x="0.0" y="0.0" width="280" height="24"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6AM-Ez-Ib2">
+                                                <rect key="frame" x="0.0" y="0.0" width="130" height="24"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="130" id="Ipx-ep-oq7"/>
+                                                    <constraint firstAttribute="height" constant="24" id="oou-4C-7a1"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Ingredients">
+                                                    <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle3"/>
+                                                    <color key="baseForegroundColor" systemColor="labelColor"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="selectIngredientsForSearchWithButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="k6S-dA-KuP"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bdr-IB-2Nk">
+                                                <rect key="frame" x="150" y="0.0" width="130" height="24"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="24" id="Lni-dd-Jpr"/>
+                                                    <constraint firstAttribute="width" constant="130" id="xPa-k9-rQh"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Recipes">
+                                                    <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle3"/>
+                                                    <color key="baseForegroundColor" systemColor="labelColor"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="selectRecipesForSearchWithButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="k5E-fq-Mcz"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bdP-Ho-eJT">
+                                        <rect key="frame" x="0.0" y="24" width="130" height="6"/>
+                                        <color key="backgroundColor" name="ColorTeal"/>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="bdP-Ho-eJT" firstAttribute="width" secondItem="Bdr-IB-2Nk" secondAttribute="width" id="IXq-rT-4Gg"/>
+                                    <constraint firstItem="bdP-Ho-eJT" firstAttribute="height" secondItem="Bdr-IB-2Nk" secondAttribute="height" multiplier="0.25" id="psC-zS-eIi"/>
+                                </constraints>
+                            </stackView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Xsh-XX-K0A">
+                                <rect key="frame" x="20" y="139" width="353" height="575"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XUj-Gs-pwE" customClass="AnimationView" customModule="Lottie">
+                                <rect key="frame" x="146.66666666666666" y="711" width="100" height="100"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="XUj-Gs-pwE" secondAttribute="height" multiplier="1:1" id="6bV-Gf-QeI"/>
+                                    <constraint firstAttribute="width" constant="100" id="hca-tE-p6s"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eI3-Qo-Eao">
+                                <rect key="frame" x="121.66666666666669" y="744" width="150" height="34"/>
+                                <color key="backgroundColor" name="ColorTeal"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="Di8-iU-AJ7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
+                                <color key="tintColor" name="ColorTeal"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Add Ingredient"/>
+                                <connections>
+                                    <action selector="addNewFood:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="3Sl-pL-pxJ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="3Bu-Wa-Rvn" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="0hf-fG-2b7"/>
+                            <constraint firstItem="3Bu-Wa-Rvn" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="2Sg-aN-vOa"/>
+                            <constraint firstItem="XUj-Gs-pwE" firstAttribute="centerY" secondItem="eI3-Qo-Eao" secondAttribute="centerY" id="3nk-Ay-jf9"/>
+                            <constraint firstItem="eI3-Qo-Eao" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="CK8-bZ-i7L"/>
+                            <constraint firstItem="XUj-Gs-pwE" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="E79-rY-vM5"/>
+                            <constraint firstItem="eI3-Qo-Eao" firstAttribute="top" secondItem="Xsh-XX-K0A" secondAttribute="bottom" constant="30" id="GY0-Y6-Dwm"/>
+                            <constraint firstItem="Xsh-XX-K0A" firstAttribute="top" secondItem="3Bu-Wa-Rvn" secondAttribute="bottom" constant="30" id="hsQ-ac-Lms"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Xsh-XX-K0A" secondAttribute="trailing" constant="20" id="rN1-G3-8T1"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="eI3-Qo-Eao" secondAttribute="bottom" constant="40" id="rpS-Uh-htl"/>
+                            <constraint firstItem="Xsh-XX-K0A" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="txW-FU-zFg"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="addFoodButton" destination="eI3-Qo-Eao" id="RoX-5j-q77"/>
+                        <outlet property="ingredientsButton" destination="6AM-Ez-Ib2" id="LmC-E7-G0W"/>
+                        <outlet property="loadAnimation" destination="XUj-Gs-pwE" id="Yv9-e4-Unr"/>
+                        <outlet property="recipesButton" destination="Bdr-IB-2Nk" id="5dW-JP-3Hy"/>
+                        <outlet property="selectionBarView" destination="bdP-Ho-eJT" id="03M-G7-xLO"/>
+                        <outlet property="tableView" destination="Xsh-XX-K0A" id="14h-Ka-q4J"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="41.984732824427482" y="3.5211267605633805"/>
+        </scene>
+    </scenes>
+    <designables>
+        <designable name="XUj-Gs-pwE"/>
+    </designables>
+    <resources>
+        <namedColor name="ColorTeal">
+            <color red="0.0" green="0.56862745098039214" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

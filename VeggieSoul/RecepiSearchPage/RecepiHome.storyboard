@@ -85,7 +85,7 @@
                     <connections>
                         <segue destination="xYy-uG-Uz8" kind="relationship" relationship="viewControllers" id="j0z-M8-TlT"/>
                         <segue destination="eib-ua-qDh" kind="relationship" relationship="viewControllers" id="1HH-7G-8wS"/>
-                        <segue destination="Mnh-zK-aQ5" kind="relationship" relationship="viewControllers" id="Jcn-nn-J7F"/>
+                        <segue destination="Zt7-it-BbN" kind="relationship" relationship="viewControllers" id="DLa-5K-0Xs"/>
                         <segue destination="KJB-2J-1eB" kind="relationship" relationship="viewControllers" id="uya-YI-lIg"/>
                     </connections>
                 </tabBarController>
@@ -93,15 +93,33 @@
             </objects>
             <point key="canvasLocation" x="19.626168224299064" y="85.529157667386613"/>
         </scene>
+        <!--Cuenta-->
+        <scene sceneID="0eH-J3-nDF">
+            <objects>
+                <navigationController id="Zt7-it-BbN" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Cuenta" image="person" catalog="system" selectedImage="person" id="77a-Ry-qkt"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4NN-vM-EEr">
+                        <rect key="frame" x="0.0" y="47" width="428" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Mnh-zK-aQ5" kind="relationship" relationship="rootViewController" id="DLj-71-duM"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sRW-Fq-dHg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1081" y="873"/>
+        </scene>
         <!--AccountPageVC-->
         <scene sceneID="UE4-zR-ilj">
             <objects>
                 <viewControllerPlaceholder storyboardName="AccountPage" referencedIdentifier="AccountPageVC" id="Mnh-zK-aQ5" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Cuenta" image="person" catalog="system" selectedImage="person" id="SQ5-VF-cdU"/>
+                    <navigationItem key="navigationItem" id="XDy-6G-rp6"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FCE-fq-ocQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-347" y="518"/>
+            <point key="canvasLocation" x="-473" y="873"/>
         </scene>
         <!--ToolsPageVC-->
         <scene sceneID="vEB-cz-apn">
