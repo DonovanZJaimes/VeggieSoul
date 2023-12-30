@@ -205,7 +205,7 @@ class RecommendedWinesViewController: UIViewController {
     }
     
     //MARK: Actualizacion visual extra de la pantalla
-    // Funcion que actualiza el color del titulo y los items de la tab bar
+    // metodo que actualiza el color del titulo y los items de la tab bar
     func configureNavigationItem (){
         //Configurar el titulo
         let appearance = UINavigationBarAppearance()

@@ -26,7 +26,7 @@ struct AskTheChatbot: APIRequest {
         return URLRequest(url: urlComponents.url!)
     }
     
-    //Funcion que regresa una cantidad de 10 ingredientes de tipo IngredientAutocomplete
+    //metodo que regresa una cantidad de 10 ingredientes de tipo IngredientAutocomplete
     func decodeRequest(data: Data) throws -> Answer {
         let jsonDecoder = JSONDecoder()
         let answerDecoder = try jsonDecoder.decode(Answer.self, from: data)
@@ -53,7 +53,7 @@ struct FetchChatbotImage: APIRequest {
         return URLRequest(url: urlComponents!.url!)
     }
     
-    // funcion para reresar una imagen o un error en caso de que no se pueda decodificar
+    // metodo para reresar una imagen o un error en caso de que no se pueda decodificar
     func decodeRequest(data: Data) throws -> UIImage {
         guard let image = UIImage(data: data) else{
             throw APIRequesError.imageDataMising

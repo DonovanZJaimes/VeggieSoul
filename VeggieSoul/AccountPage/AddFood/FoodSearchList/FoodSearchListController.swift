@@ -27,7 +27,7 @@ struct AutocompleteIngredientSearch: APIRequest {
         return URLRequest(url: urlComponents.url!)
     }
     
-    //Funcion que regresa una cantidad de 10 ingredientes de tipo AutocompleteNewIngredient
+    //metodo que regresa una cantidad de 10 ingredientes de tipo AutocompleteNewIngredient
     func decodeRequest(data: Data) throws -> AutocompleteNewIngredients{
         let jsonDecoder = JSONDecoder()
         let ingredientsDecoder = try jsonDecoder.decode(AutocompleteNewIngredients.self, from: data)
@@ -54,7 +54,7 @@ struct FetchIngredientImage: APIRequest {
             return URLRequest(url: urlIngredient)
     }
     
-    // funcion para reresar una imagen o un error en caso de que no se pueda decodificar
+    // metodo para reresar una imagen o un error en caso de que no se pueda decodificar
     func decodeRequest(data: Data) throws -> UIImage {
         guard let image = UIImage(data: data) else{
             throw APIRequesError.imageDataMising
@@ -82,7 +82,7 @@ struct AutocompleteRecipeSearch: APIRequest {
         return URLRequest(url: urlComponents.url!)
     }
     
-    //Funcion que regresa una cantidad de 10 recetas de tipo RecipeAutocomplete
+    //metodo que regresa una cantidad de 10 recetas de tipo RecipeAutocomplete
     func decodeRequest(data: Data) throws -> AutocompleteNewRecipes {
         let jsonDecoder = JSONDecoder()
         let recipesDecoder = try jsonDecoder.decode(AutocompleteNewRecipes.self, from: data)

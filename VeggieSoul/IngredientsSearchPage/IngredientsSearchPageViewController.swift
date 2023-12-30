@@ -36,7 +36,7 @@ class IngredientsSearchPageViewController: UIViewController {
     }
     
    //MARK: Obtener los ingredientes para las celdas
-    //Funcion para obtener una lista de ingredinetes aleatorios
+    //metodo para obtener una lista de ingredinetes aleatorios
     func getRandomIngredients() {
         let totalRecipesWithIgredients = RecipeWithIngredientsAPI(type: "salad")
         var newIngredients = [IngredientSearchPage]()
@@ -59,7 +59,7 @@ class IngredientsSearchPageViewController: UIViewController {
         }
     }
     
-    //Funcion que filtra una lista de ingredientes
+    //metodo que filtra una lista de ingredientes
     func filterIngredients(_ ingredients :[IngredientSearchPage]) -> [IngredientSearchPage] {
         /*Se obtienen solo los ingredientes con una imagen de tipo . png*/
         var ingredientsWithImagePGN = [IngredientSearchPage]()
@@ -185,7 +185,7 @@ extension IngredientsSearchPageViewController: UISearchResultsUpdating, UISearch
         }
         let ingredientSearchListViewController = searchController.searchResultsController as? IngredientSearchListViewController
         ingredientSearchListViewController?.delegate = self
-        ingredientSearchListViewController?.lookForIngredients(word: searchString)/***Mandamos la palabra a la funcion para hacer la busqueda de los ingredientes y mostrarlos en la tableView*/
+        ingredientSearchListViewController?.lookForIngredients(word: searchString)/***Mandamos la palabra al metodo para hacer la busqueda de los ingredientes y mostrarlos en la tableView*/
     }
     
     

@@ -64,7 +64,7 @@ class IngredientDetailTableViewCell: UITableViewCell {
     }
     
    
-    //MARK: Funcion del boton para activar el delegado de la celda
+    //MARK: metodo del boton para activar el delegado de la celda
     @IBAction func buttonToPressToAddIngredient(_ sender: Any) {
         delegate?.ingredientDetailTableViewCell(cell: self) /***Empezamos el delegado cuando se presione el circulo y enviamos la celda selecionada , este delegado lo realizara la vista "RecipeDetail"*/
     }

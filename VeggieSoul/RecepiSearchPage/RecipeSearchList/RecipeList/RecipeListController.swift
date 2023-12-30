@@ -36,7 +36,7 @@ struct RecepiByTypeAndTags: APIRequest {
         return URLRequest(url: urlComponents.url!)
     }
     
-    //Funcion que regresa una cantidad de 10 recetas con el tipo de Recipes
+    //metodo que regresa una cantidad de 10 recetas con el tipo de Recipes
     func decodeRequest(data: Data) throws -> RecipesByCategory {
         let jsonDecoder = JSONDecoder()
         let recipesDecoder = try jsonDecoder.decode(RecipesByCategory.self, from: data)
@@ -80,7 +80,7 @@ struct RecipeByIngredents: APIRequest {
         
     }
     
-    //Funcion que regresa una cantidad de 10 recetas con el tipo de Recipes
+    //metodo que regresa una cantidad de 10 recetas con el tipo de Recipes
     func decodeRequest(data: Data) throws -> RecipesByIngredient {
         let jsonDecoder = JSONDecoder()
         let recipesDecoder = try jsonDecoder.decode(RecipesByIngredient.self, from: data)

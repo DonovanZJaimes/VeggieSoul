@@ -10,7 +10,7 @@
 import Foundation
 
 extension String {
-    /*Funcion para poder convertir la primera letra del string en mayuscula*/
+    /*metodo para poder convertir la primera letra del string en mayuscula*/
     func capitalizingFirstLetter() -> String {
         return prefix(1).capitalized + dropFirst()
     }

@@ -25,7 +25,7 @@ struct AutocompleteIngredientWordToToolsPage: APIRequest {
         return URLRequest(url: urlComponents.url!)
     }
     
-    //Funcion que regresa una cantidad de 10 ingredientes de tipo IngredientAutocomplete
+    //metodo que regresa una cantidad de 10 ingredientes de tipo IngredientAutocomplete
     func decodeRequest(data: Data) throws -> AutocompleteWordIngredientsToToolsPage {
         let jsonDecoder = JSONDecoder()
         let ingredientsDecoder = try jsonDecoder.decode(AutocompleteWordIngredientsToToolsPage.self, from: data)

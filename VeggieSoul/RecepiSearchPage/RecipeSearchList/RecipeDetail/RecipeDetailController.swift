@@ -32,7 +32,7 @@ struct RecipeDetailSearch: APIRequest {
         return URLRequest(url: urlComponents.url!)
     }
     
-    //Funcion que regresa una receta con su informacion
+    //metodo que regresa una receta con su informacion
     func decodeRequest(data: Data) throws -> RecipeDetail {
         let jsonDecoder = JSONDecoder()
         let recipeDecoder = try jsonDecoder.decode(RecipeDetail.self, from: data)

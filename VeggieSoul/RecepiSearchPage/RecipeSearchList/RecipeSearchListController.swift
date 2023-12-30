@@ -30,7 +30,7 @@ struct AutocompleteIngredient: APIRequest {
         return URLRequest(url: urlComponents.url!)
     }
     
-    //Funcion que regresa una cantidad de 10 ingredientes de tipo IngredientAutocomplete
+    //metodo que regresa una cantidad de 10 ingredientes de tipo IngredientAutocomplete
     func decodeRequest(data: Data) throws -> IngredientsAutocomplete {
         let jsonDecoder = JSONDecoder()
         let ingredientsDecoder = try jsonDecoder.decode(IngredientsAutocomplete.self, from: data)
@@ -59,7 +59,7 @@ struct InformationOfAnIngredient: APIRequest {
         return URLRequest(url: urlComponents.url!)
     }
     
-    //Funcion que regresa un ingrediente de tipo IngredientAutocomplete
+    //metodo que regresa un ingrediente de tipo IngredientAutocomplete
     func decodeRequest(data: Data) throws -> IngredientAutocomplete {
         let jsonDecoder = JSONDecoder()
         let ingredientsDecoder = try jsonDecoder.decode(IngredientAutocomplete.self, from: data)
@@ -87,7 +87,7 @@ struct AutocompleteRecipe: APIRequest {
         return URLRequest(url: urlComponents.url!)
     }
     
-    //Funcion que regresa una cantidad de 10 recetas de tipo RecipeAutocomplete
+    //metodo que regresa una cantidad de 10 recetas de tipo RecipeAutocomplete
     func decodeRequest(data: Data) throws -> RecipesAutocomplete {
         let jsonDecoder = JSONDecoder()
         let recipesDecoder = try jsonDecoder.decode(RecipesAutocomplete.self, from: data)
@@ -118,7 +118,7 @@ struct FetchRecipeImageID: APIRequest {
         return URLRequest(url: url)
     }
     
-    // funcion para reresar una imagen o un error en caso de que no se pueda decodificar
+    // metodo para reresar una imagen o un error en caso de que no se pueda decodificar
     func decodeRequest(data: Data) throws -> UIImage {
         guard let image = UIImage(data: data) else{
             throw APIRequesError.imageDataMising

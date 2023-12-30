@@ -32,7 +32,7 @@ struct RecommendedWinesByType: APIRequest {
         return URLRequest(url: urlComponents.url!)
     }
     
-    //Funcion que regresa una cantidad de 10 recetas con el tipo de Recipes
+    //metodo que regresa una cantidad de 10 recetas con el tipo de Recipes
     func decodeRequest(data: Data) throws -> Wines {
         let jsonDecoder = JSONDecoder()
         let recipesDecoder = try jsonDecoder.decode(Wines.self, from: data)
@@ -60,7 +60,7 @@ struct FetchWineImage: APIRequest {
         return URLRequest(url: urlComponents!.url!)
     }
     
-    // funcion para reresar una imagen o un error en caso de que no se pueda decodificar
+    // metodopara reresar una imagen o un error en caso de que no se pueda decodificar
     func decodeRequest(data: Data) throws -> UIImage {
         guard let image = UIImage(data: data) else{
             throw APIRequesError.imageDataMising

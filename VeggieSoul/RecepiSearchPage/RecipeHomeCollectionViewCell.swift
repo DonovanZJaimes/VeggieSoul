@@ -5,7 +5,7 @@
 //  Created by Donovan Z. Jaimes on 29/06/23.
 //
 //MARK: INFO:
-/*Declaracion de outlets para la ceda junto con una funcion para actualizar sus valores*/
+/*Declaracion de outlets para la ceda junto con una metodo para actualizar sus valores*/
 import UIKit
 
 class RecipeHomeCollectionViewCell: UICollectionViewCell {

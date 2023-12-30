@@ -62,7 +62,7 @@ class ChatViewController: MessagesViewController {
         let exampleQuestions = ["Calories is 1 cup of butter", "2 cups of butter in grams", "vitamin a in 2 carrots", "Donuts", "show me some foodie gifts", "what is a substitute for flour", "food trivia", "chicken recipes", "spaghetti with shrimp"]
         var random: Int = .random(in: 0...(exampleQuestions.count - 1))
         let message = Message(sender: currentUser, messageId: newId(), sentDate: newDate(), kind: .text(exampleQuestions[random]))/***Creacion de un nuevo mensaje con el texto registrado*/
-        insertNewMessage(message) /***llamar a la funcion para insertar un nuevo mensaje*/
+        insertNewMessage(message) /***llamar a la metodo para insertar un nuevo mensaje*/
         requestAQuestion(exampleQuestions[random])/***Realizar una peticion a la API para recibir respuesta a la pregunta realizada*/
     }
     
@@ -131,7 +131,7 @@ class ChatViewController: MessagesViewController {
     }
     
     //MARK: Actualizacion visual extra de la pantalla
-    // Funcion que actualiza el color del titulo y los items de la tab bar
+    // metodo que actualiza el color del titulo y los items de la tab bar
     func configureNavigationItem (){
         //Configurar el titulo
         let appearance = UINavigationBarAppearance()
@@ -163,7 +163,7 @@ class ChatViewController: MessagesViewController {
 }
 //MARK: Extension pata los delegados y data source de la vista
 extension ChatViewController: MessagesDisplayDelegate, MessagesLayoutDelegate, MessagesDataSource, InputBarAccessoryViewDelegate, MessageLabelDelegate, MessageCellDelegate {
-    //MARK: funciones para la DataSourse de los mensajes
+    //MARK: metodos para la DataSourse de los mensajes
     func currentSender() -> SenderType {
         currentUser /***Principal usuario*/
     }
@@ -176,9 +176,9 @@ extension ChatViewController: MessagesDisplayDelegate, MessagesLayoutDelegate, M
     
     //MARK: Delegado para mostar un nuevo mensaje al presionar "Send"
     func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
-        //Cuando se presiona el boton de "Send" se realiza esta funcion
+        //Cuando se presiona el boton de "Send" se realiza este metodo
         let message = Message(sender: currentUser, messageId: newId(), sentDate: newDate(), kind: .text(text))/***Creacion de un nuevo mensaje con el texto registrado*/
-        insertNewMessage(message) /***llamar a la funcion para insertar un nnuevo mensaje*/
+        insertNewMessage(message) /***llamar al metodo para insertar un nnuevo mensaje*/
         
         inputBar.inputTextView.text = "" /***Borramos texto del InputBar*/
         inputBar.resignFirstResponder()

@@ -29,7 +29,7 @@ struct ConversionUnitsOfAnIngredient: APIRequest {
         return URLRequest(url: urlComponents.url!)
     }
     
-    //Funcion que regresa la unidad equivalente a la cantidad enviada
+    //metodo que regresa la unidad equivalente a la cantidad enviada
     func decodeRequest(data: Data) throws -> ConvertAmount {
         let jsonDecoder = JSONDecoder()
         let amountDecoder = try jsonDecoder.decode(ConvertAmount.self, from: data)

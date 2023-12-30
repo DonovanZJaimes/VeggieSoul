@@ -57,7 +57,7 @@ class HeaderView: UICollectionReusableView {
     
     //MARK: Actualizar Titulo
     func setTitle (_ title: String){
-        label.text = title /***Funcion para poder asignarle el titulo a la label, este sera del tipo de busqueda y se llama en la vista de "RecipeSearchList"***/
+        label.text = title /***metodo para poder asignarle el titulo a la label, este sera del tipo de busqueda y se llama en la vista de "RecipeSearchList"***/
     }
     
     

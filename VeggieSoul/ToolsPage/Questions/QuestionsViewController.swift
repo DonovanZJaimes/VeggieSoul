@@ -32,7 +32,7 @@ class QuestionsViewController: UIViewController {
     }
     
     //MARK: Actualizacion visual extra de la pantalla
-    // Funcion que actualiza el color del titulo y los items de la tab bar
+    // metodo que actualiza el color del titulo y los items de la tab bar
     func configureNavigationItem (){
         //Configurar el titulo
         let appearance = UINavigationBarAppearance()
@@ -68,7 +68,7 @@ class QuestionsViewController: UIViewController {
 
     }
     
-    //MARK: Funciones de los tres botones en pantalla
+    //MARK: metodos de los tres botones en pantalla
     
     //Se redirige a la pantalla del Chatbot
     @IBAction func goToConversationWithChatbot(_ sender: Any) {

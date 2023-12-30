@@ -94,7 +94,7 @@ extension IngredientSearchListViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         let ingredient = ingredients[indexPath.row]
         let id = ingredient.id
-        delegate?.ingredientSearchListViewController(self, id: id, name: ingredient.name) /***Funcion para poder pasar informacion del id y del name del ingrediente  a la vista anterior y poder pasar a la vista de detalle del ingrediente*/
+        delegate?.ingredientSearchListViewController(self, id: id, name: ingredient.name) /***metodo para poder pasar informacion del id y del name del ingrediente  a la vista anterior y poder pasar a la vista de detalle del ingrediente*/
     }
     
     //En caso de que se haya terminado de mostrar la celda con el ingrediente o la receta con su respectiva imagen
@@ -106,6 +106,6 @@ extension IngredientSearchListViewController: UITableViewDelegate {
 
 //MARK: Delegado para pasar informacion de esta vista a la anterior
 protocol IngredientSearchListViewControllerDelegate: AnyObject {
-    /*Funcion para poder pasar informacion a la vista anterior y poder pasar a la vista de detalle del ingrediente*/
+    /*metodo para poder pasar informacion a la vista anterior y poder pasar a la vista de detalle del ingrediente*/
     func ingredientSearchListViewController(_ controller: IngredientSearchListViewController, id: Int, name: String)
 }

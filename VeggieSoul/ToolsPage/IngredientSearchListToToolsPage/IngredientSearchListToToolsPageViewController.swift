@@ -94,7 +94,7 @@ extension IngredientSearchListToToolsPageViewController: UITableViewDelegate {
         let units = ingredient.possibleUnits
         let image = ingredient.image
         let id = ingredient.id
-        delegate?.ingredientSearchListToToolsPageViewController(self, possibleUnits: units, name: name, image: image, id: id) /***Funcion para poder pasar informacion del id y del name del ingrediente  a la vista anterior y poder pasar a la vista de detalle del ingrediente*/
+        delegate?.ingredientSearchListToToolsPageViewController(self, possibleUnits: units, name: name, image: image, id: id) /***metodo para poder pasar informacion del id y del name del ingrediente  a la vista anterior y poder pasar a la vista de detalle del ingrediente*/
         dismiss(animated: true)
     }
     
@@ -107,6 +107,6 @@ extension IngredientSearchListToToolsPageViewController: UITableViewDelegate {
 
 //MARK: Delegado para pasar informacion de esta vista a la anterior
 protocol IngredientSearchListToToolsPageViewControllerDelegate: AnyObject {
-    /*Funcion para poder pasar informacion a la vista anterior y poder pasar a la vista de detalle del ingrediente*/
+    /*metodo para poder pasar informacion a la vista anterior y poder pasar a la vista de detalle del ingrediente*/
     func ingredientSearchListToToolsPageViewController(_ controller: IngredientSearchListToToolsPageViewController, possibleUnits: [String]?, name: String, image: String, id: Int)
 }

@@ -170,7 +170,7 @@ class RecepiHomeViewController: UIViewController {
     }
     
     //MARK: Actualizacion visual extra de la pantalla
-    //Funcion que actualiza la foto de inicio
+    //metodo que actualiza la foto de inicio
     func setUpImageAcount() {
         imagePersonAcount.layer.cornerRadius = imagePersonAcount.bounds.height / 2
         let borderColor = UIColor(named: "ColorTeal")
@@ -178,7 +178,7 @@ class RecepiHomeViewController: UIViewController {
         imagePersonAcount.layer.borderWidth = 1.5
     }
     
-    // Funcion que actualiza el color del titulo y los items de la tab bar
+    // metodo que actualiza el color del titulo y los items de la tab bar
     func setUpTitle (){
         //Titulo
         let appearance = UINavigationBarAppearance()
@@ -278,7 +278,7 @@ class RecepiHomeViewController: UIViewController {
                 }
                 //Se instancia una vista con el titulo para cada seccion
                 let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: SupplementaryViewKind.header, withReuseIdentifier: SectionHeaderView.reuseIdentifier, for: indexPath) as! SectionHeaderView
-                headerView.setTitle(titleSuplementary)/***Se llama a la funcion de esta vista para establecer el titulo pora cada seccion */
+                headerView.setTitle(titleSuplementary)/***Se llama al metodo de esta vista para establecer el titulo pora cada seccion */
                 headerView.delegate = self /***Adoptamos el protocolo de esta vista para poder pasar a la lista de recetas similares*/
                 headerView.type = titleSuplementary
                 return headerView
@@ -448,7 +448,7 @@ extension RecepiHomeViewController: UICollectionViewDelegate {
 //MARK: Extension para el delegado de SectionHeaderViewDelegate
 extension RecepiHomeViewController: SectionHeaderViewDelegate {
 
-    //Con esta funcion nos encargaremos a ir la vista de todas las recetas similares el tipo que se selcciono
+    //Con este metodo nos encargaremos a ir la vista de todas las recetas similares el tipo que se selcciono
     func sectionHeaderView(reusableView: SectionHeaderView) {
         // instanciamos una vista para presentarla
         let recipeListByCategoryStoryboard = UIStoryboard(name: "RecipeListByCategory", bundle: .main)

@@ -5,7 +5,7 @@
 //  Created by Donovan Z. Jaimes on 15/09/23.
 //
 //MARK: INFO:
-/*extension con funcion para situar una vista dentro de otra en en sus limites */
+/*extension con metodo para situar una vista dentro de otra en en sus limites */
 
 import Foundation
 import UIKit

@@ -239,7 +239,7 @@ class RecipeListByIngredientViewController: UIViewController {
     
     
     //MARK: Actualizacion visual extra de la pantalla
-    // Funcion que actualiza el color del titulo y los items de la tab bar
+    // metodo que actualiza el color del titulo y los items de la tab bar
     func configureNavigationItem (){
         //Configurar el titulo
         let appearance = UINavigationBarAppearance()
@@ -323,12 +323,12 @@ extension RecipeListByIngredientViewController: IngredientRecipeListCollectionVi
                 dataSource.apply(collectionSnapshot)
             }
             
-            requestRecipesByIngredient(ingredients: stringIngredients)/***Metodo para realizar una solicitud de red para poder recibir las nuevas recetas con los ingredientes seleccionados, en esta funcion tambien realizamos un reset a las secciones */
+            requestRecipesByIngredient(ingredients: stringIngredients)/***Metodo para realizar una solicitud de red para poder recibir las nuevas recetas con los ingredientes seleccionados, en este metodo tambien realizamos un reset a las secciones */
         }
         
         
     }
-    //MARK: Funcion para ocultar el boon x
+    //MARK: metodo para ocultar el boon x
     func hideXButton (cell:  IngredientRecipeListCollectionViewCell){
         //En caso de que solo quede un ingrediente en la seccion de ingredientes, el boton del ingrediente se ocultara para no tener que tener una seccion de recetas vacia
         if RecipeItem.ingredientsForRecipeSearch.count == 1  {
@@ -342,12 +342,12 @@ extension RecipeListByIngredientViewController: IngredientRecipeListCollectionVi
 //MARK: Extension para recibir informacion para filtrar las recetas
 extension RecipeListByIngredientViewController: RecipeListByIngredientFilterViewControllerDelegate {
     func recipeListByIngredientFilterViewController(_ controller: RecipeListByIngredientFilterViewController, ranking: Bool, ignorePantry: Bool) {
-        /*Asignar los valores de la funcion anterior a los valores de los inicializaciones generales ranking e ignorePantry */
+        /*Asignar los valores de el metodo anterior a los valores de los inicializaciones generales ranking e ignorePantry */
         let numRanking = ranking == true ? 1 : 2
         self.ranking = numRanking
         self.ignorePantry = ignorePantry
          let stringIngredients = formattedString(ingredients: nameOfIngredients)/***Obtenemos el string adecuado de los ingredientes para poder realizar la nueva  solicitud de red*/
-        requestRecipesByIngredient(ingredients: stringIngredients)/***Metodo para realizar una solicitud de red para poder recibir las nuevas recetas con los ingredientes seleccionados, en esta funcion tambien realizamos un reset a las secciones */
+        requestRecipesByIngredient(ingredients: stringIngredients)/***Metodo para realizar una solicitud de red para poder recibir las nuevas recetas con los ingredientes seleccionados, en este metodo tambien realizamos un reset a las secciones */
     }
     
     

@@ -26,7 +26,7 @@ struct GetIngredientSubstitutesByID: APIRequest {
         return URLRequest(url: urlComponents.url!)
     }
     
-    //Funcion que regresa los ingredientes sustitutos
+    //metodo que regresa los ingredientes sustitutos
     func decodeRequest(data: Data) throws -> IngredientSubstitutes {
         let jsonDecoder = JSONDecoder()
         let substitutesDecoder = try jsonDecoder.decode(IngredientSubstitutes.self, from: data)

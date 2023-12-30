@@ -5,7 +5,7 @@
 //  Created by Donovan on 12/07/23.
 //
 //MARK: INF:
-/*Declaracion de outlets para la ceda junto con una funcion para actualizar sus valores, una accion para eliminar la celda y un protococlo con delegado para realizar la cancelacion de la celda*/
+/*Declaracion de outlets para la ceda junto con una metodo para actualizar sus valores, una accion para eliminar la celda y un protococlo con delegado para realizar la cancelacion de la celda*/
 
 
 import UIKit

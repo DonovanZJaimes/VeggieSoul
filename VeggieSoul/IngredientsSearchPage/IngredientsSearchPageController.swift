@@ -27,7 +27,7 @@ struct RecipeWithIngredientsAPI: APIRequest {
         return URLRequest(url: urlComponents.url!)
     }
     
-    //Funcion que regresa una cantidad de 10 recetas con el tipo de Recipes
+    //metodo que regresa una cantidad de 10 recetas con el tipo de Recipes
     func decodeRequest(data: Data) throws -> RecipesWithIngredients {
         let jsonDecoder = JSONDecoder()
         let recipesDecoder = try jsonDecoder.decode(RecipesWithIngredients.self, from: data)

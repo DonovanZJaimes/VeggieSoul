@@ -5,7 +5,7 @@
 //  Created by Donovan Z. Jaimes on 15/07/23.
 //
 //MARK: INFO:
-/*Declaracion de outlets para la ceda, una configuracion de la misma y funciones  para actualizar sus valores */
+/*Declaracion de outlets para la ceda, una configuracion de la misma y metodos  para actualizar sus valores */
 
 import UIKit
 

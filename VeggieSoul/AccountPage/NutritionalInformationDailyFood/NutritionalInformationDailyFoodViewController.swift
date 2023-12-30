@@ -87,7 +87,7 @@ class NutritionalInformationDailyFoodViewController: UIViewController {
     
     
     //MARK: Regreso de arreglos de nutrientes buenos y malos
-    /*Funcion que regresa dos arreglos de nutrintes, uno con nutrientes buenos para la salud y otro no*/
+    /*metodo que regresa dos arreglos de nutrintes, uno con nutrientes buenos para la salud y otro no*/
     func entriesBadAndGoodNutrients(nutrients: [DailyNutritionalInformation]) -> ([BarChartDataEntry],[BarChartDataEntry]) {
         
         var entriesBadNutrients = [BarChartDataEntry]()/***Arreglo de los nutrientes malos*/
@@ -117,7 +117,7 @@ class NutritionalInformationDailyFoodViewController: UIViewController {
     }
     
     //MARK: Actualizacion visual extra de la pantalla
-    // Funcion que actualiza el color del titulo y los items de la tab bar
+    // metodo que actualiza el color del titulo y los items de la tab bar
     func configureNavigationItem (){
         //Configurar el titulo
         let appearance = UINavigationBarAppearance()

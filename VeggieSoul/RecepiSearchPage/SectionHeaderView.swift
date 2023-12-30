@@ -12,7 +12,7 @@ import UIKit
 
 //MARK: Protocolo para del boton "See All"
 protocol SectionHeaderViewDelegate: AnyObject {
-    /*Funcion que nos servira enviar informacion del tipo de categoria que se esta selecionando para despues enviarla a la vista "RecipeList" dentro de "ByCategory"*/
+    /*metodo que nos servira enviar informacion del tipo de categoria que se esta selecionando para despues enviarla a la vista "RecipeList" dentro de "ByCategory"*/
     func sectionHeaderView(reusableView: SectionHeaderView)
 }
 
@@ -82,7 +82,7 @@ class SectionHeaderView: UICollectionReusableView {
     
     //MARK: Actualizar Titulo
     func setTitle (_ title: String){
-        label.text = title /***Funcion para poder asignarle el titulo a la label, este sera de la categoria y se llama en la vista de "RecipeHome"***/
+        label.text = title /***metodo para poder asignarle el titulo a la label, este sera de la categoria y se llama en la vista de "RecipeHome"***/
     }
     
     

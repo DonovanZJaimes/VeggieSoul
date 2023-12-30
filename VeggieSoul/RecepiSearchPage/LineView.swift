@@ -23,7 +23,7 @@ class LineView: UICollectionReusableView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    //MARK: Funcion para cambiar el color de la inea de separacion
+    //MARK: metodo para cambiar el color de la inea de separacion
     func setColor(_ color: UIColor) {
         backgroundColor = color
     }

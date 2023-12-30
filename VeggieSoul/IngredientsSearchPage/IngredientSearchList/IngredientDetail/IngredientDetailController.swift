@@ -36,7 +36,7 @@ struct IngredientDetailSearch: APIRequest {
         return URLRequest(url: urlComponents.url!)
     }
     
-    //Funcion que regresa un ingrediete con su informacion
+    //metodo que regresa un ingrediete con su informacion
     func decodeRequest(data: Data) throws -> IngredientID {
         let jsonDecoder = JSONDecoder()
         let ingredientDecoder = try jsonDecoder.decode(IngredientID.self, from: data)

@@ -276,7 +276,7 @@ class AddFoodViewController: UIViewController {
     
     
     //MARK: Actualizacion visual extra de la pantalla
-    // Funcion que actualiza el color del titulo y los items de la tab bar
+    // metodo que actualiza el color del titulo y los items de la tab bar
     func configureNavigationItem (){
         //Configurar el titulo
         let appearance = UINavigationBarAppearance()
@@ -497,9 +497,9 @@ extension AddFoodViewController: UISearchResultsUpdating, UISearchBarDelegate  {
         //Dependiendo que se este buscando se realizara una peticon de red
         switch activeSearchType {
         case .ingredients:
-            foodSearchListViewController?.searchForIngredients(word: searchString)/***Mandamos la palabra a la funcion para hacer la busqueda de los ingredientes y mostrarlos en la tableView*/
+            foodSearchListViewController?.searchForIngredients(word: searchString)/***Mandamos la palabra al metodo para hacer la busqueda de los ingredientes y mostrarlos en la tableView*/
         case .recipes:
-            foodSearchListViewController?.searchForRecipes(word: searchString)/***Mandamos la palabra a la funcion para hacer la busqueda de las recetas y mostrarlos en la tableView*/
+            foodSearchListViewController?.searchForRecipes(word: searchString)/***Mandamos la palabra al metodopara hacer la busqueda de las recetas y mostrarlos en la tableView*/
         }
     }
 }

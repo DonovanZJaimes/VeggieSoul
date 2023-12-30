@@ -124,7 +124,7 @@ extension SubstituteIngredientViewController: UISearchResultsUpdating, UISearchB
         }
         let ingredientSearchListToToolsPageViewController = searchController.searchResultsController as? IngredientSearchListToToolsPageViewController
         ingredientSearchListToToolsPageViewController?.delegate = self
-        ingredientSearchListToToolsPageViewController?.lookForIngredients(word: searchString)/***Mandamos la palabra a la funcion para hacer la busqueda de los ingredientes y mostrarlos en la tableView*/
+        ingredientSearchListToToolsPageViewController?.lookForIngredients(word: searchString)/***Mandamos la palabra al metodo para hacer la busqueda de los ingredientes y mostrarlos en la tableView*/
     }
 }
 

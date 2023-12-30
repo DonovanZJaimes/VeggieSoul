@@ -176,8 +176,8 @@ extension FoodSearchListViewController: UITableViewDelegate {
 
 //MARK: Delegado para pasar informacion de esta vista a la anterior
 protocol FoodSearchListViewControllerDelegate: AnyObject {
-    /*Funcion para poder pasar informacion a la vista anterior y poder pasar a la vista de detalle del ingrediente*/
+    /*metodo para poder pasar informacion a la vista anterior y poder pasar a la vista de detalle del ingrediente*/
     func ingredientSearchListViewController(_ controller: FoodSearchListViewController, food: Food)
-    /*Funcion para poder pasar informacion a la vista anterior y poder pasar a la vista de detalle de la receta*/
+    /*metodo para poder pasar informacion a la vista anterior y poder pasar a la vista de detalle de la receta*/
     func recipeSearchListViewController(_ controller: FoodSearchListViewController, food: Food)
 }

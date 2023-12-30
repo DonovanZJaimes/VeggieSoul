@@ -5,7 +5,7 @@
 //  Created by Donovan on 12/07/23.
 //
 //MARK: INFO:
-/*Declaracion de outlets para la ceda, una configuracion de la misma y funciones  para actualizar sus valores dependiendo de la receta recibida*/
+/*Declaracion de outlets para la ceda, una configuracion de la misma y metodos  para actualizar sus valores dependiendo de la receta recibida*/
 
 import UIKit
 

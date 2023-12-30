@@ -16,7 +16,7 @@ protocol APIRequest {
     associatedtype Response
     
     var urlRequest: URLRequest {get}/***La estructura que adopte este protocolo tendra que devolver una URL para solicitar la informacion*/
-    func decodeRequest (data: Data) throws -> Response /***Funcion que obiene la data de la metodo URLSession y regresa el tipo de objeto solicitado ***/
+    func decodeRequest (data: Data) throws -> Response /***metodoque obiene la data de la metodo URLSession y regresa el tipo de objeto solicitado ***/
 }
 //MARK: Errores para el generico para peticiones de red
 enum APIRequestError: Error {
@@ -59,7 +59,7 @@ struct RecepiByType: APIRequest {
         return URLRequest(url: urlComponents.url!)
     }
     
-    //Funcion que regresa una cantidad de 10 recetas con el tipo de Recipes
+    //metodo que regresa una cantidad de 10 recetas con el tipo de Recipes
     func decodeRequest(data: Data) throws -> Recipes {
         let jsonDecoder = JSONDecoder()
         let recipesDecoder = try jsonDecoder.decode(Recipes.self, from: data)
@@ -85,7 +85,7 @@ struct FetchRecipeImage: APIRequest {
         return URLRequest(url: urlComponents!.url!)
     }
     
-    // funcion para reresar una imagen o un error en caso de que no se pueda decodificar
+    // metodo para reresar una imagen o un error en caso de que no se pueda decodificar
     func decodeRequest(data: Data) throws -> UIImage {
         guard let image = UIImage(data: data) else{
             throw APIRequesError.imageDataMising
@@ -122,7 +122,7 @@ struct FetchIngredienOrEquipmentImage: APIRequest {
         }
     }
     
-    // funcion para reresar una imagen o un error en caso de que no se pueda decodificar
+    // metodo para reresar una imagen o un error en caso de que no se pueda decodificar
     func decodeRequest(data: Data) throws -> UIImage {
         guard let image = UIImage(data: data) else{
             throw APIRequesError.imageDataMising

@@ -6,7 +6,7 @@
 //
 
 //MARK: INFO:
-/*Declaracion de outlets para la ceda junto con una funcion para actualizar sus valores, una accion para eliminar la celda y un protococlo con delegado para realizar la cancelacion de la celda*/
+/*Declaracion de outlets para la ceda junto con un metodo para actualizar sus valores, una accion para eliminar la celda y un protococlo con delegado para realizar la cancelacion de la celda*/
 
 import UIKit
 //MARK: Protocolo para realizar un delegado para eliminar la celda

@@ -112,7 +112,7 @@ class RecipeSearchListViewController: UIViewController {
     
     //MARK: Configurar el collectionView
     func updataCollectionView() {
-        //Se agregan los dos tipos de layout con sus respectivas funciones
+        //Se agregan los dos tipos de layout con sus respectivas metodos
         layout[.vertical] = createLayoutForIngredientsOrRecipes()
         layout[.horizontal] = createLayoutForAddedIngredients()
         //Se establece el layout al collection view
@@ -134,7 +134,7 @@ class RecipeSearchListViewController: UIViewController {
     }
     
     //MARK: Configuracion de la hintView
-    //Esta funcion esta encargada de configurar la hintView
+    //Este metodo esta encargada de configurar la hintView
     func setupHintView () {
         //Le damos una curvatura y un borde de color a la hintView
         hintView.layer.cornerRadius = hintView.frame.height / 3
@@ -143,7 +143,7 @@ class RecipeSearchListViewController: UIViewController {
         hintView.layer.borderWidth = 1
     }
     
-    //Esta funcion esta encargada de poder mostrar u ocultar la hintView
+    //Este metodo esta encargada de poder mostrar u ocultar la hintView
     func refreshHintView () {
         //Solo se podra ver esta vista de sugerencia cuando la layout este en hoizontal y no se tenga ningun ingrediente agregado
         if activeLayout == .horizontal && ItemAutocomplete.addedIngredients.count == 0 {
@@ -155,7 +155,7 @@ class RecipeSearchListViewController: UIViewController {
     }
 
     //MARK: Configuracion del boton para buscar recetas
-    //Esta funcion esta encargada de poder mostrar u ocultar la hintView
+    //Este metodo esta encargada de poder mostrar u ocultar la hintView
     func refreshSearchRecipesButton () {
         //Solo se podra ver esta vista de sugerencia cuando la layout este en hoizontal y  se tenga algun ingrediente agregado
         if activeLayout == .horizontal && ItemAutocomplete.addedIngredients.count != 0 {
@@ -295,7 +295,7 @@ class RecipeSearchListViewController: UIViewController {
     }
     
     //MARK: Actualizacion visual extra de la pantalla
-    // Funcion que actualiza el color del titulo y los items de la tab bar
+    // metodo que actualiza el color del titulo y los items de la tab bar
     func configureNavigationItem (){
         //Configurar el titulo
         let appearance = UINavigationBarAppearance()
@@ -555,7 +555,7 @@ extension RecipeSearchListViewController: UISearchResultsUpdating, UISearchBarDe
 //MARK: Delegado de IngredientsForRecipesCollectionViewCellDelegate para eliminar ingrediente selecionado
 extension RecipeSearchListViewController: IngredientsForRecipesCollectionViewCellDelegate{
     func ingredientsForRecipesCollectionViewCell(collectionViewCell: IngredientsForRecipesCollectionViewCell) {
-        /*Cada vez que se presiona el boton x del ingrediente selcionado se llamara a essta funcion con un parametro:collectionViewCell
+        /*Cada vez que se presiona el boton x del ingrediente selcionado se llamara a esste metodo con un parametro:collectionViewCell
          Este parametro nos permitira saber cual celda se seleciono para poder eliminarla del arreglo de addedIngredients */
         ItemAutocomplete.addedIngredients.removeAll { $0.ingredient?.name == collectionViewCell.ingredientLabel.text } /***Se eliminan todos los ingredientes  del arreglo addedIngredients que tengan un ingrediente con el nombre igual a collectionViewCell.ingredientLabel.text */
         refreshHintView() /***Actualizamos la hintView para ocultarla o esconderla*/

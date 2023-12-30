@@ -49,7 +49,7 @@ class IngredientDetailViewController: UIViewController {
     }
     
     //MARK: Actualizacion visual extra de la pantalla
-    // Funcion que actualiza el color del titulo y los items de la tab bar
+    // metodo que actualiza el color del titulo y los items de la tab bar
     func configureNavigationItem (){
         //Configurar el boton de backBarButtonItem
         navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem (title: "Search", style: .plain, target: nil, action: nil)
@@ -81,7 +81,7 @@ class IngredientDetailViewController: UIViewController {
     func updateIngredientDetail(ingredient: IngredientID) {
         nameLabel.text = self.name.capitalizingFirstLetter()
         aisleLabel.text = "Aisle: " + ingredient.aisle
-        requestImageIngredient(imageURl: ingredient.image) /***Funcion para agregar la imagen del ingrediente*/
+        requestImageIngredient(imageURl: ingredient.image) /***metodo para agregar la imagen del ingrediente*/
         amountTextField.text = String(ingredient.nutrition.weightPerServing.amount)
         unitLabel.text = ingredient.nutrition.weightPerServing.unit
         originalNameLabel.text = "Original Name: " + ingredient.originalName.capitalizingFirstLetter()
