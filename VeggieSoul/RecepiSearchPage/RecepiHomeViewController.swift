@@ -66,12 +66,12 @@ class RecepiHomeViewController: UIViewController {
         //Instanciamos los diferentes tipos de recetas que estaran en la pantalla divididos en secciones
         
         let mainCourseRecipe = RecepiByType(type: "main_course")
-        //let dessertRecipe = RecepiByType(type: "dessert")
-        //let appetizerRecipe = RecepiByType(type: "appetizer")
+        let dessertRecipe = RecepiByType(type: "dessert")
+        let appetizerRecipe = RecepiByType(type: "appetizer")
         let saladRecipe = RecepiByType(type: "salad")
-        //let breakfastRecipe = RecepiByType(type: "breakfast")
-        //let soupRecipe = RecepiByType(type: "soup")
-        //let beverageRecipe = RecepiByType(type: "beverage")
+        let breakfastRecipe = RecepiByType(type: "breakfast")
+        let soupRecipe = RecepiByType(type: "soup")
+        let beverageRecipe = RecepiByType(type: "beverage")
         
         
         //Realizamos las diferentes tareas, una para cada peicion de tipo de recetas
@@ -91,7 +91,7 @@ class RecepiHomeViewController: UIViewController {
         }
        //MARK: PENDIENTE: REDUCIR CODIGO DE TAREAS
         //Peticion de postre
-        /*Task {
+        Task {
             do{
                 let dessertRecipes = try await sendRequest(dessertRecipe)/***Solicitamos las recetas */
                 Item.dessertRecipes = dessertRecipes.recipes.map {Item.recipe($0)}/***Con el arreglo de recetas obtenidas se hace otro arreglo que sea de igual formato al de la estructura Item y se lo agregamos a su respectivo arreglo*/
@@ -100,9 +100,9 @@ class RecepiHomeViewController: UIViewController {
              self.dataSource.apply(self.recipeSnapshot, animatingDifferences: false)}) /***Se recarga la vista de dataSource*/            }catch{
                 print(error)
             }
-        }*/
+        }
         
-         /*
+         
         //Peticion de aperitivo
         Task {
             do{
@@ -114,7 +114,7 @@ class RecepiHomeViewController: UIViewController {
             }catch{
                 print(error)
             }
-        }*/
+        }
         
         //Peticion de ensaladas
         Task {
@@ -128,7 +128,7 @@ class RecepiHomeViewController: UIViewController {
                 print(error)
             }
         }
-         /*
+         
         //Peticion de desayuno
         Task {
             do{
@@ -140,8 +140,8 @@ class RecepiHomeViewController: UIViewController {
             }catch{
                 print(error)
             }
-        }*/
-         /*
+        }
+         
         //Peticion de sopa
         Task {
             do{
@@ -153,8 +153,8 @@ class RecepiHomeViewController: UIViewController {
             }catch{
                 print(error)
             }
-        }*/
-         /*
+        }
+         
         //Peticion de sopa
         Task {
             do{
@@ -166,7 +166,7 @@ class RecepiHomeViewController: UIViewController {
             }catch{
                 print(error)
             }
-        }*/
+        }
     }
     
     //MARK: Actualizacion visual extra de la pantalla
