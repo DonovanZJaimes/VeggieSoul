@@ -60,7 +60,7 @@ class ChatViewController: MessagesViewController {
     //Mensaje de parte del usuario en caso de mostrar una pregunta de ejemplo
     func sampleConversation(){
         let exampleQuestions = ["Calories is 1 cup of butter", "2 cups of butter in grams", "vitamin a in 2 carrots", "Donuts", "show me some foodie gifts", "what is a substitute for flour", "food trivia", "chicken recipes", "spaghetti with shrimp"]
-        var random: Int = .random(in: 0...(exampleQuestions.count - 1))
+        let random: Int = .random(in: 0...(exampleQuestions.count - 1))
         let message = Message(sender: currentUser, messageId: newId(), sentDate: newDate(), kind: .text(exampleQuestions[random]))/***Creacion de un nuevo mensaje con el texto registrado*/
         insertNewMessage(message) /***llamar a la metodo para insertar un nuevo mensaje*/
         requestAQuestion(exampleQuestions[random])/***Realizar una peticion a la API para recibir respuesta a la pregunta realizada*/

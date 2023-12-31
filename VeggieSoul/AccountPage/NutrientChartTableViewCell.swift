@@ -93,7 +93,7 @@ class NutrientChartTableViewCell: UITableViewCell {
         //Crear la Data de la PieChartView con la informacion del ingrediente
         let percentProteinDataEntry = PieChartDataEntry(value: kcalConsumed, label: "kcal Consumed")
         let valueRemaining = kcalConsumed > kcalTotal ? 0 : (kcalTotal - kcalConsumed)
-        var percentFatDataEntry = PieChartDataEntry(value: valueRemaining, label: "kcal Remaining")
+        let percentFatDataEntry = PieChartDataEntry(value: valueRemaining, label: "kcal Remaining")
         let numberOfDataEntry = [percentProteinDataEntry, percentFatDataEntry]
         //Crear el conjunto de datos con el arreglo anterior
         let chartDataSet = PieChartDataSet(entries: numberOfDataEntry, label: "")

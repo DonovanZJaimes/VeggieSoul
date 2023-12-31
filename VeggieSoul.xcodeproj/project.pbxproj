@@ -144,7 +144,6 @@
 		5DC5DA712A1FE6E50096C9AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DC5DA6F2A1FE6E50096C9AE /* LaunchScreen.storyboard */; };
 		5DC5DA7A2A1FF0930096C9AE /* RecepiHome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DC5DA792A1FF0930096C9AE /* RecepiHome.storyboard */; };
 		5DC5DA7C2A1FF0E00096C9AE /* RecepiHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC5DA7B2A1FF0E00096C9AE /* RecepiHomeViewController.swift */; };
-		5DC5DA832A1FFFAC0096C9AE /* borrar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC5DA822A1FFFAC0096C9AE /* borrar.swift */; };
 		5DC5DA8B2A200F0B0096C9AE /* AccountPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC5DA8A2A200F0B0096C9AE /* AccountPageViewController.swift */; };
 		5DC5DA8D2A200F510096C9AE /* AccountPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DC5DA8C2A200F510096C9AE /* AccountPage.storyboard */; };
 		5DEA6DA92A5217FD00197ADA /* RecipeSearchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DEA6DA82A5217FD00197ADA /* RecipeSearchListViewController.swift */; };
@@ -312,7 +311,6 @@
 		5DC5DA722A1FE6E50096C9AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5DC5DA792A1FF0930096C9AE /* RecepiHome.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RecepiHome.storyboard; sourceTree = "<group>"; };
 		5DC5DA7B2A1FF0E00096C9AE /* RecepiHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecepiHomeViewController.swift; sourceTree = "<group>"; };
-		5DC5DA822A1FFFAC0096C9AE /* borrar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = borrar.swift; sourceTree = "<group>"; };
 		5DC5DA8A2A200F0B0096C9AE /* AccountPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountPageViewController.swift; sourceTree = "<group>"; };
 		5DC5DA8C2A200F510096C9AE /* AccountPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AccountPage.storyboard; sourceTree = "<group>"; };
 		5DEA6DA82A5217FD00197ADA /* RecipeSearchListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeSearchListViewController.swift; sourceTree = "<group>"; };
@@ -704,7 +702,6 @@
 				5DC5DA6D2A1FE6E50096C9AE /* Assets.xcassets */,
 				5DC5DA6F2A1FE6E50096C9AE /* LaunchScreen.storyboard */,
 				5DC5DA722A1FE6E50096C9AE /* Info.plist */,
-				5DC5DA822A1FFFAC0096C9AE /* borrar.swift */,
 			);
 			path = VeggieSoul;
 			sourceTree = "<group>";
@@ -1019,7 +1016,6 @@
 				5D8F6E0B2AD20F1500F179AD /* Message.swift in Sources */,
 				5D8BE2212AC3B37100A74D27 /* WinesTableViewCell.swift in Sources */,
 				5D7A8BAB2AC504FC002EA842 /* WineDetailViewController.swift in Sources */,
-				5DC5DA832A1FFFAC0096C9AE /* borrar.swift in Sources */,
 				5D5536022A548A5900EBE20D /* IngredientAndRecipeForSearchCollectionViewCell.swift in Sources */,
 				5D27381D2AC0F00A00533B56 /* QuestionsViewController.swift in Sources */,
 				5D8F6E092AD20F0200F179AD /* Sender.swift in Sources */,

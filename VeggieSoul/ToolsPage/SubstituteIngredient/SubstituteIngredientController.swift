@@ -17,7 +17,7 @@ struct GetIngredientSubstitutesByID: APIRequest {
     
     //Regresa una URL para realizar la solicitud
     var urlRequest: URLRequest {
-        var query = generalQuery
+        let query = generalQuery
         let stringID = String(id)
         let urlSubstitutes = urlSubstitutesPart1 + stringID + urlSubstitutesPart2
         var urlComponents = URLComponents(string: urlSubstitutes)!
