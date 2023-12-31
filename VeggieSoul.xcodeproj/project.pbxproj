@@ -131,6 +131,7 @@
 		5DA568C42B30E7F400F29D4F /* UserVeggieSoul.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5DA568C22B30E7F400F29D4F /* UserVeggieSoul.xcdatamodeld */; };
 		5DA568C62B30E8F400F29D4F /* CoreDataUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA568C52B30E8F400F29D4F /* CoreDataUsers.swift */; };
 		5DA568C82B30EC5F00F29D4F /* UserVS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA568C72B30EC5F00F29D4F /* UserVS.swift */; };
+		5DA568CA2B41ECDE00F29D4F /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA568C92B41ECDE00F29D4F /* Double+Extension.swift */; };
 		5DA7B39B2B251A3A00637310 /* LoadingCircle1.json in Resources */ = {isa = PBXBuildFile; fileRef = 5DA7B39A2B251A3900637310 /* LoadingCircle1.json */; };
 		5DA7B39D2B264C1400637310 /* LoadingCircle2.json in Resources */ = {isa = PBXBuildFile; fileRef = 5DA7B39C2B264C1400637310 /* LoadingCircle2.json */; };
 		5DA7B3A02B29015300637310 /* ModifyDailyCaloriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA7B39F2B29015300637310 /* ModifyDailyCaloriesViewController.swift */; };
@@ -297,6 +298,7 @@
 		5DA568C32B30E7F400F29D4F /* UserVeggieSoul.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserVeggieSoul.xcdatamodel; sourceTree = "<group>"; };
 		5DA568C52B30E8F400F29D4F /* CoreDataUsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataUsers.swift; sourceTree = "<group>"; };
 		5DA568C72B30EC5F00F29D4F /* UserVS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserVS.swift; sourceTree = "<group>"; };
+		5DA568C92B41ECDE00F29D4F /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
 		5DA7B39A2B251A3900637310 /* LoadingCircle1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = LoadingCircle1.json; path = ../../../../../../../Downloads/LoadingCircle1.json; sourceTree = "<group>"; };
 		5DA7B39C2B264C1400637310 /* LoadingCircle2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = LoadingCircle2.json; path = ../../../../../../../Downloads/LoadingCircle2.json; sourceTree = "<group>"; };
 		5DA7B39F2B29015300637310 /* ModifyDailyCaloriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifyDailyCaloriesViewController.swift; sourceTree = "<group>"; };
@@ -777,6 +779,7 @@
 				5D91AF022A6DD95900CAD4BF /* RecipeIngredients.swift */,
 				5D91AF042A6DD98F00CAD4BF /* RecipeNutrition.swift */,
 				5D91AF062A6DD9C700CAD4BF /* RecipeInstructions.swift */,
+				5DA568C92B41ECDE00F29D4F /* Double+Extension.swift */,
 				5DA409202A7DD3C500A3C5F3 /* RecipeNutritionalInformation */,
 			);
 			path = RecipeDetail;
@@ -974,6 +977,7 @@
 				5D632CC72AB52AD400758121 /* IngredientSearchListViewController.swift in Sources */,
 				5D91AF092A6DE36400CAD4BF /* RecipeDetailController.swift in Sources */,
 				E3CC43C42A5F618B00ED8A40 /* RecipesByCategory.swift in Sources */,
+				5DA568CA2B41ECDE00F29D4F /* Double+Extension.swift in Sources */,
 				5D8F6E042AD20B1100F179AD /* QuestionsController.swift in Sources */,
 				5D2737FB2ABCF06600533B56 /* CoreDataIngredient.swift in Sources */,
 				5D5536062A54C85F00EBE20D /* IngredientsForRecipesCollectionViewCell.swift in Sources */,

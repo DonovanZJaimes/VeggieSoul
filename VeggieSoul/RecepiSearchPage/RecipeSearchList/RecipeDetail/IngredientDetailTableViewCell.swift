@@ -51,13 +51,12 @@ class IngredientDetailTableViewCell: UITableViewCell {
         
         switch unitSystem {
         case .metric:
-            let measureQuantity = Float((ingredient.measures.metric.amount / originalPortions) * selectedPortions) /***Cantdad del ingrediente en base a la cantidad de porciones que quiera el usuario*/
-            measureQuantityLabel.text = String(format: "%.02f", measureQuantity)
-            //String( measureQuantity)
+            let measureQuantity = (ingredient.measures.metric.amount / originalPortions) * selectedPortions /***Cantdad del ingrediente en base a la cantidad de porciones que quiera el usuario*/
+            measureQuantityLabel.text = measureQuantity.roundOut(numberOfDecimals: 3)
             UnitOfMeasurement.text = ingredient.measures.metric.unitShort
         case .us:
             let measureQuantity = (ingredient.measures.us.amount / originalPortions) * selectedPortions /***Cantdad del ingrediente en base a la cantidad de porciones que quiera el usuario*/
-            measureQuantityLabel.text = String( measureQuantity)
+            measureQuantityLabel.text = measureQuantity.roundOut(numberOfDecimals: 3)
             UnitOfMeasurement.text = ingredient.measures.us.unitShort
         }
         
