@@ -1,2 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21754" systemVersion="22F82" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier=""/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21754" systemVersion="22F82" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="IngredientCaloricBreakdownEntity2" representedClassName="IngredientCaloricBreakdownEntity2" syncable="YES" codeGenerationType="class">
+        <attribute name="percentFat" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="belongsToIngredientIDEntity" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="IngredientIDE2" inverseName="caloricBreakdown" inverseEntity="IngredientIDE2"/>
+    </entity>
+    <entity name="IngredientIDE2" representedClassName="IngredientIDE2" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="caloricBreakdown" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="IngredientCaloricBreakdownEntity2" inverseName="belongsToIngredientIDEntity" inverseEntity="IngredientCaloricBreakdownEntity2"/>
+        <relationship name="nutrients" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="IngredientNutrientsEntity2" inverseName="belongsToIngredientIDEntity" inverseEntity="IngredientNutrientsEntity2"/>
+        <relationship name="weightPerServing" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="IngredientWeightPerServingEntity2" inverseName="belongsToIngredientIDEntity" inverseEntity="IngredientWeightPerServingEntity2"/>
+    </entity>
+    <entity name="IngredientNutrientsEntity2" representedClassName="IngredientNutrientsEntity2" syncable="YES" codeGenerationType="class">
+        <attribute name="amount" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="belongsToIngredientIDEntity" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="IngredientIDE2" inverseName="nutrients" inverseEntity="IngredientIDE2"/>
+    </entity>
+    <entity name="IngredientWeightPerServingEntity2" representedClassName="IngredientWeightPerServingEntity2" syncable="YES" codeGenerationType="class">
+        <attribute name="unit" optional="YES" attributeType="String"/>
+        <relationship name="belongsToIngredientIDEntity" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="IngredientIDE2" inverseName="weightPerServing" inverseEntity="IngredientIDE2"/>
+    </entity>
+</model>

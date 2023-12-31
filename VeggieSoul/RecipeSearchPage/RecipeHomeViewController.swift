@@ -8,7 +8,7 @@
 /*Vista para poder presentar diferentes recetas  con diferentes categorias  y un apartado de ingredientes aleatorios*/
 
 import UIKit
-class RecepiHomeViewController: UIViewController {
+class RecipeHomeViewController: UIViewController {
     
     //MARK: Definir un ingrediente
     let starterIngredient = Ingredient(id: 9266, imagePNG: "pineapple.jpg", name: "pineapples")/***En caso de que la primera receta en pantalla no tenga ingredientes se pondra ese en la primera fila, esto para que la primera seccion no se quede vacia */
@@ -406,7 +406,7 @@ class RecepiHomeViewController: UIViewController {
     
 }
 //MARK: Extension para el delegado de ColeccionView
-extension RecepiHomeViewController: UICollectionViewDelegate {
+extension RecipeHomeViewController: UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
@@ -446,7 +446,7 @@ extension RecepiHomeViewController: UICollectionViewDelegate {
 }
 
 //MARK: Extension para el delegado de SectionHeaderViewDelegate
-extension RecepiHomeViewController: SectionHeaderViewDelegate {
+extension RecipeHomeViewController: SectionHeaderViewDelegate {
 
     //Con este metodo nos encargaremos a ir la vista de todas las recetas similares el tipo que se selcciono
     func sectionHeaderView(reusableView: SectionHeaderView) {

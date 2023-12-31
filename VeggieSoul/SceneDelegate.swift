@@ -35,15 +35,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         /*Mencionamos cual sera la primer vista al iniciar la aplicacion*/
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            let fristStoryboard = UIStoryboard(name: "RecepiHome", bundle: .main)//Intanciamos el SearchPage como main como el storyboard principal
-            if let recepiHomeViewController = fristStoryboard.instantiateViewController(withIdentifier: "TabBarController1") as? UITabBarController { // Instanciamos el TabBarController como la primera vista a presentarse en pantalla
+            let fristStoryboard = UIStoryboard(name: "RecipeHome", bundle: .main)//Intanciamos el SearchPage como main como el storyboard principal
+            if let recipeHomeViewController = fristStoryboard.instantiateViewController(withIdentifier: "TabBarController1") as? UITabBarController { // Instanciamos el TabBarController como la primera vista a presentarse en pantalla
                 /**
                  En caso de que la primera vista fuera un ViewController o un TableViewController junto con un navigation controller:
                  let navigationController = UINavigationController(rootViewController: searchPageViewController) // instanciamos un navigation Controller para la primera vista navigationController
                  window.rootViewController = navigationController 
                  */
                 
-                window.rootViewController = recepiHomeViewController
+                window.rootViewController = recipeHomeViewController
                 self.window = window
                 window.makeKeyAndVisible()
             }

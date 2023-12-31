@@ -1,5 +1,5 @@
 //
-//  RecepiHomeController.swift
+//  RecipeHomeController.swift
 //  VeggieSoul
 //
 //  Created by Donovan Z. Jaimes on 29/06/23.
